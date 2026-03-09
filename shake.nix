@@ -1,3 +1,11 @@
-{ pkgs ? import ./nix/new-pin.nix {}
+{ sources ? import ./npins
+, pkgs ? import sources.nixpkgs {}
 }:
-pkgs.writeText "hello-world" "hello world"
+let
+  hpkgs = pkgs.haskellPackages.override {
+    overrides = hnew: hold: {
+      shake-blog = hnew.callCabal2nix "shake-blog" ./shake { };
+    };
+  };
+in
+hpkgs.shake-blog
