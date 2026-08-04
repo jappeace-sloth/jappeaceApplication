@@ -1692,7 +1692,7 @@ overOnsPage = webwinkelBaseTemplate overOnsMeta $
 
     H.section ! A.class_ "audit" $ do
       H.h2 "Het verhaal"
-      H.p $ H.preEscapedToHtml ("Ik ben Jappie Klooster en ik zit van kinds af aan achter de computer. Wat begon met spelen en dingen slopen werd al snel programmeren, en dat ben ik nooit meer gestopt." :: Text)
+      H.p $ H.preEscapedToHtml ("Ik ben Jappie Klooster en ik zit van kinds af aan achter de computer. Wat begon met spelen en dingen uit elkaar halen werd al snel programmeren, en daar ben ik nooit meer mee gestopt." :: Text)
       H.p $ H.preEscapedToHtml ("Na mijn hbo software engineering aan Windesheim in Zwolle deed ik een master kunstmatige intelligentie aan de Universiteit Utrecht. Daarna werkte ik als software engineer in binnen- en buitenland, onder meer een jaar in Sydney, Australi&euml;. Terug in Nederland bouwde ik jarenlang software voor bedrijven van startup tot enterprise, en inmiddels doe ik dat vanuit mijn eigen bedrijf." :: Text)
       H.p $ do
         H.preEscapedToHtml ("Webwinkelverhuis ontstond uit de eerste migratie die we deden: " :: Text)
