@@ -7,6 +7,7 @@ port module PrijsCalculator exposing
     , initieelModel
     , isGroteCatalogus
     , main
+    , toontMaatwerkPaneel
     , totaalCenten
     , update
     )
@@ -459,40 +460,40 @@ update msg model =
             markeerEngagement { model | doel = leesDoel waarde }
 
         ThemaGewijzigd waarde ->
-            markeerEngagement { model | thema = leesThema waarde }
+            meldGroteCatalogus (markeerEngagement { model | thema = leesThema waarde })
 
         KlantaccountsGewijzigd aan ->
-            markeerEngagement { model | klantaccounts = aan }
+            meldGroteCatalogus (markeerEngagement { model | klantaccounts = aan })
 
         OrderhistorieGewijzigd aan ->
-            markeerEngagement { model | orderhistorie = aan }
+            meldGroteCatalogus (markeerEngagement { model | orderhistorie = aan })
 
         NieuwsbriefGewijzigd aan ->
-            markeerEngagement { model | nieuwsbrief = aan }
+            meldGroteCatalogus (markeerEngagement { model | nieuwsbrief = aan })
 
         VoorraadGewijzigd aan ->
-            markeerEngagement { model | voorraad = aan }
+            meldGroteCatalogus (markeerEngagement { model | voorraad = aan })
 
         ReviewsGewijzigd aan ->
-            markeerEngagement { model | reviews = aan }
+            meldGroteCatalogus (markeerEngagement { model | reviews = aan })
 
         CursusGewijzigd aan ->
-            markeerEngagement { model | cursus = aan }
+            meldGroteCatalogus (markeerEngagement { model | cursus = aan })
 
         DomeinGewijzigd aan ->
-            markeerEngagement { model | domeinBijMijnwebwinkel = aan }
+            meldGroteCatalogus (markeerEngagement { model | domeinBijMijnwebwinkel = aan })
 
         EmailGewijzigd aan ->
-            markeerEngagement { model | emailBijMijnwebwinkel = aan }
+            meldGroteCatalogus (markeerEngagement { model | emailBijMijnwebwinkel = aan })
 
         VerzendkoppelingGewijzigd aan ->
-            markeerEngagement { model | verzendkoppeling = aan }
+            meldGroteCatalogus (markeerEngagement { model | verzendkoppeling = aan })
 
         B2bKanaalGewijzigd aan ->
-            markeerEngagement { model | b2bKanaal = aan }
+            meldGroteCatalogus (markeerEngagement { model | b2bKanaal = aan })
 
         PointOfSaleGewijzigd aan ->
-            markeerEngagement { model | pointOfSale = aan }
+            meldGroteCatalogus (markeerEngagement { model | pointOfSale = aan })
 
         NaamGewijzigd waarde ->
             markeerEngagement { model | naam = waarde }
@@ -579,18 +580,42 @@ isGroteCatalogus model =
     productVertalingen model >= groteCatalogusGrens
 
 
-{-| Vuurt eenmalig het event "calculator_grote_catalogus" zodra de invoer de
-grens passeert, zodat GA4 telt hoe vaak grote catalogi de rekenhulp raken:
-precies het verkeer dat anders stil zou wegklikken. -}
+{-| Vanaf deze richtprijs toont de rekenhulp geen kaal bedrag meer maar de
+maatwerk-uitnodiging, ook wanneer het productaantal onder de
+grote-catalogus-grens blijft. Besluit Jappie 1 sep 2026, naar aanleiding van
+plotterenzo.nl: de rekenhulp toonde daar zwijgend zo'n vijfduizend euro
+(producten plus modules) en de winkelier haakte per mail af ("veel te
+veel"), terwijl een grote catalogus het migratieprogramma nauwelijks extra
+werk kost en zo'n klus dus juist om een gesprek en een maatprijs vraagt. -}
+maatwerkGrensCenten : Int
+maatwerkGrensCenten =
+    500000
+
+
+{-| Of de rekenhulp de maatwerk-uitnodiging toont in plaats van een
+richtprijs: bij een grote catalogus (productvertalingen) of bij een
+richtprijs op of boven de maatwerkgrens. -}
+toontMaatwerkPaneel : Model -> Bool
+toontMaatwerkPaneel model =
+    isGroteCatalogus model || totaalCenten model >= maatwerkGrensCenten
+
+
+{-| Vuurt eenmalig het event "calculator_grote_catalogus" zodra de invoer het
+maatwerkpaneel triggert (grote catalogus of richtprijs boven de
+maatwerkgrens), zodat GA4 telt hoe vaak dat verkeer de rekenhulp raakt:
+precies de bezoekers die anders stil zouden wegklikken. De eventnaam blijft
+de oude, voor de continuiteit van de GA4-reeks; het extra
+totaal_centen-veld onderscheidt de euro-trigger van de catalogus-trigger. -}
 meldGroteCatalogus : ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
 meldGroteCatalogus ( model, cmd ) =
-    if isGroteCatalogus model && not model.groteCatalogusGemeld then
+    if toontMaatwerkPaneel model && not model.groteCatalogusGemeld then
         ( { model | groteCatalogusGemeld = True }
         , Cmd.batch
             [ cmd
             , gaEvent "calculator_grote_catalogus"
                 [ ( "producten", Encode.int (aantalProducten model) )
                 , ( "talen", Encode.int (aantalTalen model) )
+                , ( "totaal_centen", Encode.int (totaalCenten model) )
                 ]
             ]
         )
@@ -1054,7 +1079,7 @@ view model =
                        ]
             ]
         , div [ Attr.class "calc-result" ] <|
-            if isGroteCatalogus model then
+            if toontMaatwerkPaneel model then
                 groteCatalogusPaneel model
 
             else
@@ -1080,9 +1105,13 @@ groteCatalogusPaneel model =
     [ h3 [] [ text "Je richtprijs" ]
     , p [ Attr.class "calc-note calc-grote-catalogus" ]
         [ text
-            ("Vanaf "
-                ++ voegDuizendtallenToe (String.fromInt groteCatalogusGrens)
-                ++ " producten (over alle talen samen) is jouw winkel geen standaardmigratie meer. Zo'n catalogus verdient een eigen doorrekening in plaats van een standaardtarief; neem contact op en we rekenen een passende prijs voor je door."
+            (if isGroteCatalogus model then
+                "Vanaf "
+                    ++ voegDuizendtallenToe (String.fromInt groteCatalogusGrens)
+                    ++ " producten (over alle talen samen) is jouw winkel geen standaardmigratie meer. Zo'n catalogus verdient een eigen doorrekening in plaats van een standaardtarief; neem contact op en we rekenen een passende prijs voor je door."
+
+             else
+                "Bij deze omvang is jouw verhuizing geen standaardmigratie meer. Zo'n pakket verdient een eigen doorrekening in plaats van een optelsom van standaardtarieven; neem contact op en we rekenen een passende prijs voor je door, die valt vrijwel altijd gunstiger uit."
             )
         ]
     , a
@@ -1100,7 +1129,13 @@ platforms in de mailtekst zodat het gesprek meteen ergens over gaat. -}
 groteCatalogusMailtoUrl : Model -> String
 groteCatalogusMailtoUrl model =
     "mailto:jappie@webwinkelverhuis.nl?subject="
-        ++ Url.percentEncode "Migratie grote catalogus"
+        ++ Url.percentEncode
+            (if isGroteCatalogus model then
+                "Migratie grote catalogus"
+
+             else
+                "Migratie op maat"
+            )
         ++ "&body="
         ++ Url.percentEncode
             (String.join "\n"

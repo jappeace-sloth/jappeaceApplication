@@ -1,4 +1,4 @@
-module PricingTest exposing (groteCatalogusSuite, suite)
+module PricingTest exposing (groteCatalogusSuite, maatwerkPaneelSuite, suite)
 
 {-| Test dat de prijsberekening van de calculator gelijk blijft aan de tabel op
 /prijzen (en dus aan standaard-prijslijst.org). Deze test faalt zodra de
@@ -17,6 +17,7 @@ import PrijsCalculator
         , ThemaKeuze(..)
         , initieelModel
         , isGroteCatalogus
+        , toontMaatwerkPaneel
         , totaalCenten
         , update
         )
@@ -46,6 +47,39 @@ groteCatalogusSuite =
         , test "4.000 producten in 2 talen blijft standaard" <|
             \_ ->
                 Expect.equal False (isGroteCatalogus (metProducten 4000 2 initieelModel))
+        ]
+
+
+maatwerkPaneelSuite : Test
+maatwerkPaneelSuite =
+    describe "PrijsCalculator.toontMaatwerkPaneel (grens 5.000 euro richtprijs, naast de catalogus-grens)"
+        [ test "9.000 producten, 1 taal, geen modules = 3.999 en toont gewoon de prijs" <|
+            \_ ->
+                Expect.equal False (toontMaatwerkPaneel (metProducten 9000 1 initieelModel))
+        , test "Panzer-rekenvoorbeeld plus thema en domein = 5.048 en gaat naar maatwerk" <|
+            \_ ->
+                let
+                    model =
+                        metProducten 2400 3 initieelModel
+                in
+                Expect.equal True
+                    (toontMaatwerkPaneel
+                        { model
+                            | thema = ThemaOverzetten
+                            , domeinBijMijnwebwinkel = True
+                        }
+                    )
+        , test "een moduleklik kan de grens passeren: 9.000 producten plus B2B en kassa = 5.499" <|
+            \_ ->
+                let
+                    model =
+                        metProducten 9000 1 initieelModel
+                in
+                Expect.equal True
+                    (toontMaatwerkPaneel { model | b2bKanaal = True, pointOfSale = True })
+        , test "grote catalogus blijft ook onder de euro-grens maatwerk: 10.000 producten = 4.249" <|
+            \_ ->
+                Expect.equal True (toontMaatwerkPaneel (metProducten 10000 1 initieelModel))
         ]
 
 
