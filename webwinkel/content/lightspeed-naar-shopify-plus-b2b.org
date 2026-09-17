@@ -1,5 +1,5 @@
 #+TITLE: Van Lightspeed naar Shopify Plus voor B2B? Meestal heb je Plus niet nodig
-#+DATE: 2026-09-17
+#+DATE: 2026-09-15
 #+CATEGORY: migratie
 #+TAGS: lightspeed, shopify, b2b, shopify plus
 
