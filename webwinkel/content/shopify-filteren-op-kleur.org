@@ -2,6 +2,7 @@
 #+DATE: 2026-09-10
 #+CATEGORY: shopify
 #+TAGS: shopify, filters, kleuren, metafields
+#+SUMMARY: Kleurfilter in je Shopify-shop leeg of een waslijst? De kleur zit in titels en variantnamen, niet in metafields. Eenmalig repareren, zonder weken taggen.
 
 Je Shopify-shop heeft honderden producten, maar je bezoekers kunnen
 niet op kleur filteren. Of erger: het filter staat aan en toont een
