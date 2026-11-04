@@ -948,7 +948,7 @@ koppelcodeToonScript =
 
 {- Note [Koppelcode]
 ~~~~~~~~~~~~~~~~~~~~
-A client's own Shopify store (one not in our organisation, such as Asat's)
+A client's own Shopify store (one not in our organisation)
 refuses the client-credentials grant with shop_not_permitted. Our migration
 apps are embedded with this page as their App URL, so opening one in a
 store's admin loads it in an iframe with ?embedded=1&hmac=..&id_token=..
@@ -1542,14 +1542,15 @@ ccvshopMigrationPage = webwinkelBaseTemplate ccvMeta $
           -- wat we kunnen aantonen; de Fiserv-passage blijft bewust een
           -- constatering over zwaartepunt, geen EOL-voorspelling.
           -- Decision: de export-rem is sinds 21 sep 2026 de kern van de
-          -- pagina (besluit Jappie na het Asat-gesprek, jappiesoft
+          -- pagina (besluit Jappie na een gesprek met een CCV-winkelier, jappiesoft
           -- strategy/ccv-positionering-plan.org): een CCV-winkelier
           -- exporteert zijn producten zelf en loopt daarna vast op wat
           -- de export laat liggen. De pagina verkoopt dus het afmaken
           -- (categorieën, redirects, pagina's, productopties, B2B), niet
-          -- het overzetten van producten. Cijfers uit het Asat-geval
-          -- staan hier bewust niet: dat verhaal komt met naam na de
-          -- livegang (besluit Jappie 21 sep).
+          -- het overzetten van producten. Cijfers uit dat traject staan
+          -- hier bewust niet: dat verhaal staat als anoniem klantverhaal
+          -- op de blog (besluit Jappie 4 nov 2026, geen klantnaam zonder
+          -- toestemming).
           H.p ! A.class_ "subtitle" $ H.preEscapedToHtml ("Sinds de Amerikaanse betaalreus Fiserv CCV overnam ligt het zwaartepunt bij betalen en kassa: je webshop is een tweede rang product. Eruit komen is het moeilijke deel: de export uit CCV neemt je categorie&euml;n, productopties en pagina&apos;s niet mee. Precies dat deel doen wij, ook als je al zelf begonnen bent." :: Text)
           -- Zelfde besluit als de MWW-hero (3 aug 2026): scanner als eerste
           -- stap in plaats van de offerte.
