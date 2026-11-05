@@ -31,8 +31,9 @@ De producten had de winkelier zelf al overgezet. Dat kan: CCV Shop
 heeft een productexport, en Shopify importeert die. Wat die export
 niet meeneemt, is het lastige deel, en daar hielpen wij: ruim 450
 zakelijke klanten als bedrijf, een aanmelding voor nieuwe zakelijke
-klanten, twee jaar bestellingen uit beide systemen en de
-doorverwijzingen van beide domeinen. Dit is hoe dat ging.
+klanten, de zakelijke prijzen op de producten die er al stonden, twee
+jaar bestellingen uit beide systemen en de doorverwijzingen van
+beide domeinen. Dit is hoe dat ging.
 
 * De zakelijke klanten verhuizen mee
 
@@ -45,9 +46,9 @@ herkenden we op e-mailadres: die klant werd contactpersoon van zijn
 bedrijf, geen tweede account.
 
 Eén klant had in Lightspeed 66 keer als gast besteld, voor een
-bedrijf dat al zakelijk klant was. Toen de winkelier hem wilde
-goedkeuren, hebben we hem via het btw-nummer op zijn bestellingen
-aan dat bedrijf gekoppeld.
+bedrijf dat al zakelijk klant was. Toen de winkelier hem als
+zakelijke klant wilde goedkeuren, hebben we hem via het btw-nummer
+op zijn bestellingen aan dat bedrijf gekoppeld.
 
 De wachtwoorden gingen niet mee, en dat komt door de beveiliging:
 buiten Shopify staan wachtwoorden versleuteld opgeslagen. Volgens
