@@ -309,8 +309,8 @@ cursusCenten =
 -- zette (besluit Jappie 21 sep 2026, jappiesoft
 -- strategy/standaard-prijslijst.org, sectie "Al zelf begonnen?", en
 -- strategy/ccv-positionering-plan.org). CCV Shop en Lightspeed hebben
--- een productexport en Shopify importeert CSV; de Asat-meting van 21
--- sep liet zien wat die route laat liggen: de categoriekoppeling van
+-- een productexport en Shopify importeert CSV; de meting bij een
+-- CCV-klant op 21 sep liet zien wat die route laat liggen: de categoriekoppeling van
 -- de helft van de producten, alle productopties met meerprijs, een
 -- dubbele import, pagina's en nieuws, redirects. Voor die winkelier
 -- vervalt de productstaffel ("door jou gedaan") en wordt de basis van
@@ -1162,7 +1162,7 @@ bundeltDomeinEnEmail bron =
 
 
 {-| Platforms met een productexport die de winkelier zelf in Shopify kan
-importeren (CCV Shop en Lightspeed; gemeten bij Asat, 21 sep 2026, en
+importeren (CCV Shop en Lightspeed; gemeten bij een CCV-klant, 21 sep 2026, en
 besluit Jappie om Lightspeed gelijk te behandelen). Alleen daar stellen we
 de vraag "staan je producten al in Shopify?". -}
 heeftProductExport : BronPlatform -> Bool
