@@ -99,11 +99,10 @@ bedrijf dat al zakelijk klant was. Toen de winkelier hem wilde
 goedkeuren, hebben we hem via het btw-nummer op zijn bestellingen
 aan dat bedrijf gekoppeld.
 
-Wachtwoorden gaan bij geen enkele verhuizing mee, en dat komt door
-de beveiliging: een winkelsysteem bewaart wachtwoorden versleuteld.
-Volgens
+De wachtwoorden gingen niet mee, en dat komt door de beveiliging:
+buiten Shopify staan wachtwoorden versleuteld opgeslagen. Volgens
 [[https://help.shopify.com/en/manual/customers/import-export-customers][Shopify's uitleg over klanten importeren]]
-kun je klantwachtwoorden daarom niet uit een andere webshop
+kun je ze daarom niet met een importbestand uit een andere webshop
 meenemen. De zakelijke inlog van Shopify werkt met een code per
 mail, dus de klanten hoeven niets opnieuw in te stellen.
 
