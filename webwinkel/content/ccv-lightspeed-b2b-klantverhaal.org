@@ -17,14 +17,15 @@ consument en een groothandelsklant naast elkaar bestellen, elk tegen
 hun eigen prijs.
 
 Dat scheelt de winkelier elke maand geld. Hij betaalde voor twee
-platforms: een jaarcontract bij Lightspeed en een abonnement bij CCV.
+platforms: een contract bij Lightspeed en een abonnement bij CCV.
 Alleen al het goedkoopste pakket van Lightspeed C-Series kost op
-lijstprijs 68 euro per maand bij jaarbetaling, zie
+lijstprijs 78 euro per maand, zie
 [[https://webwinkelverhuis.nl/blog/lightspeed-of-shopify-wij-verhuizen-naar-allebei-dit-kwam-uit-de-vergelijking.html][onze vergelijking]].
-Nu betaalt hij één Shopify Basic-abonnement van 28 euro per maand,
-of 21 euro bij jaarbetaling, plus $7,99 voor een verzendapp. Het
-goedkeuren van zakelijke klanten kost niets extra: dat draait in
-Shopify Flow, dat ook op Basic gratis is.
+Het Lightspeed-contract stopte op 1 november, en CCV is per maand
+opzegbaar. Daarna blijft er één Shopify Basic-abonnement over van 28
+euro per maand, plus $7,99 voor een verzendapp. Het goedkeuren van
+zakelijke klanten kost niets extra: dat draait in Shopify Flow, dat
+ook op Basic gratis is.
 
 De producten had de winkelier zelf al overgezet. Dat kan: CCV Shop
 heeft een productexport, en Shopify importeert die. Wat die export
@@ -98,12 +99,13 @@ bedrijf dat al zakelijk klant was. Toen de winkelier hem wilde
 goedkeuren, hebben we hem via het btw-nummer op zijn bestellingen
 aan dat bedrijf gekoppeld.
 
-Wachtwoorden gaan bij geen enkele verhuizing mee. Dat is een
-veiligheidskeuze: Shopify accepteert geen wachtwoorden van andere
-platforms, zodat ze nooit als bestand van het ene systeem naar het
-andere gaan, ook niet via ons. De zakelijke inlog van Shopify werkt
-met een code per mail, dus de klanten hoeven niets opnieuw in te
-stellen.
+Wachtwoorden gaan bij geen enkele verhuizing mee, en dat komt door
+de beveiliging: een winkelsysteem bewaart wachtwoorden versleuteld.
+Volgens
+[[https://help.shopify.com/en/manual/customers/import-export-customers][Shopify's uitleg over klanten importeren]]
+kun je klantwachtwoorden daarom niet uit een andere webshop
+meenemen. De zakelijke inlog van Shopify werkt met een code per
+mail, dus de klanten hoeven niets opnieuw in te stellen.
 
 De uitnodiging om in te loggen ging in twee rondes: de eerste bij de
 verhuizing, zoals vooraf aan de winkelier aangekondigd, de tweede na
