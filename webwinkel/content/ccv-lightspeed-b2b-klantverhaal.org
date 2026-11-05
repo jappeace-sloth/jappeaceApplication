@@ -29,11 +29,41 @@ ook op Basic gratis is.
 
 De producten had de winkelier zelf al overgezet. Dat kan: CCV Shop
 heeft een productexport, en Shopify importeert die. Wat die export
-niet meeneemt, is het lastige deel, en daar hielpen wij: een
-aanmelding voor nieuwe zakelijke klanten, ruim 450 bestaande
-zakelijke klanten als bedrijf met hun zakelijke prijzen, twee jaar
-bestellingen uit beide systemen en de doorverwijzingen van beide
-domeinen.
+niet meeneemt, is het lastige deel, en daar hielpen wij: ruim 450
+zakelijke klanten als bedrijf, een aanmelding voor nieuwe zakelijke
+klanten, twee jaar bestellingen uit beide systemen en de
+doorverwijzingen van beide domeinen. Dit is hoe dat ging.
+
+* De zakelijke klanten verhuizen mee
+
+De regel van de winkelier was helder: wie nu zakelijke prijzen
+krijgt, houdt die in Shopify. De zakelijke klanten uit Lightspeed
+werden daarom bedrijven in Shopify, met vestiging, contactpersoon en
+btw-nummer. Buitenlandse klanten zonder btw-nummer betalen gewoon
+btw. En wie de winkelier al zelf vanuit CCV in Shopify had gezet,
+herkenden we op e-mailadres: die klant werd contactpersoon van zijn
+bedrijf, geen tweede account.
+
+Eén klant had in Lightspeed 66 keer als gast besteld, voor een
+bedrijf dat al zakelijk klant was. Toen de winkelier hem wilde
+goedkeuren, hebben we hem via het btw-nummer op zijn bestellingen
+aan dat bedrijf gekoppeld.
+
+De wachtwoorden gingen niet mee, en dat komt door de beveiliging:
+buiten Shopify staan wachtwoorden versleuteld opgeslagen. Volgens
+[[https://help.shopify.com/en/manual/customers/import-export-customers][Shopify's uitleg over klanten importeren]]
+kun je ze daarom niet met een importbestand uit een andere webshop
+meenemen. De zakelijke inlog van Shopify werkt met een code per
+mail, dus de klanten hoeven niets opnieuw in te stellen.
+
+De uitnodiging om in te loggen ging in twee rondes: de eerste bij de
+verhuizing, zoals vooraf aan de winkelier aangekondigd, de tweede na
+zijn akkoord. Toen Shopify aan het begin van de eerste ronde één
+adres weigerde, liepen we alle maildomeinen na. In de eerste ronde
+bestond bij negentien bedrijven het domein van het mailadres niet of
+ontving het geen mail, in de tweede bij drie. Dat meldden we de
+winkelier, zodat die klanten alsnog een uitnodiging krijgen zodra er
+een werkend adres is.
 
 * Aanmelden en meteen doorbestellen
 
@@ -84,37 +114,6 @@ winkelier. Die keurt de aanvraag dan met de hand goed. Een
 btw-vrijstelling en bestellen op rekening zet de winkelier bij een
 nieuwe aanvraag zelf aan: dat zijn keuzes per klant die we niet aan
 een formulier overlaten.
-
-* De zakelijke klanten verhuizen mee
-
-De regel van de winkelier was helder: wie nu zakelijke prijzen
-krijgt, houdt die in Shopify. De zakelijke klanten uit Lightspeed
-werden daarom bedrijven in Shopify, met vestiging, contactpersoon en
-btw-nummer. Buitenlandse klanten zonder btw-nummer betalen gewoon
-btw. En wie de winkelier al zelf vanuit CCV in Shopify had gezet,
-herkenden we op e-mailadres: die klant werd contactpersoon van zijn
-bedrijf, geen tweede account.
-
-Eén klant had in Lightspeed 66 keer als gast besteld, voor een
-bedrijf dat al zakelijk klant was. Toen de winkelier hem wilde
-goedkeuren, hebben we hem via het btw-nummer op zijn bestellingen
-aan dat bedrijf gekoppeld.
-
-De wachtwoorden gingen niet mee, en dat komt door de beveiliging:
-buiten Shopify staan wachtwoorden versleuteld opgeslagen. Volgens
-[[https://help.shopify.com/en/manual/customers/import-export-customers][Shopify's uitleg over klanten importeren]]
-kun je ze daarom niet met een importbestand uit een andere webshop
-meenemen. De zakelijke inlog van Shopify werkt met een code per
-mail, dus de klanten hoeven niets opnieuw in te stellen.
-
-De uitnodiging om in te loggen ging in twee rondes: de eerste bij de
-verhuizing, zoals vooraf aan de winkelier aangekondigd, de tweede na
-zijn akkoord. Toen Shopify aan het begin van de eerste ronde één
-adres weigerde, liepen we alle maildomeinen na. In de eerste ronde
-bestond bij negentien bedrijven het domein van het mailadres niet of
-ontving het geen mail, in de tweede bij drie. Dat meldden we de
-winkelier, zodat die klanten alsnog een uitnodiging krijgen zodra er
-een werkend adres is.
 
 * Zakelijke prijzen op de producten die er al stonden
 
