@@ -16,10 +16,22 @@ Sindsdien is het één Shopify-shop op het Basic-abonnement, waarin een
 consument en een groothandelsklant naast elkaar bestellen, elk tegen
 hun eigen prijs.
 
-De winkelier had de producten al zelf in Shopify gezet. Wij deden de
-rest: het zakelijke kanaal, ruim 450 zakelijke klanten als bedrijf,
-twee jaar bestellingen uit beide systemen en de doorverwijzingen van
-beide domeinen. Dit is hoe dat ging, met wat we onderweg leerden.
+Dat scheelt de winkelier elke maand geld. Hij betaalde voor twee
+platforms: een jaarcontract bij Lightspeed en een abonnement bij CCV.
+Alleen al het goedkoopste pakket van Lightspeed C-Series kost op
+lijstprijs 68 euro per maand bij jaarbetaling, zie
+[[https://webwinkelverhuis.nl/blog/lightspeed-of-shopify-wij-verhuizen-naar-allebei-dit-kwam-uit-de-vergelijking.html][onze vergelijking]].
+Nu betaalt hij één Shopify Basic-abonnement van 28 euro per maand,
+of 21 euro bij jaarbetaling, plus $7,99 voor een verzendapp. Het
+goedkeuren van zakelijke klanten kost niets extra: dat draait in
+Shopify Flow, dat ook op Basic gratis is.
+
+De producten had de winkelier zelf al overgezet. Dat kan: CCV Shop
+heeft een productexport, en Shopify importeert die. Wat die export
+niet meeneemt, is het lastige deel, en daar hielpen wij: het
+zakelijke kanaal, ruim 450 zakelijke klanten als bedrijf, twee jaar
+bestellingen uit beide systemen en de doorverwijzingen van beide
+domeinen. Dit is hoe dat ging.
 
 * Aanmelden en meteen doorbestellen
 
@@ -47,13 +59,21 @@ antwoorden bij het klantprofiel. De aanvrager blijft een gewone
 klant en kan meteen afrekenen, tegen de prijs die elke bezoeker
 ziet.
 
-Goedkeuren is één label. De winkelier bekijkt de aanvraag bij de
-klant en zet het label =b2b-goedgekeurd=. Een workflow in Shopify
-Flow maakt dan het bedrijf aan, met vestiging, adres en btw-nummer
-uit het formulier, koppelt de klant als contactpersoon die mag
-bestellen en stuurt hem de mail waarmee hij inlogt. In onze test was
-dat binnen enkele seconden rond. Logt de klant daarna in, dan ziet
-hij de zakelijke prijzen.
+Met alleen dat formulier zou elke goedkeuring handwerk zijn. De
+winkelier moet dan per aanvraag zelf een bedrijf aanmaken, met
+vestiging, adres en btw-nummer, de klant als contactpersoon koppelen,
+hem een rol geven en de inlogmail versturen. Om hem dat werk te
+besparen, bouwden we voor deze winkel een eigen workflow in Shopify
+Flow. Shopify levert die niet standaard: hij is gemaakt om precies
+deze wens te laten werken.
+
+Goedkeuren is daardoor één label. De winkelier bekijkt de aanvraag
+bij de klant en zet het label =b2b-goedgekeurd=. De workflow maakt
+dan het bedrijf aan, met vestiging, adres en btw-nummer uit het
+formulier, koppelt de klant als contactpersoon die mag bestellen en
+stuurt hem de mail waarmee hij inlogt. In onze test was dat binnen
+enkele seconden rond. Logt de klant daarna in, dan ziet hij de
+zakelijke prijzen.
 
 Is de aanvraag niet compleet, kiest de aanvrager een land waar de
 workflow geen bedrijf voor aanmaakt, of heeft de klant het formulier
@@ -78,43 +98,21 @@ bedrijf dat al zakelijk klant was. Toen de winkelier hem wilde
 goedkeuren, hebben we hem via het btw-nummer op zijn bestellingen
 aan dat bedrijf gekoppeld.
 
-Wachtwoorden gaan bij geen enkele verhuizing mee, maar de zakelijke
-inlog van Shopify werkt met een code per mail. Klanten hoeven dus
-niets opnieuw in te stellen. De uitnodiging om in te loggen ging in
-twee rondes: de eerste bij de verhuizing, zoals vooraf aan de
-winkelier aangekondigd, de tweede na zijn akkoord. Toen Shopify aan
-het begin van de eerste ronde één adres weigerde, liepen we alle
-maildomeinen na. In de eerste ronde bestond bij negentien bedrijven
-het domein van het mailadres niet of ontving het geen mail, in de
-tweede bij drie. Dat meldden we de winkelier, zodat die klanten
-alsnog een uitnodiging krijgen zodra er een werkend adres is.
+Wachtwoorden gaan bij geen enkele verhuizing mee. Dat is een
+veiligheidskeuze: Shopify accepteert geen wachtwoorden van andere
+platforms, zodat ze nooit als bestand van het ene systeem naar het
+andere gaan, ook niet via ons. De zakelijke inlog van Shopify werkt
+met een code per mail, dus de klanten hoeven niets opnieuw in te
+stellen.
 
-* Waar we zelf van leerden
-
-Eerst zetten we de klantgroep "B2B klanten" uit Lightspeed over: 184
-bedrijven. Een dag na de livegang, toen de uitnodigingen weg waren,
-meldde de winkelier dat er bekende zakelijke klanten ontbraken. Dat
-klopte. Op de Lightspeed-groothandel kreeg kennelijk elke ingelogde
-klant de groothandelsprijzen, ook buiten die groep. Lightspeed houdt
-per account bij of het bevestigd is, los van de groep, en zo vonden
-we nog 690 bevestigde accounts. 303 daarvan hadden ooit besteld.
-
-De winkelier kreeg twee lijsten terug: de klanten met een
-bestelling, waar hij "nee" kon zetten bij wie niet zakelijk mee
-moest, en de accounts die nooit bestelden, waar hij "ja" kon zetten
-bij wie toch mee moest. Dezelfde dag dat hij akkoord gaf stonden de
-klanten met een bestelling als bedrijf in Shopify, met één bedrijf
-per btw-nummer: een tweede account met hetzelfde nummer werd
-contactpersoon van dat bedrijf. Daarna hebben we bij alle 463
-bedrijven die wij overzetten, voor een vaste set producten nagelopen
-dat ze dezelfde zakelijke prijzen en staffels zien als de bestaande
-zakelijke klanten, en met een tijdelijk testbedrijf de zakelijke
-checkout doorlopen.
-
-Omdat het gewone klanten waren, konden ze in de tussentijd gewoon
-bestellen, alleen nog niet tegen hun zakelijke prijs. Bij een
-Lightspeed-groothandel kijken we voortaan eerst naar welke accounts
-de winkelier bevestigde, en pas daarna naar de klantgroepen.
+De uitnodiging om in te loggen ging in twee rondes: de eerste bij de
+verhuizing, zoals vooraf aan de winkelier aangekondigd, de tweede na
+zijn akkoord. Toen Shopify aan het begin van de eerste ronde één
+adres weigerde, liepen we alle maildomeinen na. In de eerste ronde
+bestond bij negentien bedrijven het domein van het mailadres niet of
+ontving het geen mail, in de tweede bij drie. Dat meldden we de
+winkelier, zodat die klanten alsnog een uitnodiging krijgen zodra er
+een werkend adres is.
 
 * Zakelijke prijzen op de producten die er al stonden
 
@@ -239,9 +237,11 @@ heb je nodig als elke zakelijke klant een eigen prijsafspraak heeft.
 
 *Kan ik een B2B-aanvraag goedkeuren zonder zelf het bedrijf aan te maken?*
 
-Met Shopify Flow wel. Je zet één label bij de klant, en Flow maakt
-het bedrijf aan met adres en btw-nummer uit het aanmeldformulier en
-stuurt de inlogmail.
+Met een eigen workflow in Shopify Flow wel. Die zit niet standaard
+in Shopify; wij bouwden hem voor deze winkel om het handwerk per
+aanvraag te schrappen. Je zet één label bij de klant, en de workflow
+maakt het bedrijf aan met adres en btw-nummer uit het
+aanmeldformulier en stuurt de inlogmail.
 
 *Gaan mijn zakelijke klanten uit Lightspeed mee, met hun bestellingen?*
 
