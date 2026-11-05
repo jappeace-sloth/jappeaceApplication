@@ -29,10 +29,11 @@ ook op Basic gratis is.
 
 De producten had de winkelier zelf al overgezet. Dat kan: CCV Shop
 heeft een productexport, en Shopify importeert die. Wat die export
-niet meeneemt, is het lastige deel, en daar hielpen wij: het
-zakelijke kanaal, ruim 450 zakelijke klanten als bedrijf, twee jaar
+niet meeneemt, is het lastige deel, en daar hielpen wij: een
+aanmelding voor nieuwe zakelijke klanten, ruim 450 bestaande
+zakelijke klanten als bedrijf met hun zakelijke prijzen, twee jaar
 bestellingen uit beide systemen en de doorverwijzingen van beide
-domeinen. Dit is hoe dat ging.
+domeinen.
 
 * Aanmelden en meteen doorbestellen
 
