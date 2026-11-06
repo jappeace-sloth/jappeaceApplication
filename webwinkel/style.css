@@ -722,11 +722,22 @@ footer small a:hover { color: var(--wit); }
 .honeypot-veld { display: none; }
 
 /* ---------- DIY-exporter-aankondiging met nieuwsbrief ----------
-   Markup: shake/DiyExporterAankondiging.hs, onder de prijs op de
-   MijnWebwinkel-pagina. */
+   Markup: shake/DiyExporterAankondiging.hs, als kaart naast de FAQ op de
+   MijnWebwinkel-pagina. De kaart staat in de DOM voor de FAQ (smal
+   scherm: direct onder de prijs); breed zet het grid hem rechts. */
 
+.faq-met-aankondiging {
+  display: grid; gap: 2rem 3rem; align-items: start;
+  grid-template-columns: minmax(0, var(--maat-smal)) minmax(0, 1fr);
+}
+.faq-met-aankondiging .faq-kolom { grid-column: 1; grid-row: 1; }
+.faq-met-aankondiging .aankondiging-kaart { grid-column: 2; grid-row: 1; }
+@media (max-width: 920px) {
+  .faq-met-aankondiging { grid-template-columns: minmax(0, 1fr); }
+  .faq-met-aankondiging .faq-kolom,
+  .faq-met-aankondiging .aankondiging-kaart { grid-column: 1; grid-row: auto; }
+}
 .aankondiging-kaart {
-  max-width: var(--maat-smal);
   background: var(--wit); border: 1px solid var(--lijn);
   border-left: 4px solid var(--groen); border-radius: var(--radius);
   padding: clamp(1.3rem, 3vw, 2.2rem);

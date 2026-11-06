@@ -40,7 +40,7 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
 import Types (SiteConfig(..), Article(..), Lang(..), PaginationInfo(..), articleLastmod)
-import DiyExporterAankondiging (diyExporterAankondigingSectie)
+import DiyExporterAankondiging (diyExporterAankondigingKaart)
 import PageChrome
   ( PageMeta(..)
   , defaultPageMeta
@@ -1425,19 +1425,21 @@ mijnwebwinkelMigrationPage = webwinkelBaseTemplate migrationMeta $
     -- Pricing
     prijzen
 
-    -- Decision: de DIY-aankondiging staat direct onder de prijs
-    -- (Jappie, 6 nov 2026: aankondiging plus nieuwsbrief op de
-    -- MWW-pagina). Wie de migratieprijs te hoog vindt voor zijn shop,
-    -- is precies de lezer voor wie zelf doen de uitkomst is
-    -- (jappiesoft strategy/diy-exporter-en-shopify-app.org). Bovenaan
-    -- in de hero overwogen; afgewezen omdat de pagina eerst de
-    -- volledige migratie moet verkopen.
-    diyExporterAankondigingSectie
-
-    -- FAQ
-    H.section ! A.class_ "about" $ do
-      H.h2 "Veelgestelde vragen"
-      H.div ! A.class_ "faq" $ mapM_ renderFaqItemCollapsible mijnwebwinkelFaq
+    -- FAQ, met de DIY-aankondiging ernaast.
+    -- Decision: de aankondiging staat als kaart naast de FAQ, direct
+    -- onder de prijs (Jappie, 6 nov 2026); de FAQ is maar 46rem breed,
+    -- dus de ruimte ernaast was leeg. Wie de migratieprijs te hoog vindt
+    -- voor zijn shop, is precies de lezer voor wie zelf doen de uitkomst
+    -- is (jappiesoft strategy/diy-exporter-en-shopify-app.org). De kaart
+    -- staat in de DOM voor de FAQ, zodat hij op een smal scherm nog
+    -- steeds direct onder de prijs komt. Bovenaan in de hero overwogen;
+    -- afgewezen omdat de pagina eerst de volledige migratie moet verkopen.
+    H.section ! A.class_ "about" $
+      H.div ! A.class_ "faq-met-aankondiging" $ do
+        diyExporterAankondigingKaart
+        H.div ! A.class_ "faq-kolom" $ do
+          H.h2 "Veelgestelde vragen"
+          H.div ! A.class_ "faq" $ mapM_ renderFaqItemCollapsible mijnwebwinkelFaq
 
     -- CTA
     H.section ! A.class_ "final-cta" $ do
