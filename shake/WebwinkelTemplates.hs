@@ -40,6 +40,7 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
 import Types (SiteConfig(..), Article(..), Lang(..), PaginationInfo(..), articleLastmod)
+import DiyExporterAankondiging (diyExporterAankondigingSectie)
 import PageChrome
   ( PageMeta(..)
   , defaultPageMeta
@@ -51,6 +52,7 @@ import PageChrome
   , migratieBasisprijsEuro
   , webwinkelverhuisMeetLink
   , whatsappFloatingButton
+  , honeypotVeld
   , jsonLdString
   , serviceJsonLd
   , FaqQuestion
@@ -1184,15 +1186,6 @@ offertePagina = webwinkelBaseTemplate offerteMeta $
       , pageMetaExtraHead   = mempty
       }
 
--- | Het honeypot-veld tegen bots: onzichtbaar voor mensen (CSS), en de
--- server behandelt een gevuld veld als spam. Gedeeld door het
--- noscript-offerteformulier en het contactformulier.
-honeypotVeld :: Html
-honeypotVeld =
-  H.div ! A.class_ "honeypot-veld" $ H.label $ do
-    H.span "Website"
-    H.input ! A.type_ "text" ! A.name "website" ! A.tabindex "-1" ! A.autocomplete "off"
-
 -- | Waar de 303 van POST /api/offerte op landt, voor zowel
 -- offerte-aanvragen als contactberichten; de tekst dekt beide. noindex:
 -- een bevestigingspagina hoort niet in de zoekindex.
@@ -1431,6 +1424,15 @@ mijnwebwinkelMigrationPage = webwinkelBaseTemplate migrationMeta $
 
     -- Pricing
     prijzen
+
+    -- Decision: de DIY-aankondiging staat direct onder de prijs
+    -- (Jappie, 6 nov 2026: aankondiging plus nieuwsbrief op de
+    -- MWW-pagina). Wie de migratieprijs te hoog vindt voor zijn shop,
+    -- is precies de lezer voor wie zelf doen de uitkomst is
+    -- (jappiesoft strategy/diy-exporter-en-shopify-app.org). Bovenaan
+    -- in de hero overwogen; afgewezen omdat de pagina eerst de
+    -- volledige migratie moet verkopen.
+    diyExporterAankondigingSectie
 
     -- FAQ
     H.section ! A.class_ "about" $ do

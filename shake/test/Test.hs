@@ -32,6 +32,7 @@ import AssetHash (GehashteAssets(..), gehashteAssetNaam, herschrijfAssetVerwijzi
 import Data.Char (isHexDigit)
 import qualified Data.ByteString.Char8 as BSC
 import Metadata (parseOrgMeta, resolveSlug)
+import NieuwsbriefAangemeldPagina (nieuwsbriefAangemeldPagina)
 import OndersteuningPage (ondersteuningPage)
 import PageChrome (WebwinkelSchedulingLinkFout(..), faqAnswerHtml, faqPageJsonLd, humanDateForLang, renderFaqItem, webwinkelSchedulingLinkFout)
 import Templates (renderTagPage, renderIndexPage)
@@ -137,6 +138,7 @@ allStaticPages =
   [ ("penguinIndexPage", penguinIndexPage (WebwinkelverhuisUrl testOrigin))
   , ("penguinIndexPageNl", penguinIndexPageNl (WebwinkelverhuisUrl testOrigin))
   , ("scanPage", scanPage)
+  , ("nieuwsbriefAangemeldPagina", nieuwsbriefAangemeldPagina)
   ] <> meetLinkPages <> penguinMeetLinkPages
 
 -- | No page may publish share-URL tracking parameters. URLs copied from a
@@ -231,6 +233,10 @@ main = defaultMain $
     , testGroup "taxonomiepagina's zijn noindex"
         [ taxonomieKrijgtNoindexIndexNiet
         , vierNulVierNoindexEnBuitenSitemap
+        , nieuwsbriefBedankpaginaNoindexEnBuitenSitemap
+        ]
+    , testGroup "nieuwsbrief-aanmelding op de MijnWebwinkel-pagina"
+        [ nieuwsbriefFormulierVolgtHetEndpoint
         ]
     , testGroup "artikelslug volgt de slug-header"
         [ slugHeaderWintVanTitel
@@ -321,6 +327,29 @@ vierNulVierNoindexEnBuitenSitemap = testCase "404-pagina noindex en buiten sitem
     ("<meta name=\"robots\" content=\"noindex, follow\">" `T.isInfixOf` pagina)
   assertBool "404-pagina belandde in de sitemap"
     (not ("404" `T.isInfixOf` sitemapUnderTest))
+
+nieuwsbriefBedankpaginaNoindexEnBuitenSitemap :: TestTree
+nieuwsbriefBedankpaginaNoindexEnBuitenSitemap = testCase "nieuwsbrief-bedankpagina noindex en buiten sitemap" $ do
+  let pagina = TL.toStrict (renderHtml nieuwsbriefAangemeldPagina)
+  assertBool "bedankpagina mist de noindex, follow-directive"
+    ("<meta name=\"robots\" content=\"noindex, follow\">" `T.isInfixOf` pagina)
+  assertBool "bedankpagina belandde in de sitemap"
+    (not ("nieuwsbrief-aangemeld" `T.isInfixOf` sitemapUnderTest))
+
+-- | Het formulier is een contract met megavid's POST /api/offerte: een
+-- onbekende soort geeft daar een 400, dus elke aanmelding zou stil
+-- verloren gaan als dit veld afdrijft.
+nieuwsbriefFormulierVolgtHetEndpoint :: TestTree
+nieuwsbriefFormulierVolgtHetEndpoint = testCase "het formulier post soort=nieuwsbrief naar /api/offerte" $ do
+  let pagina = TL.toStrict (renderHtml mijnwebwinkelMigrationPage)
+      formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" pagina)))
+  assertBool "geen nieuwsbrief-formulier op de MijnWebwinkel-pagina" (not (T.null formulier))
+  assertBool "formulier post niet naar /api/offerte" ("action=\"/api/offerte\" method=\"post\"" `T.isInfixOf` formulier)
+  assertBool "formulier stuurt geen soort=nieuwsbrief mee"
+    ("name=\"soort\" value=\"nieuwsbrief\"" `T.isInfixOf` formulier)
+  mapM_ (\veld -> assertBool ("formulier mist het verplichte veld " <> T.unpack veld)
+                  (("name=\"" <> veld <> "\"") `T.isInfixOf` formulier))
+    ["email", "shop", "bericht", "website"]
 
 -- | De dunne taxonomiepagina's (tags/categorieen) dragen "noindex, follow";
 -- de indexpagina moet gewoon indexeerbaar blijven. Dit faalt zowel wanneer
