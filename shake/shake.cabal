@@ -11,7 +11,7 @@ executable shake-blog
   other-modules:
     ArticleSummary
     AssetHash
-    DiyExporterAankondiging
+    ZelfVerhuizenPaneel
     Feed
     Metadata
     NieuwsbriefAangemeldPagina
@@ -51,7 +51,7 @@ test-suite unit
   other-modules:
     ArticleSummary
     AssetHash
-    DiyExporterAankondiging
+    ZelfVerhuizenPaneel
     Metadata
     NieuwsbriefAangemeldPagina
     OndersteuningPage

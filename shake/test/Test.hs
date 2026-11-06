@@ -34,6 +34,7 @@ import qualified Data.ByteString.Char8 as BSC
 import Metadata (parseOrgMeta, resolveSlug)
 import NieuwsbriefAangemeldPagina (nieuwsbriefAangemeldPagina)
 import OndersteuningPage (ondersteuningPage)
+import ZelfVerhuizenPaneel (LandingsPagina(..), herkomstToken)
 import PageChrome (WebwinkelSchedulingLinkFout(..), faqAnswerHtml, faqPageJsonLd, humanDateForLang, renderFaqItem, webwinkelSchedulingLinkFout)
 import Templates (renderTagPage, renderIndexPage)
 import Types (Article(..), Lang(..), PaginationInfo(..), defaultSiteConfig)
@@ -53,6 +54,7 @@ import WebwinkelTemplates
   , ccvshopMigrationPage
   , lightspeedMigrationPage
   , magentoMigrationPage
+  , zilvercmsMigrationPage
   , mijnwebwinkelWaaromPage
   , lightspeedWaaromPage
   , overOnsPage
@@ -235,9 +237,8 @@ main = defaultMain $
         , vierNulVierNoindexEnBuitenSitemap
         , nieuwsbriefBedankpaginaNoindexEnBuitenSitemap
         ]
-    , testGroup "nieuwsbrief-aanmelding op de MijnWebwinkel-pagina"
-        [ nieuwsbriefFormulierVolgtHetEndpoint
-        ]
+    , testGroup "elke landingspagina heeft een werkende Te duur?-aanmelding"
+        (map teDuurAanmeldingVolgtHetEndpoint landingsPaginas)
     , testGroup "artikelslug volgt de slug-header"
         [ slugHeaderWintVanTitel
         , zonderSlugHeaderVolgtTitel
@@ -336,17 +337,35 @@ nieuwsbriefBedankpaginaNoindexEnBuitenSitemap = testCase "nieuwsbrief-bedankpagi
   assertBool "bedankpagina belandde in de sitemap"
     (not ("nieuwsbrief-aangemeld" `T.isInfixOf` sitemapUnderTest))
 
+-- | Elke pagina met een prijskaart, met de herkomst die ze moet meesturen.
+landingsPaginas :: [(LandingsPagina, Html)]
+landingsPaginas =
+  [ (Homepagina, webwinkelIndexPage)
+  , (MijnWebwinkelPagina, mijnwebwinkelMigrationPage)
+  , (CcvShopPagina, ccvshopMigrationPage)
+  , (LightspeedPagina, lightspeedMigrationPage)
+  , (MagentoPagina, magentoMigrationPage)
+  , (ZilverCmsPagina, zilvercmsMigrationPage)
+  ]
+
 -- | Het formulier is een contract met megavid's POST /api/offerte: een
--- onbekende soort geeft daar een 400, dus elke aanmelding zou stil
--- verloren gaan als dit veld afdrijft.
-nieuwsbriefFormulierVolgtHetEndpoint :: TestTree
-nieuwsbriefFormulierVolgtHetEndpoint = testCase "het formulier post soort=nieuwsbrief naar /api/offerte" $ do
-  let pagina = TL.toStrict (renderHtml mijnwebwinkelMigrationPage)
-      formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" pagina)))
-  assertBool "geen nieuwsbrief-formulier op de MijnWebwinkel-pagina" (not (T.null formulier))
+-- onbekende soort geeft daar een 400, dus elke aanmelding zou verloren
+-- gaan als dit veld afdrijft. De herkomst moet de eigen pagina noemen,
+-- anders wijst de telling per platform naar de verkeerde winkeliers.
+teDuurAanmeldingVolgtHetEndpoint :: (LandingsPagina, Html) -> TestTree
+teDuurAanmeldingVolgtHetEndpoint (landingsPagina, pagina) = testCase (show landingsPagina) $ do
+  let gerenderd = TL.toStrict (renderHtml pagina)
+      formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" gerenderd)))
+  assertBool "geen Te duur?-knop naar het paneel"
+    ("href=\"#zelf-verhuizen\" class=\"cta-button-secondary te-duur-knop\"" `T.isInfixOf` gerenderd)
+  assertBool "de knop wijst naar een paneel dat er niet is"
+    ("id=\"zelf-verhuizen\"" `T.isInfixOf` gerenderd)
+  assertBool "geen nieuwsbrief-formulier in het paneel" (not (T.null formulier))
   assertBool "formulier post niet naar /api/offerte" ("action=\"/api/offerte\" method=\"post\"" `T.isInfixOf` formulier)
   assertBool "formulier stuurt geen soort=nieuwsbrief mee"
     ("name=\"soort\" value=\"nieuwsbrief\"" `T.isInfixOf` formulier)
+  assertBool "formulier noemt niet de eigen pagina als herkomst"
+    (("name=\"herkomst\" value=\"" <> herkomstToken landingsPagina <> "\"") `T.isInfixOf` formulier)
   mapM_ (\veld -> assertBool ("formulier mist het verplichte veld " <> T.unpack veld)
                   (("name=\"" <> veld <> "\"") `T.isInfixOf` formulier))
     ["email", "shop", "bericht", "website"]
