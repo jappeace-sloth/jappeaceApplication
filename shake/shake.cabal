@@ -11,8 +11,10 @@ executable shake-blog
   other-modules:
     ArticleSummary
     AssetHash
+    ZelfVerhuizenPaneel
     Feed
     Metadata
+    NieuwsbriefAangemeldPagina
     OndersteuningPage
     PageChrome
     PenguinTemplates
@@ -49,7 +51,9 @@ test-suite unit
   other-modules:
     ArticleSummary
     AssetHash
+    ZelfVerhuizenPaneel
     Metadata
+    NieuwsbriefAangemeldPagina
     OndersteuningPage
     PageChrome
     PenguinTemplates

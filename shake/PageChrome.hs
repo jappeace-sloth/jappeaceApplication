@@ -38,6 +38,7 @@ module PageChrome
   , humanDateForLang
   , stripHtmlTags
   , articleMetaDescription
+  , honeypotVeld
   , renderBlogSummary
   , renderPagination
   ) where
@@ -458,3 +459,13 @@ articleMetaDescription :: Article -> Text
 articleMetaDescription article = case articleSummaryText article of
   Just summaryText -> T.take 160 (stripHtmlTags summaryText)
   Nothing          -> articleTitle article
+
+-- | Het honeypot-veld tegen bots: onzichtbaar voor mensen (CSS), en de
+-- server behandelt een gevuld veld als spam. Gedeeld door het
+-- noscript-offerteformulier, het contactformulier en de
+-- nieuwsbrief-aanmelding.
+honeypotVeld :: Html
+honeypotVeld =
+  H.div ! A.class_ "honeypot-veld" $ H.label $ do
+    H.span "Website"
+    H.input ! A.type_ "text" ! A.name "website" ! A.tabindex "-1" ! A.autocomplete "off"

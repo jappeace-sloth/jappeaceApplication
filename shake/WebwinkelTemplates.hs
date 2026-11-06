@@ -40,6 +40,7 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
 import Types (SiteConfig(..), Article(..), Lang(..), PaginationInfo(..), articleLastmod)
+import ZelfVerhuizenPaneel (LandingsPagina(..), teDuurKnop, zelfVerhuizenPaneel)
 import PageChrome
   ( PageMeta(..)
   , defaultPageMeta
@@ -51,6 +52,7 @@ import PageChrome
   , migratieBasisprijsEuro
   , webwinkelverhuisMeetLink
   , whatsappFloatingButton
+  , honeypotVeld
   , jsonLdString
   , serviceJsonLd
   , FaqQuestion
@@ -446,8 +448,19 @@ shopifyPrijzenUrl = "https://www.shopify.com/nl/prijzen"
 
 -- | De gedeelde prijzen-sectie: de prijs-kaart uit het joepa-ontwerp, met de
 -- rekenhulp-knop als vervolgstap en de betaal-na-succes-garantie eronder.
-prijzen :: Html
-prijzen = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $
+-- | De prijskaart van elke landingspagina, met de "Te duur?"-knop naast
+-- de rekenhulp.
+--
+-- Decision: de DIY-exporter wordt aangekondigd in een paneel achter
+-- "Te duur?" (Jappie, 6 nov 2026), niet als vaste sectie: wie bij de
+-- prijs afhaakt, is precies de lezer voor wie zelf doen de uitkomst is
+-- (jappiesoft strategy/diy-exporter-en-shopify-app.org), en de pagina
+-- blijft eerst de volledige migratie verkopen. Overwogen en afgewezen:
+-- een sectie onder de prijs en een kaart naast de FAQ (zag er slecht
+-- uit). De pagina gaat mee als herkomst, zodat we zien voor welk
+-- platform de exporter eerst moet groeien.
+prijzen :: LandingsPagina -> Html
+prijzen pagina = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $ do
   H.div ! A.class_ "prijs-kaart" $ do
     H.p ! A.class_ "wat" $ "Volledige migratie"
     H.p ! A.class_ "prijs" $ do
@@ -455,10 +468,13 @@ prijzen = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $
       H.small "eenmalig"
     H.p ! A.class_ "inbegrepen" $ H.preEscapedToHtml ("De vaste basis: categorie&euml;n, pagina&apos;s, SEO-redirects, standaardthema en de begeleiding. Daarbovenop elk product vanaf 20 cent, en hoe groter je catalogus, hoe goedkoper per product." :: Text)
     H.p ! A.class_ "meerprijs" $ H.preEscapedToHtml ("Klantaccounts (met hun spaarpunten), bestelgeschiedenis en nieuwsbrief-adressen neem je mee voor &euro;100 per onderdeel tot 1.000 stuks, daarboven per stuk. Extra talen en losse diensten (e-mail-setup, een cursus Shopify, en domeinverhuizing als je domein nog bij je huidige platform staat) hebben een vaste meerprijs." :: Text)
-    H.a ! A.href "/prijzen.html#rekenhulp" ! A.class_ "cta-button" $ "Bereken direct je prijs"
+    H.div ! A.class_ "prijs-knoppen" $ do
+      H.a ! A.href "/prijzen.html#rekenhulp" ! A.class_ "cta-button" $ "Bereken direct je prijs"
+      teDuurKnop
     H.p ! A.class_ "garantie" $ do
       H.preEscapedToHtml vinkjeSvg
       " Je betaalt pas na een succesvolle migratie"
+  zelfVerhuizenPaneel pagina
 
 
 
@@ -573,7 +589,7 @@ webwinkelIndexPage = webwinkelBaseTemplate indexMeta $
     -- confidence. The offerte remains the binding guarantee, the
     -- disclaimer says so plainly so an updated price is never a broken
     -- promise.
-    prijzen
+    prijzen Homepagina
     H.section ! A.class_ "about" ! A.id "vragen" $ do
       H.h2 "Veelgestelde vragen"
       H.div ! A.class_ "faq" $ mapM_ renderFaqItemCollapsible homeFaq
@@ -1184,15 +1200,6 @@ offertePagina = webwinkelBaseTemplate offerteMeta $
       , pageMetaExtraHead   = mempty
       }
 
--- | Het honeypot-veld tegen bots: onzichtbaar voor mensen (CSS), en de
--- server behandelt een gevuld veld als spam. Gedeeld door het
--- noscript-offerteformulier en het contactformulier.
-honeypotVeld :: Html
-honeypotVeld =
-  H.div ! A.class_ "honeypot-veld" $ H.label $ do
-    H.span "Website"
-    H.input ! A.type_ "text" ! A.name "website" ! A.tabindex "-1" ! A.autocomplete "off"
-
 -- | Waar de 303 van POST /api/offerte op landt, voor zowel
 -- offerte-aanvragen als contactberichten; de tekst dekt beide. noindex:
 -- een bevestigingspagina hoort niet in de zoekindex.
@@ -1430,7 +1437,7 @@ mijnwebwinkelMigrationPage = webwinkelBaseTemplate migrationMeta $
       ]
 
     -- Pricing
-    prijzen
+    prijzen MijnWebwinkelPagina
 
     -- FAQ
     H.section ! A.class_ "about" $ do
@@ -1641,7 +1648,7 @@ ccvshopMigrationPage = webwinkelBaseTemplate ccvMeta $
       ]
 
     -- Pricing
-    prijzen
+    prijzen CcvShopPagina
     -- Open kaart bij de voorbeeldwinkels (winkelier-review 23 aug): beide
     -- cases zijn MWW-migraties; dat benoemen we in plaats van het te
     -- verstoppen, met de aanpak als brug.
@@ -1854,7 +1861,7 @@ lightspeedMigrationPage = webwinkelBaseTemplate lightspeedMeta $
       ]
 
     -- Pricing
-    prijzen
+    prijzen LightspeedPagina
     -- Open kaart bij de voorbeeldwinkels (winkelier-review 23 aug): beide
     -- cases zijn MWW-migraties; dat benoemen we in plaats van het te
     -- verstoppen, met de aanpak als brug.
@@ -2043,7 +2050,7 @@ magentoMigrationPage = webwinkelBaseTemplate magentoMeta $
       ]
 
     -- Pricing
-    prijzen
+    prijzen MagentoPagina
 
     -- Why us
     waaromViaOnsSectie
@@ -2191,7 +2198,7 @@ zilvercmsMigrationPage = webwinkelBaseTemplate zilvercmsMeta $
       , HoeHetWerktStap "DNS-overzet" "Ben je er klaar voor? Dan wijzen we je domein op de nieuwe shop en ben je verhuisd. We houden de downtime zo klein mogelijk."
       ]
 
-    prijzen
+    prijzen ZilverCmsPagina
 
     waaromViaOnsSectie
       (WaaromBeeld "/assets/beeld/stock-productfoto-raam.jpg"

@@ -42,6 +42,7 @@ import ArticleSummary (summarize)
 import AssetHash (GehashteAssets(..), gehashteAssetNaam, herschrijfAssetVerwijzingen)
 import Feed (generateAtomFeed)
 import Metadata (parseMarkdownMeta, parseOrgMeta, parseDateField, parseTags, isDraft, resolveSlug)
+import NieuwsbriefAangemeldPagina (nieuwsbriefAangemeldPagina)
 import OndersteuningPage (ondersteuningPage)
 import PenguinTemplates (WebwinkelverhuisUrl(..), penguinIndexPage, penguinIndexPageNl, penguinWordpressPage, penguinWordpressPageNl, penguinBlogIndexPage, penguinArticlePage)
 import PageChrome (WebwinkelSchedulingLinkFout(..), webwinkelSchedulingLinkFout)
@@ -731,6 +732,7 @@ generateWebwinkelverhuisSite config articles gehashteAssets = do
   writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/prijzen.html" prijzenPage
   writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/offerte.html" offertePagina
   writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/offerte-verzonden.html" offerteVerzondenPagina
+  writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/nieuwsbrief-aangemeld.html" nieuwsbriefAangemeldPagina
   writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/scan.html" scanPage
   writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/migrate-mijnwebwinkel.html" mijnwebwinkelMigrationPage
   writeWebwinkelHtmlFile gehashteAssets "_webwinkelverhuis-site/migrate-ccvshop.html" ccvshopMigrationPage
