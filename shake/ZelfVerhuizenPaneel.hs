@@ -72,12 +72,12 @@ zelfVerhuizenPaneel pagina = do
     H.form ! A.method "dialog" ! A.class_ "paneel-sluiten-form" $
       H.button ! A.class_ "paneel-sluiten" ! customAttribute "aria-label" "Sluiten" $ H.preEscapedToHtml ("&times;" :: Text)
     H.p ! A.class_ "aankondiging-label" $ "Binnenkort"
-    H.h2 ! A.id "zelf-verhuizen-kop" $ "Zelf verhuizen?"
-    H.p "We maken de DIY-exporter, een zelfbedieningsversie van ons migratieprogramma."
-    H.p $ toHtml ("Daarmee haal je je gegevens zelf uit " <> bronInZin pagina <> " en zet je ze zelf in je nieuwe shop. Je betaalt alleen voor wat je verhuist, zonder offerte of abonnement.")
-    H.p "Zo doe je de verhuizing zelf en bespaar je flink op de kosten van een volledige migratie."
+    H.h2 ! A.id "zelf-verhuizen-kop" $ "Verhuizen voor een lager bedrag?"
+    H.p "We werken aan een hulpmiddel waarmee je zelf je webshop kunt verhuizen."
+    H.p $ toHtml ("Daarmee haal je de gegevens uit " <> bronInZin pagina <> " en zet je ze over naar je nieuwe webshop. Je betaalt alleen voor wat je verhuist, zonder offerte of abonnement.")
+    H.p "Jij voert de verhuizing uit, in plaats van die aan ons uit te besteden. Zo bespaar je op de kosten."
     H.h3 "Hoor het als eerste"
-    H.p "Meld je aan voor de nieuwsbrief. Zodra de DIY-exporter klaar is, krijg je bericht."
+    H.p "Meld je aan voor de nieuwsbrief. Je krijgt bericht zodra het hulpmiddel klaar is voor gebruik."
     H.form ! A.class_ "nieuwsbrief-formulier" ! A.action "/api/offerte" ! A.method "post" $ do
       H.label ! A.class_ "calc-field" $ do
         H.span ! A.class_ "calc-label" $ "Je e-mailadres"
@@ -93,7 +93,7 @@ zelfVerhuizenPaneel pagina = do
               ! A.value (toValue ("Aanmelding nieuwsbrief via Te duur? op de " <> herkomstToken pagina <> "-pagina"))
       honeypotVeld
       H.button ! A.type_ "submit" ! A.class_ "cta-button" $ "Aanmelden"
-    H.p ! A.class_ "nieuwsbrief-noot" $ "We mailen je alleen over Webwinkelverhuis en de DIY-exporter. Afmelden kan altijd: antwoord op een nieuwsbrief en we halen je van de lijst."
+    H.p ! A.class_ "nieuwsbrief-noot" $ "Je ontvangt alleen nieuws over Webwinkelverhuis en dit nieuwe hulpmiddel. Afmelden kan altijd door op een nieuwsbrief te antwoorden."
   -- Zonder JavaScript kan het paneel niet modaal openen; dan staat het
   -- gewoon in de pagina, waar de knop naartoe springt.
   H.noscript $ H.style ".zelf-verhuizen-paneel{display:block;position:static;width:auto;height:auto;max-height:none;margin:2rem auto 0;animation:none}.paneel-sluiten-form{display:none}"
