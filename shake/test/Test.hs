@@ -357,7 +357,7 @@ teDuurAanmeldingVolgtHetEndpoint (landingsPagina, pagina) = testCase (show landi
   let gerenderd = TL.toStrict (renderHtml pagina)
       formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" gerenderd)))
   assertBool "geen Te duur?-knop naar het paneel"
-    ("href=\"#zelf-verhuizen\" class=\"cta-button-secondary te-duur-knop\"" `T.isInfixOf` gerenderd)
+    ("href=\"#zelf-verhuizen\" class=\"te-duur-knop\"" `T.isInfixOf` gerenderd)
   assertBool "de knop wijst naar een paneel dat er niet is"
     ("id=\"zelf-verhuizen\"" `T.isInfixOf` gerenderd)
   assertBool "geen nieuwsbrief-formulier in het paneel" (not (T.null formulier))

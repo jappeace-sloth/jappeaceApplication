@@ -63,7 +63,7 @@ bronInZin pagina = case pagina of
 -- de pagina (zie 'zelfVerhuizenPaneel') en springt de link ernaartoe.
 teDuurKnop :: Html
 teDuurKnop =
-  H.a ! A.href "#zelf-verhuizen" ! A.class_ "cta-button-secondary te-duur-knop" $ "Te duur?"
+  H.a ! A.href "#zelf-verhuizen" ! A.class_ "te-duur-knop" $ "Te duur?"
 
 zelfVerhuizenPaneel :: LandingsPagina -> Html
 zelfVerhuizenPaneel pagina = do

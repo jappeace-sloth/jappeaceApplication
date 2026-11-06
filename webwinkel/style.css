@@ -726,10 +726,14 @@ footer small a:hover { color: var(--wit); }
    landingspagina. Een <dialog> die van rechts inschuift. */
 
 .prijs-knoppen {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem;
-  margin-top: 1.5rem;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 0.8rem 1.4rem; margin-top: 1.5rem;
 }
 .prijs-kaart .prijs-knoppen .cta-button { margin-top: 0; }
+/* Een stille tekstlink, geen knop: het paneel vangt wie afhaakt, het mag
+   de aandacht niet wegtrekken van "Bereken direct je prijs". */
+.te-duur-knop { font-size: 0.95rem; color: var(--grijs); text-decoration: underline; }
+.te-duur-knop:hover { color: var(--navy); }
 .zelf-verhuizen-paneel {
   position: fixed; inset: 0 0 0 auto; margin: 0;
   width: min(30rem, 100vw); max-width: 100vw; height: 100dvh; max-height: 100dvh;
