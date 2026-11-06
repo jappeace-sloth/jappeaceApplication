@@ -23,8 +23,8 @@ diyExporterAankondigingSectie =
   H.section ! A.class_ "aankondiging" ! A.id "zelf-verhuizen" $
     H.div ! A.class_ "aankondiging-kaart" $ do
       H.p ! A.class_ "aankondiging-label" $ "Binnenkort"
-      H.h2 "Liever zelf verhuizen? Dat kan straks met de DIY-exporter"
-      H.p "We maken een zelfbedieningsversie van ons migratieprogramma. Daarmee haal je je gegevens zelf uit MijnWebwinkel, in bestanden die Shopify direct inleest, en zet je ze zelf in je nieuwe shop. Je begint gratis en betaalt daarna alleen voor wat je exporteert, zonder offerte of abonnement."
+      H.h2 "Zelf verhuizen?"
+      H.p "We maken de DIY-exporter, een zelfbedieningsversie van ons migratieprogramma. Daarmee haal je je gegevens zelf uit MijnWebwinkel, in bestanden die Shopify direct inleest, en zet je ze zelf in je nieuwe shop. Je begint gratis en betaalt daarna alleen voor wat je exporteert, zonder offerte of abonnement."
       H.p "Zo doe je de verhuizing zelf en bespaar je flink op de kosten van een volledige migratie."
       H.h3 "Hoor het als eerste"
       H.p "Meld je aan voor de nieuwsbrief. Zodra de DIY-exporter klaar is, krijg je bericht."
