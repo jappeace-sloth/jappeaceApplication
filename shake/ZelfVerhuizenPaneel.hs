@@ -99,10 +99,10 @@ zelfVerhuizenPaneel pagina = do
   H.noscript $ H.style ".zelf-verhuizen-paneel{display:block;position:static;width:auto;height:auto;max-height:none;margin:2rem auto 0;animation:none}.paneel-sluiten-form{display:none}"
   H.script $ H.preEscapedToHtml paneelScript
 
--- | Opent het paneel modaal (focus, Escape en de achtergrond regelt de
--- browser) en sluit het bij een klik op de achtergrond. Alleen een klik
--- met het paneel zelf als doel telt: een toetsenbord-klik op een knop
--- erin heeft coordinaten 0,0 en zou anders als "buiten" gelden.
+-- | Opent het paneel modaal en sluit het bij een klik op de achtergrond.
+-- Indrukken en loslaten moeten allebei buiten vallen: een sleep vanuit
+-- het invoerveld telt anders als achtergrondklik. Alleen het paneel zelf
+-- als doel telt, want een toetsenbord-klik op een knop heeft punt 0,0.
 paneelScript :: Text
 paneelScript =
   "(function(){var p=document.getElementById('zelf-verhuizen');"
@@ -110,7 +110,9 @@ paneelScript =
     <> "if(!p||!k||typeof p.showModal!=='function')return;"
     <> "k.addEventListener('click',function(e){e.preventDefault();p.showModal();"
     <> "if(window.gtag){gtag('event','te_duur_geopend');}});"
-    <> "p.addEventListener('click',function(e){if(e.target!==p)return;"
-    <> "var r=p.getBoundingClientRect();"
-    <> "if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom){p.close();}});"
+    <> "function buiten(e){if(e.target!==p)return false;var r=p.getBoundingClientRect();"
+    <> "return e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;}"
+    <> "var ingedruktBuiten=false;"
+    <> "p.addEventListener('pointerdown',function(e){ingedruktBuiten=buiten(e);});"
+    <> "p.addEventListener('click',function(e){if(ingedruktBuiten&&buiten(e)){p.close();}ingedruktBuiten=false;});"
     <> "})();"
