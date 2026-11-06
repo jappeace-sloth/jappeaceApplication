@@ -2,10 +2,12 @@
 
 -- | De aankondiging van de DIY-exporter op de MijnWebwinkel-pagina, als
 -- kaart naast de FAQ, met de nieuwsbrief-aanmelding erin. De aanmelding
--- post naar
--- POST /api/offerte met soort=nieuwsbrief (megavid
+-- post naar POST /api/offerte met soort=nieuwsbrief (megavid
 -- WebshopScanner.OfferteAanvraag): die logt elke aanmelding durabel,
--- mailt hem naar Jappie en haalt de shop uit de koude outreach.
+-- mailt hem naar Jappie en zet de shop in de outreach-ledger, zodat hij
+-- geen koude mail meer krijgt. Een gratis mailadres (gmail en dergelijke)
+-- dat nog niet in de ledger staat, noemt geen shop; dan meldt de
+-- notificatiemail dat het met de hand moet.
 --
 -- Decision: een eigen moduul in plaats van nog een blok in
 -- 'WebwinkelTemplates', dat al ver over de 1000 regels zit.

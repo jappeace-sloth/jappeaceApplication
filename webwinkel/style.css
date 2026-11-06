@@ -726,9 +726,11 @@ footer small a:hover { color: var(--wit); }
    MijnWebwinkel-pagina. De kaart staat in de DOM voor de FAQ (smal
    scherm: direct onder de prijs); breed zet het grid hem rechts. */
 
+/* De FAQ geeft toe, niet de kaart: andersom bleef vlak boven het
+   breekpunt ~100px kaart over en liep de aanmeldknop buiten het scherm. */
 .faq-met-aankondiging {
   display: grid; gap: 2rem 3rem; align-items: start;
-  grid-template-columns: minmax(0, var(--maat-smal)) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 24rem);
 }
 .faq-met-aankondiging .faq-kolom { grid-column: 1; grid-row: 1; }
 .faq-met-aankondiging .aankondiging-kaart { grid-column: 2; grid-row: 1; }
