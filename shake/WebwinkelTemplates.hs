@@ -40,7 +40,7 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
 import Types (SiteConfig(..), Article(..), Lang(..), PaginationInfo(..), articleLastmod)
-import ZelfVerhuizenPaneel (LandingsPagina(..), teDuurKnop, zelfVerhuizenPaneel)
+import ZelfVerhuizenPaneel (LandingsPagina(..), exporterAanmeldUrl, teDuurKnop, welkomstCredits, zelfVerhuizenPaneel)
 import PageChrome
   ( PageMeta(..)
   , defaultPageMeta
@@ -372,7 +372,8 @@ bandSpeelScript =
 -- DOM-node. De offerte- en gesprekknoppen blijven aan de statische
 -- links gebonden: de scanner meldt zijn eigen gesprekknop al via zijn
 -- port, een documentbrede listener zou die dubbel tellen.
--- OfferteForm blijft zonder ports.
+-- OfferteForm blijft zonder ports. exporter_klik telt de doorklik naar
+-- de DIY-exporter; het portaal meet daarna zelf verder.
 ctaTrackScript :: Text
 ctaTrackScript =
   "document.addEventListener('DOMContentLoaded',function(){"
@@ -383,7 +384,7 @@ ctaTrackScript =
     <> "});});}"
     <> "track('a[href=\"/offerte.html\"]','offerte_knop_klik');"
     <> "track('a[href^=\"https://meet.webwinkelverhuis.nl\"]','gesprek_knop_klik');"
-    <> "var routes=[['a[href^=\"https://wa.me/\"]','whatsapp_klik'],['a[href^=\"mailto:\"]','mail_klik'],['a[href^=\"tel:\"]','bel_klik']];"
+    <> "var routes=[['a[href^=\"https://wa.me/\"]','whatsapp_klik'],['a[href^=\"mailto:\"]','mail_klik'],['a[href^=\"tel:\"]','bel_klik'],['a[href^=\"https://klanten.webwinkelverhuis.nl/exporter\"]','exporter_klik']];"
     <> "document.addEventListener('click',function(e){"
     <> "var a=e.target&&e.target.closest?e.target.closest('a'):null;if(!a)return;"
     <> "routes.forEach(function(r){if(a.matches(r[0])&&window.gtag){"
@@ -458,7 +459,9 @@ shopifyPrijzenUrl = "https://www.shopify.com/nl/prijzen"
 -- blijft eerst de volledige migratie verkopen. Overwogen en afgewezen:
 -- een sectie onder de prijs en een kaart naast de FAQ (zag er slecht
 -- uit). De pagina gaat mee als herkomst, zodat we zien voor welk
--- platform de exporter eerst moet groeien.
+-- platform de exporter eerst moet groeien. Waar de exporter live staat
+-- (MijnWebwinkel, 10 nov 2026) wijst hetzelfde paneel naar de exporter
+-- in plaats van naar de nieuwsbrief; zie 'exporterStand'.
 prijzen :: LandingsPagina -> Html
 prijzen pagina = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $ do
   H.div ! A.class_ "prijs-kaart" $ do
@@ -1504,6 +1507,11 @@ mijnwebwinkelFaq =
           <> "). Voor de meeste shops die van MijnWebwinkel komen is Basic voldoende. De actuele prijzen vind je op ")
         H.a ! A.href shopifyPrijzenUrl $ "shopify.com/nl/prijzen"
         "." )
+  , ( "Kan ik mijn shop ook zelf verhuizen?"
+    , faqAnswerHtml $ do
+        "Ja, naar Shopify. Met "
+        H.a ! A.href exporterAanmeldUrl $ "onze exporter"
+        toHtml (" haal je je producten uit MijnWebwinkel als bestand dat je zo in Shopify importeert, en je orders als bestand voor Excel. Je begint met " <> welkomstCredits <> " gratis credits en betaalt daarna alleen voor wat je ophaalt. Het importeren, je thema en de doorverwijzingen voor Google regel je dan zelf.") )
   , ( "Kunnen jullie een website importeren naar Shopify?"
     , faqAnswerText "Ja. Producten, teksten, afbeeldingen, klanten en de categoriestructuur van je bestaande website worden automatisch naar Shopify overgezet, inclusief automatische doorverwijzingen (301-redirects) van al je oude links, zodat je Google-posities meeverhuizen." )
   , ( "Worden spaarpunten ook overgezet?"

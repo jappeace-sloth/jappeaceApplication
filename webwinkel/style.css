@@ -770,7 +770,9 @@ footer small a:hover { color: var(--wit); }
 }
 .nieuwsbrief-formulier .calc-field { flex: 1 1 16rem; }
 .nieuwsbrief-formulier .calc-field input { max-width: none; }
-.nieuwsbrief-noot { color: var(--grijs); font-size: 0.9rem; margin-top: 0.8rem; }
+.zelf-verhuizen-paneel .paneel-knop { margin-top: 1.4rem; }
+.paneel-noot { color: var(--grijs); font-size: 0.9rem; margin-top: 0.8rem; }
+.paneel-noot a { color: inherit; }
 /* Het samengestelde bericht onder de intakevelden (OfferteForm.elm):
    de bezoeker ziet precies wat er verstuurd wordt. */
 .offerte-bericht-voorbeeld {

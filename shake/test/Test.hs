@@ -34,7 +34,7 @@ import qualified Data.ByteString.Char8 as BSC
 import Metadata (parseOrgMeta, resolveSlug)
 import NieuwsbriefAangemeldPagina (nieuwsbriefAangemeldPagina)
 import OndersteuningPage (ondersteuningPage)
-import ZelfVerhuizenPaneel (LandingsPagina(..), herkomstToken)
+import ZelfVerhuizenPaneel (ExporterStand(..), LandingsPagina(..), exporterStand, herkomstToken)
 import PageChrome (WebwinkelSchedulingLinkFout(..), faqAnswerHtml, faqPageJsonLd, humanDateForLang, renderFaqItem, webwinkelSchedulingLinkFout)
 import Templates (renderTagPage, renderIndexPage)
 import Types (Article(..), Lang(..), PaginationInfo(..), defaultSiteConfig)
@@ -237,8 +237,8 @@ main = defaultMain $
         , vierNulVierNoindexEnBuitenSitemap
         , nieuwsbriefBedankpaginaNoindexEnBuitenSitemap
         ]
-    , testGroup "elke landingspagina heeft een werkende Te duur?-aanmelding"
-        (map teDuurAanmeldingVolgtHetEndpoint landingsPaginas)
+    , testGroup "elke landingspagina heeft een werkend Te duur?-paneel"
+        (map teDuurPaneelWerkt landingsPaginas)
     , testGroup "artikelslug volgt de slug-header"
         [ slugHeaderWintVanTitel
         , zonderSlugHeaderVolgtTitel
@@ -348,28 +348,36 @@ landingsPaginas =
   , (ZilverCmsPagina, zilvercmsMigrationPage)
   ]
 
--- | Het formulier is een contract met megavid's POST /api/offerte: een
+-- | Waar de exporter live staat, moet het paneel de bezoeker naar zijn
+-- aanmelding sturen (de route van megavid's klantenportaal) en niet
+-- meer om een nieuwsbrief vragen. Elders is
+-- het formulier een contract met megavid's POST /api/offerte: een
 -- onbekende soort geeft daar een 400, dus elke aanmelding zou verloren
 -- gaan als dit veld afdrijft. De herkomst moet de eigen pagina noemen,
 -- anders wijst de telling per platform naar de verkeerde winkeliers.
-teDuurAanmeldingVolgtHetEndpoint :: (LandingsPagina, Html) -> TestTree
-teDuurAanmeldingVolgtHetEndpoint (landingsPagina, pagina) = testCase (show landingsPagina) $ do
+teDuurPaneelWerkt :: (LandingsPagina, Html) -> TestTree
+teDuurPaneelWerkt (landingsPagina, pagina) = testCase (show landingsPagina) $ do
   let gerenderd = TL.toStrict (renderHtml pagina)
-      formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" gerenderd)))
+      paneel = fst (T.breakOn "</dialog>" (snd (T.breakOn "id=\"zelf-verhuizen\"" gerenderd)))
+      formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" paneel)))
   assertBool "geen Te duur?-knop naar het paneel"
     ("href=\"#zelf-verhuizen\" class=\"te-duur-knop\"" `T.isInfixOf` gerenderd)
-  assertBool "de knop wijst naar een paneel dat er niet is"
-    ("id=\"zelf-verhuizen\"" `T.isInfixOf` gerenderd)
-  assertBool "geen nieuwsbrief-formulier in het paneel" (not (T.null formulier))
-  assertBool "formulier post niet naar /api/offerte" ("action=\"/api/offerte\" method=\"post\"" `T.isInfixOf` formulier)
-  assertBool "formulier stuurt geen soort=nieuwsbrief mee"
-    ("name=\"soort\" value=\"nieuwsbrief\"" `T.isInfixOf` formulier)
-  assertBool "formulier noemt niet de eigen pagina als herkomst"
-    (("name=\"herkomst\" value=\"" <> herkomstToken landingsPagina <> "\"") `T.isInfixOf` formulier)
-  mapM_ (\veld -> assertBool ("formulier mist het verplichte veld " <> T.unpack veld)
-                  (("name=\"" <> veld <> "\"") `T.isInfixOf` formulier))
-    ["email", "shop", "bericht", "website"]
-
+  assertBool "de knop wijst naar een paneel dat er niet is" (not (T.null paneel))
+  case exporterStand landingsPagina of
+    ExporterBeschikbaar -> do
+      assertBool "paneel linkt niet naar de aanmelding van de exporter"
+        ("href=\"https://klanten.webwinkelverhuis.nl/exporter/registreren\"" `T.isInfixOf` paneel)
+      assertBool "paneel vraagt nog om een nieuwsbrief terwijl de exporter er is" (T.null formulier)
+    ExporterBinnenkort -> do
+      assertBool "geen nieuwsbrief-formulier in het paneel" (not (T.null formulier))
+      assertBool "formulier post niet naar /api/offerte" ("action=\"/api/offerte\" method=\"post\"" `T.isInfixOf` formulier)
+      assertBool "formulier stuurt geen soort=nieuwsbrief mee"
+        ("name=\"soort\" value=\"nieuwsbrief\"" `T.isInfixOf` formulier)
+      assertBool "formulier noemt niet de eigen pagina als herkomst"
+        (("name=\"herkomst\" value=\"" <> herkomstToken landingsPagina <> "\"") `T.isInfixOf` formulier)
+      mapM_ (\veld -> assertBool ("formulier mist het verplichte veld " <> T.unpack veld)
+                      (("name=\"" <> veld <> "\"") `T.isInfixOf` formulier))
+        ["email", "shop", "bericht", "website"]
 -- | De dunne taxonomiepagina's (tags/categorieen) dragen "noindex, follow";
 -- de indexpagina moet gewoon indexeerbaar blijven. Dit faalt zowel wanneer
 -- de directive van de tagpagina verdwijnt als wanneer hij per ongeluk op

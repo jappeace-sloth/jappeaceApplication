@@ -1,8 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | De "Te duur?"-knop in de prijskaart van elke landingspagina en het
--- paneel dat hij van rechts laat inschuiven: de aankondiging van de
--- DIY-exporter met een nieuwsbrief-aanmelding. De aanmelding post naar
+-- paneel dat hij van rechts laat inschuiven. Kan de DIY-exporter het
+-- platform van de pagina al uitlezen, dan wijst het paneel ernaartoe;
+-- anders kondigt het hem aan met een nieuwsbrief-aanmelding. Die post naar
 -- POST /api/offerte met soort=nieuwsbrief en de landingspagina als
 -- herkomst (megavid WebshopScanner.OfferteAanvraag): die logt elke
 -- aanmelding durabel, mailt hem naar Jappie en zet de shop in de
@@ -14,6 +15,10 @@
 -- 'WebwinkelTemplates', dat al ver over de 1000 regels zit.
 module ZelfVerhuizenPaneel
   ( LandingsPagina(..)
+  , ExporterStand(..)
+  , exporterStand
+  , exporterAanmeldUrl
+  , welkomstCredits
   , herkomstToken
   , teDuurKnop
   , zelfVerhuizenPaneel
@@ -65,39 +70,97 @@ teDuurKnop :: Html
 teDuurKnop =
   H.a ! A.href "#zelf-verhuizen" ! A.class_ "te-duur-knop" $ "Te duur?"
 
+-- | Of de exporter het platform van een pagina al kan uitlezen. Waar hij
+-- dat kan, wijst het paneel naar de exporter; elders blijft het een
+-- aankondiging met nieuwsbrief.
+data ExporterStand
+  = ExporterBeschikbaar
+  | ExporterBinnenkort
+  deriving (Eq, Show)
+
+exporterStand :: LandingsPagina -> ExporterStand
+exporterStand pagina = case pagina of
+  Homepagina -> ExporterBinnenkort
+  MijnWebwinkelPagina -> ExporterBeschikbaar
+  CcvShopPagina -> ExporterBinnenkort
+  LightspeedPagina -> ExporterBinnenkort
+  MagentoPagina -> ExporterBinnenkort
+  ZilverCmsPagina -> ExporterBinnenkort
+
+-- | De aanmelding van de exporter in megavid's klantenportaal. Een nieuwe
+-- bezoeker heeft nog geen account, en de pagina linkt zelf door naar de
+-- inlog.
+--
+-- Decision: geen utm-parameters op deze link. Het portaal meet in
+-- dezelfde GA4-property (G-GD4S885G6F) als webwinkelverhuis.nl, en utm
+-- op een interne link begint daar een nieuwe sessie met deze pagina als
+-- bron, waardoor de echte herkomst van de bezoeker verloren gaat. De
+-- klik telt als exporter_klik ('WebwinkelTemplates.ctaTrackScript').
+exporterAanmeldUrl :: H.AttributeValue
+exporterAanmeldUrl = "https://klanten.webwinkelverhuis.nl/exporter/registreren"
+
+-- | Megavid's welkomstsaldo (Application.CreditTarief), zoals de
+-- pagina's het beloven; verandert dat, dan dit ook.
+welkomstCredits :: Text
+welkomstCredits = "100"
+
 zelfVerhuizenPaneel :: LandingsPagina -> Html
 zelfVerhuizenPaneel pagina = do
   H.dialog ! A.id "zelf-verhuizen" ! A.class_ "zelf-verhuizen-paneel"
            ! customAttribute "aria-labelledby" "zelf-verhuizen-kop" $ do
     H.form ! A.method "dialog" ! A.class_ "paneel-sluiten-form" $
       H.button ! A.class_ "paneel-sluiten" ! customAttribute "aria-label" "Sluiten" $ H.preEscapedToHtml ("&times;" :: Text)
-    H.p ! A.class_ "aankondiging-label" $ "Binnenkort"
-    H.h2 ! A.id "zelf-verhuizen-kop" $ "Verhuizen voor een lager bedrag?"
-    H.p "We werken aan een hulpmiddel waarmee je zelf je webshop kunt verhuizen."
-    H.p $ toHtml ("Daarmee haal je de gegevens uit " <> bronInZin pagina <> " en zet je ze over naar je nieuwe webshop. Je betaalt alleen voor wat je verhuist, zonder offerte of abonnement.")
-    H.p "Jij voert de verhuizing uit, in plaats van die aan ons uit te besteden. Zo bespaar je op de kosten."
-    H.h3 "Hoor het als eerste"
-    H.p "Meld je aan voor de nieuwsbrief. Je krijgt bericht zodra het hulpmiddel klaar is voor gebruik."
-    H.form ! A.class_ "nieuwsbrief-formulier" ! A.action "/api/offerte" ! A.method "post" $ do
-      H.label ! A.class_ "calc-field" $ do
-        H.span ! A.class_ "calc-label" $ "Je e-mailadres"
-        H.input ! A.type_ "email" ! A.name "email" ! A.required "required"
-                ! A.autocomplete "email" ! A.placeholder "naam@voorbeeld.nl"
-      H.input ! A.type_ "hidden" ! A.name "soort" ! A.value "nieuwsbrief"
-      H.input ! A.type_ "hidden" ! A.name "herkomst" ! A.value (toValue (herkomstToken pagina))
-      -- shop en bericht reizen mee omdat het endpoint ze verwacht; het
-      -- bericht noemt de pagina ook, voor een endpoint dat herkomst nog
-      -- niet kent.
-      H.input ! A.type_ "hidden" ! A.name "shop" ! A.value ""
-      H.input ! A.type_ "hidden" ! A.name "bericht"
-              ! A.value (toValue ("Aanmelding nieuwsbrief via Te duur? op de " <> herkomstToken pagina <> "-pagina"))
-      honeypotVeld
-      H.button ! A.type_ "submit" ! A.class_ "cta-button" $ "Aanmelden"
-    H.p ! A.class_ "nieuwsbrief-noot" $ "Je ontvangt alleen nieuws over Webwinkelverhuis en dit nieuwe hulpmiddel. Afmelden kan altijd door op een nieuwsbrief te antwoorden."
+    case exporterStand pagina of
+      ExporterBeschikbaar -> exporterAanbod pagina
+      ExporterBinnenkort -> exporterAankondiging pagina
   -- Zonder JavaScript kan het paneel niet modaal openen; dan staat het
   -- gewoon in de pagina, waar de knop naartoe springt.
   H.noscript $ H.style ".zelf-verhuizen-paneel{display:block;position:static;width:auto;height:auto;max-height:none;margin:2rem auto 0;animation:none}.paneel-sluiten-form{display:none}"
   H.script $ H.preEscapedToHtml paneelScript
+
+-- | Het productbestand van de exporter is alleen voor Shopify, dus wie
+-- naar een ander platform gaat, wordt naar de volledige migratie
+-- gestuurd.
+exporterAanbod :: LandingsPagina -> Html
+exporterAanbod pagina = do
+  H.p ! A.class_ "aankondiging-label" $ "Nieuw"
+  H.h2 ! A.id "zelf-verhuizen-kop" $ "Verhuizen voor een lager bedrag?"
+  H.p $ toHtml ("Dat kan nu zelf. Je haalt je producten uit " <> bronInZin pagina <> " als bestand dat je zo in Shopify importeert, en je orders met alle orderregels als bestand voor Excel.")
+  H.p $ toHtml ("Je begint met " <> welkomstCredits <> " gratis credits. Daarna betaal je alleen voor wat je ophaalt, zonder offerte of abonnement.")
+  H.p "Het importeren in Shopify doe je zelf, net als de rest van de verhuizing: je thema, je domeinnaam en de doorverwijzingen die je plek in Google bewaren."
+  H.a ! A.href exporterAanmeldUrl ! A.class_ "cta-button paneel-knop" $ "Probeer het gratis"
+  H.p ! A.class_ "paneel-noot" $ do
+    "Het productbestand is voorlopig alleen voor Shopify. Ga je naar een ander platform, of doen wij het liever voor je? "
+    H.a ! A.href "/prijzen.html#rekenhulp" $ "Bereken je prijs voor de volledige migratie"
+    "."
+
+-- | De aanmelding post naar POST /api/offerte met soort=nieuwsbrief en
+-- de landingspagina als herkomst; zie de moduulkop.
+exporterAankondiging :: LandingsPagina -> Html
+exporterAankondiging pagina = do
+  H.p ! A.class_ "aankondiging-label" $ "Binnenkort"
+  H.h2 ! A.id "zelf-verhuizen-kop" $ "Verhuizen voor een lager bedrag?"
+  H.p "We werken aan een hulpmiddel waarmee je zelf je webshop kunt verhuizen."
+  H.p $ toHtml ("Daarmee haal je de gegevens uit " <> bronInZin pagina <> " en zet je ze over naar je nieuwe webshop. Je betaalt alleen voor wat je verhuist, zonder offerte of abonnement.")
+  H.p "Jij voert de verhuizing uit, in plaats van die aan ons uit te besteden. Zo bespaar je op de kosten."
+  H.h3 "Hoor het als eerste"
+  H.p "Meld je aan voor de nieuwsbrief. Je krijgt bericht zodra het hulpmiddel klaar is voor gebruik."
+  H.form ! A.class_ "nieuwsbrief-formulier" ! A.action "/api/offerte" ! A.method "post" $ do
+    H.label ! A.class_ "calc-field" $ do
+      H.span ! A.class_ "calc-label" $ "Je e-mailadres"
+      H.input ! A.type_ "email" ! A.name "email" ! A.required "required"
+              ! A.autocomplete "email" ! A.placeholder "naam@voorbeeld.nl"
+    H.input ! A.type_ "hidden" ! A.name "soort" ! A.value "nieuwsbrief"
+    H.input ! A.type_ "hidden" ! A.name "herkomst" ! A.value (toValue (herkomstToken pagina))
+    -- shop en bericht reizen mee omdat het endpoint ze verwacht; het
+    -- bericht noemt de pagina ook, voor een endpoint dat herkomst nog
+    -- niet kent.
+    H.input ! A.type_ "hidden" ! A.name "shop" ! A.value ""
+    H.input ! A.type_ "hidden" ! A.name "bericht"
+            ! A.value (toValue ("Aanmelding nieuwsbrief via Te duur? op de " <> herkomstToken pagina <> "-pagina"))
+    honeypotVeld
+    H.button ! A.type_ "submit" ! A.class_ "cta-button" $ "Aanmelden"
+  H.p ! A.class_ "paneel-noot" $ "Je ontvangt alleen nieuws over Webwinkelverhuis en dit nieuwe hulpmiddel. Afmelden kan altijd door op een nieuwsbrief te antwoorden."
 
 -- | Opent het paneel modaal en sluit het bij een klik op de achtergrond.
 -- Indrukken en loslaten moeten allebei buiten vallen: een sleep vanuit
