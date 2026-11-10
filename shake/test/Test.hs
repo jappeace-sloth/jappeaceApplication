@@ -34,7 +34,7 @@ import qualified Data.ByteString.Char8 as BSC
 import Metadata (parseOrgMeta, resolveSlug)
 import NieuwsbriefAangemeldPagina (nieuwsbriefAangemeldPagina)
 import OndersteuningPage (ondersteuningPage)
-import ZelfVerhuizenPaneel (ExporterStand(..), LandingsPagina(..), exporterStand, herkomstToken)
+import ZelfVerhuizenPaneel (ExporterStand(..), LandingsPagina(..), herkomstToken)
 import PageChrome (WebwinkelSchedulingLinkFout(..), faqAnswerHtml, faqPageJsonLd, humanDateForLang, renderFaqItem, webwinkelSchedulingLinkFout)
 import Templates (renderTagPage, renderIndexPage)
 import Types (Article(..), Lang(..), PaginationInfo(..), defaultSiteConfig)
@@ -337,15 +337,16 @@ nieuwsbriefBedankpaginaNoindexEnBuitenSitemap = testCase "nieuwsbrief-bedankpagi
   assertBool "bedankpagina belandde in de sitemap"
     (not ("nieuwsbrief-aangemeld" `T.isInfixOf` sitemapUnderTest))
 
--- | Elke pagina met een prijskaart, met de herkomst die ze moet meesturen.
-landingsPaginas :: [(LandingsPagina, Html)]
+-- | Elke pagina met een prijskaart, met het paneel dat ze hoort te tonen:
+-- de exporter alleen waar hij het platform al kan uitlezen.
+landingsPaginas :: [(LandingsPagina, ExporterStand, Html)]
 landingsPaginas =
-  [ (Homepagina, webwinkelIndexPage)
-  , (MijnWebwinkelPagina, mijnwebwinkelMigrationPage)
-  , (CcvShopPagina, ccvshopMigrationPage)
-  , (LightspeedPagina, lightspeedMigrationPage)
-  , (MagentoPagina, magentoMigrationPage)
-  , (ZilverCmsPagina, zilvercmsMigrationPage)
+  [ (Homepagina, ExporterBinnenkort, webwinkelIndexPage)
+  , (MijnWebwinkelPagina, ExporterBeschikbaar, mijnwebwinkelMigrationPage)
+  , (CcvShopPagina, ExporterBinnenkort, ccvshopMigrationPage)
+  , (LightspeedPagina, ExporterBinnenkort, lightspeedMigrationPage)
+  , (MagentoPagina, ExporterBinnenkort, magentoMigrationPage)
+  , (ZilverCmsPagina, ExporterBinnenkort, zilvercmsMigrationPage)
   ]
 
 -- | Waar de exporter live staat, moet het paneel de bezoeker naar zijn
@@ -355,15 +356,15 @@ landingsPaginas =
 -- onbekende soort geeft daar een 400, dus elke aanmelding zou verloren
 -- gaan als dit veld afdrijft. De herkomst moet de eigen pagina noemen,
 -- anders wijst de telling per platform naar de verkeerde winkeliers.
-teDuurPaneelWerkt :: (LandingsPagina, Html) -> TestTree
-teDuurPaneelWerkt (landingsPagina, pagina) = testCase (show landingsPagina) $ do
+teDuurPaneelWerkt :: (LandingsPagina, ExporterStand, Html) -> TestTree
+teDuurPaneelWerkt (landingsPagina, verwachtPaneel, pagina) = testCase (show landingsPagina) $ do
   let gerenderd = TL.toStrict (renderHtml pagina)
       paneel = fst (T.breakOn "</dialog>" (snd (T.breakOn "id=\"zelf-verhuizen\"" gerenderd)))
       formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" paneel)))
   assertBool "geen Te duur?-knop naar het paneel"
     ("href=\"#zelf-verhuizen\" class=\"te-duur-knop\"" `T.isInfixOf` gerenderd)
   assertBool "de knop wijst naar een paneel dat er niet is" (not (T.null paneel))
-  case exporterStand landingsPagina of
+  case verwachtPaneel of
     ExporterBeschikbaar -> do
       assertBool "paneel linkt niet naar de aanmelding van de exporter"
         ("href=\"https://klanten.webwinkelverhuis.nl/exporter/registreren\"" `T.isInfixOf` paneel)

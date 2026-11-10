@@ -16,7 +16,6 @@
 module ZelfVerhuizenPaneel
   ( LandingsPagina(..)
   , ExporterStand(..)
-  , exporterStand
   , exporterAanmeldUrl
   , welkomstCredits
   , herkomstToken
@@ -91,11 +90,12 @@ exporterStand pagina = case pagina of
 -- bezoeker heeft nog geen account, en de pagina linkt zelf door naar de
 -- inlog.
 --
--- Decision: geen utm-parameters op deze link. Het portaal meet in
--- dezelfde GA4-property (G-GD4S885G6F) als webwinkelverhuis.nl, en utm
--- op een interne link begint daar een nieuwe sessie met deze pagina als
--- bron, waardoor de echte herkomst van de bezoeker verloren gaat. De
--- klik telt als exporter_klik ('WebwinkelTemplates.ctaTrackScript').
+-- Decision: geen utm-parameters op deze link. Het portaal laadt geen
+-- gtag.js en leest ze dus niet; het meldt zijn gebeurtenissen vanaf de
+-- server met de _ga- en sessiecookie van de site (megavid
+-- Application.Ga4Meting), zodat ze al in de sessie van deze bezoeker
+-- vallen. De klik zelf telt als exporter_klik
+-- ('WebwinkelTemplates.ctaTrackScript').
 exporterAanmeldUrl :: H.AttributeValue
 exporterAanmeldUrl = "https://klanten.webwinkelverhuis.nl/exporter/registreren"
 
