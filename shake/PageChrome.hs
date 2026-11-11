@@ -16,6 +16,7 @@ module PageChrome
   , companyEmail
   , percentEncodeQuery
   , migratieBasisprijsEuro
+  , vinkjeSvg
   , meetLink
   , webwinkelverhuisMeetLink
   , WebwinkelSchedulingLinkFout(..)
@@ -469,3 +470,9 @@ honeypotVeld =
   H.div ! A.class_ "honeypot-veld" $ H.label $ do
     H.span "Website"
     H.input ! A.type_ "text" ! A.name "website" ! A.tabindex "-1" ! A.autocomplete "off"
+
+-- | Vinkje-icoon, gebruikt in de hero-chip, hero-noot, inpaklijst en
+-- prijs-kaart-garantie. Kleur volgt @currentColor@ van de omliggende regel.
+vinkjeSvg :: Text
+vinkjeSvg =
+  "<svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12.5 9.5 18 20 6.5\"/></svg>"
