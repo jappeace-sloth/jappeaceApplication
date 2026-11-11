@@ -108,9 +108,6 @@ exporterAanmeldUrl = "https://klanten.webwinkelverhuis.nl/exporter/registreren"
 welkomstPunten :: Text
 welkomstPunten = "100"
 
-tariefInPunten :: Text
-tariefInPunten = "4 punten per product, 1 per product voor de doorverwijzingen en 2 per order"
-
 -- | De kaart naast de begeleide migratie, waar de exporter het platform al
 -- kan uitlezen (Jappie, 11 nov 2026: kiezen tussen zelf doen vanaf 0 en
 -- de begeleide migratie vanaf 999). Het productbestand is alleen voor
@@ -122,8 +119,11 @@ doeHetZelfKaart pagina =
     H.p ! A.class_ "prijs" $ do
       H.preEscapedToHtml ("vanaf &euro;0 " :: Text)
       H.small "per export"
-    H.p ! A.class_ "inbegrepen" $ toHtml ("Je haalt je producten uit " <> bronInZin pagina <> " als bestand voor de productimport van Shopify, hun oude adressen als bestand voor de doorverwijzingen, en je orders met alle orderregels als bestand voor Excel.")
-    H.p ! A.class_ "meerprijs" $ toHtml ("Je begint met " <> welkomstPunten <> " gratis punten. Daarna betaal je alleen wat je exporteert: " <> tariefInPunten <> ". Het importeren, je thema en je domein regel je zelf, en het productbestand is voorlopig alleen voor Shopify.")
+    H.ul $ do
+      H.li $ toHtml ("Wij leveren je producten, orders en oude links uit " <> bronInZin pagina <> " als bestanden")
+      H.li "Je importeert ze in Shopify en bouwt je winkel zelf op"
+      H.li "Je betaalt alleen wat je ophaalt"
+      H.li ! A.class_ "let-op" $ "Op eigen risico"
     H.div ! A.class_ "prijs-knoppen" $
       H.a ! A.href exporterAanmeldUrl ! A.class_ "cta-button" $ "Probeer het gratis"
     H.p ! A.class_ "garantie" $ do

@@ -459,26 +459,36 @@ prijzen pagina = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $
     ExporterBeschikbaar ->
       H.div ! A.class_ "prijs-kaarten" $ do
         doeHetZelfKaart pagina
-        begeleideMigratieKaart Nothing
+        begeleideMigratieKaart NaastDoeHetZelf
     ExporterBinnenkort -> do
-      begeleideMigratieKaart (Just teDuurKnop)
+      begeleideMigratieKaart MetTeDuurPaneel
       zelfVerhuizenPaneel pagina
 
--- | Onze migratie vanaf de basisprijs, met de rekenhulp als vervolgstap;
--- de "Te duur?"-knop staat ernaast waar zelf verhuizen nog een
--- aankondiging is.
-begeleideMigratieKaart :: Maybe Html -> Html
-begeleideMigratieKaart teDuur =
+-- | Of de kaart van de begeleide migratie naast die van zelf verhuizen
+-- staat, of alleen met de "Te duur?"-knop.
+data BegeleidePlek = NaastDoeHetZelf | MetTeDuurPaneel
+
+-- | Onze migratie vanaf de basisprijs, in een paar punten (Jappie, 11 nov
+-- 2026: geen uitleg van de hele opbouw); de details staan bij de
+-- rekenhulp.
+begeleideMigratieKaart :: BegeleidePlek -> Html
+begeleideMigratieKaart plek =
   H.div ! A.class_ "prijs-kaart" $ do
     H.p ! A.class_ "wat" $ "Begeleide migratie"
     H.p ! A.class_ "prijs" $ do
       H.preEscapedToHtml ("vanaf &euro;" <> migratieBasisprijsEuro <> " ")
       H.small "eenmalig"
-    H.p ! A.class_ "inbegrepen" $ H.preEscapedToHtml ("De vaste basis: categorie&euml;n, pagina&apos;s, SEO-redirects, standaardthema en de begeleiding. Daarbovenop elk product vanaf 20 cent, en hoe groter je catalogus, hoe goedkoper per product." :: Text)
-    H.p ! A.class_ "meerprijs" $ H.preEscapedToHtml ("Klantaccounts (met hun spaarpunten), bestelgeschiedenis en nieuwsbrief-adressen neem je mee voor &euro;100 per onderdeel tot 1.000 stuks, daarboven per stuk. Extra talen en losse diensten (e-mail-setup, een cursus Shopify, en domeinverhuizing als je domein nog bij je huidige platform staat) hebben een vaste meerprijs." :: Text)
+    H.ul $ do
+      H.li "Wij verhuizen je producten, klanten en orders, en je oude links blijven werken"
+      H.li "Wij dragen het risico"
+      H.li $ case plek of
+        NaastDoeHetZelf -> "Duurder dan zelf doen, maar met garanties"
+        MetTeDuurPaneel -> "Een vaste prijs, met garanties"
     H.div ! A.class_ "prijs-knoppen" $ do
       H.a ! A.href "/prijzen.html#rekenhulp" ! A.class_ "cta-button" $ "Bereken direct je prijs"
-      sequence_ teDuur
+      case plek of
+        NaastDoeHetZelf -> pure ()
+        MetTeDuurPaneel -> teDuurKnop
     H.p ! A.class_ "garantie" $ do
       H.preEscapedToHtml vinkjeSvg
       " Je betaalt pas na een succesvolle migratie"

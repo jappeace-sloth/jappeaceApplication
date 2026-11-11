@@ -560,6 +560,10 @@ main > section ul li strong { font-family: var(--kop); color: var(--navy-diep); 
   gap: clamp(1.2rem, 2.5vw, 2rem); max-width: 60rem; margin-inline: auto;
 }
 .prijs-kaarten .prijs-kaart { max-width: none; margin-inline: 0; text-align: left; }
+/* Naast elkaar zijn de kaarten even hoog; de knoppen staan onderaan, zodat
+   ze op dezelfde hoogte staan, hoe lang de lijst erboven ook is. */
+.prijs-kaarten .prijs-kaart { display: flex; flex-direction: column; }
+.prijs-kaarten .prijs-kaart .prijs-knoppen { margin-top: auto; padding-top: 1.5rem; }
 /* Twee kaarten naast elkaar zijn smaller: zo past "vanaf €999 eenmalig" op een regel. */
 .prijs-kaarten .prijs-kaart .prijs { font-size: clamp(2.2rem, 4vw, 2.7rem); }
 .prijs-kaarten + .engagement-note { max-width: 60rem; margin-inline: auto; }
@@ -569,6 +573,11 @@ main > section ul li strong { font-family: var(--kop); color: var(--navy-diep); 
   content: "\2713"; position: absolute; left: 0;
   color: var(--groen-tekst); font-weight: 700;
 }
+/* De losse, gecentreerde kaart: de lijst als blok in het midden, de regels
+   links uitgelijnd naast hun vinkje. */
+.prijs-sectie > .prijs-kaart ul { width: fit-content; margin-inline: auto; text-align: left; }
+/* Een let-op in een lijst met vinkjes, zoals "Op eigen risico". */
+.prijs-kaart li.let-op::before { content: "\2013"; color: var(--grijs); }
 .prijs-kaart .garantie {
   margin-top: 0.9rem; font-size: 0.92rem; font-weight: 600; color: var(--groen-tekst);
   display: flex; align-items: center; justify-content: center; gap: 0.4rem;
