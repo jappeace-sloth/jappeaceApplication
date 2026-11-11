@@ -1,9 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- | De "Te duur?"-knop in de prijskaart van elke landingspagina en het
--- paneel dat hij van rechts laat inschuiven. Kan de DIY-exporter het
--- platform van de pagina al uitlezen, dan wijst het paneel ernaartoe;
--- anders kondigt het hem aan met een nieuwsbrief-aanmelding. Die post naar
+-- | Zelf verhuizen op de landingspagina's. Kan de DIY-exporter het
+-- platform van de pagina al uitlezen, dan staat hij als eigen prijskaart
+-- naast de begeleide migratie ('doeHetZelfKaart'); anders kondigt een
+-- paneel achter de "Te duur?"-knop hem aan met een nieuwsbrief-aanmelding.
+-- Die post naar
 -- POST /api/offerte met soort=nieuwsbrief en de landingspagina als
 -- herkomst (megavid WebshopScanner.OfferteAanvraag): die logt elke
 -- aanmelding durabel, mailt hem naar Jappie en zet de shop in de
@@ -16,10 +17,12 @@
 module ZelfVerhuizenPaneel
   ( LandingsPagina(..)
   , ExporterStand(..)
+  , exporterStand
   , exporterAanmeldUrl
-  , welkomstCredits
+  , welkomstPunten
   , herkomstToken
   , teDuurKnop
+  , doeHetZelfKaart
   , zelfVerhuizenPaneel
   ) where
 
@@ -28,7 +31,7 @@ import Text.Blaze.Html5 (Html, (!))
 import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
-import PageChrome (customAttribute, honeypotVeld, toHtml, toValue)
+import PageChrome (customAttribute, honeypotVeld, toHtml, toValue, vinkjeSvg)
 
 -- | De pagina's met een prijskaart. De herkomst van een aanmelding laat
 -- zien op welk platform winkeliers de migratie te duur vinden, en dus
@@ -70,8 +73,8 @@ teDuurKnop =
   H.a ! A.href "#zelf-verhuizen" ! A.class_ "te-duur-knop" $ "Te duur?"
 
 -- | Of de exporter het platform van een pagina al kan uitlezen. Waar hij
--- dat kan, wijst het paneel naar de exporter; elders blijft het een
--- aankondiging met nieuwsbrief.
+-- dat kan, staat hij als eigen kaart naast de begeleide migratie; elders
+-- blijft het een aankondiging met nieuwsbrief achter "Te duur?".
 data ExporterStand
   = ExporterBeschikbaar
   | ExporterBinnenkort
@@ -99,40 +102,46 @@ exporterStand pagina = case pagina of
 exporterAanmeldUrl :: H.AttributeValue
 exporterAanmeldUrl = "https://klanten.webwinkelverhuis.nl/exporter/registreren"
 
--- | Megavid's welkomstsaldo (Application.CreditTarief), zoals de
--- pagina's het beloven; verandert dat, dan dit ook.
-welkomstCredits :: Text
-welkomstCredits = "100"
+-- | Megavid's welkomstsaldo en tarief (Application.CreditTarief), zoals de
+-- pagina's ze beloven; verandert daar iets, dan hier ook. Megavid noemt
+-- ze in het portaal punten, dus de site ook.
+welkomstPunten :: Text
+welkomstPunten = "100"
 
+tariefInPunten :: Text
+tariefInPunten = "4 punten per product, 1 per product voor de doorverwijzingen en 2 per order"
+
+-- | De kaart naast de begeleide migratie, waar de exporter het platform al
+-- kan uitlezen (Jappie, 11 nov 2026: kiezen tussen zelf doen vanaf 0 en
+-- de begeleide migratie vanaf 999). Het productbestand is alleen voor
+-- Shopify; wie elders heen gaat, kiest de kaart ernaast.
+doeHetZelfKaart :: LandingsPagina -> Html
+doeHetZelfKaart pagina =
+  H.div ! A.class_ "prijs-kaart" $ do
+    H.p ! A.class_ "wat" $ "Doe-het-zelf migratie"
+    H.p ! A.class_ "prijs" $ do
+      H.preEscapedToHtml ("vanaf &euro;0 " :: Text)
+      H.small "per export"
+    H.p ! A.class_ "inbegrepen" $ toHtml ("Je haalt je producten uit " <> bronInZin pagina <> " als bestand voor de productimport van Shopify, hun oude adressen als bestand voor de doorverwijzingen, en je orders met alle orderregels als bestand voor Excel.")
+    H.p ! A.class_ "meerprijs" $ toHtml ("Je begint met " <> welkomstPunten <> " gratis punten. Daarna betaal je alleen wat je exporteert: " <> tariefInPunten <> ". Het importeren, je thema en je domein regel je zelf, en het productbestand is voorlopig alleen voor Shopify.")
+    H.div ! A.class_ "prijs-knoppen" $
+      H.a ! A.href exporterAanmeldUrl ! A.class_ "cta-button" $ "Probeer het gratis"
+    H.p ! A.class_ "garantie" $ do
+      H.preEscapedToHtml vinkjeSvg
+      " Geen offerte of abonnement"
+
+-- | Voor een pagina waar de exporter het platform nog niet kan uitlezen.
 zelfVerhuizenPaneel :: LandingsPagina -> Html
 zelfVerhuizenPaneel pagina = do
   H.dialog ! A.id "zelf-verhuizen" ! A.class_ "zelf-verhuizen-paneel"
            ! customAttribute "aria-labelledby" "zelf-verhuizen-kop" $ do
     H.form ! A.method "dialog" ! A.class_ "paneel-sluiten-form" $
       H.button ! A.class_ "paneel-sluiten" ! customAttribute "aria-label" "Sluiten" $ H.preEscapedToHtml ("&times;" :: Text)
-    case exporterStand pagina of
-      ExporterBeschikbaar -> exporterAanbod pagina
-      ExporterBinnenkort -> exporterAankondiging pagina
+    exporterAankondiging pagina
   -- Zonder JavaScript kan het paneel niet modaal openen; dan staat het
   -- gewoon in de pagina, waar de knop naartoe springt.
   H.noscript $ H.style ".zelf-verhuizen-paneel{display:block;position:static;width:auto;height:auto;max-height:none;margin:2rem auto 0;animation:none}.paneel-sluiten-form{display:none}"
   H.script $ H.preEscapedToHtml paneelScript
-
--- | Het productbestand van de exporter is alleen voor Shopify, dus wie
--- naar een ander platform gaat, wordt naar de volledige migratie
--- gestuurd.
-exporterAanbod :: LandingsPagina -> Html
-exporterAanbod pagina = do
-  H.p ! A.class_ "aankondiging-label" $ "Nieuw"
-  H.h2 ! A.id "zelf-verhuizen-kop" $ "Verhuizen voor een lager bedrag?"
-  H.p $ toHtml ("Dat kan nu zelf. Je haalt je producten uit " <> bronInZin pagina <> " als bestand dat je zo in Shopify importeert, en je orders met alle orderregels als bestand voor Excel.")
-  H.p $ toHtml ("Je begint met " <> welkomstCredits <> " gratis credits. Daarna betaal je alleen voor wat je ophaalt, zonder offerte of abonnement.")
-  H.p "Het importeren in Shopify doe je zelf, net als de rest van de verhuizing: je thema, je domeinnaam en de doorverwijzingen die je plek in Google bewaren."
-  H.a ! A.href exporterAanmeldUrl ! A.class_ "cta-button paneel-knop" $ "Probeer het gratis"
-  H.p ! A.class_ "paneel-noot" $ do
-    "Het productbestand is voorlopig alleen voor Shopify. Ga je naar een ander platform, of doen wij het liever voor je? "
-    H.a ! A.href "/prijzen.html#rekenhulp" $ "Bereken je prijs voor de volledige migratie"
-    "."
 
 -- | De aanmelding post naar POST /api/offerte met soort=nieuwsbrief en
 -- de landingspagina als herkomst; zie de moduulkop.

@@ -40,9 +40,10 @@ import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
 import Types (SiteConfig(..), Article(..), Lang(..), PaginationInfo(..), articleLastmod)
-import ZelfVerhuizenPaneel (LandingsPagina(..), exporterAanmeldUrl, teDuurKnop, welkomstCredits, zelfVerhuizenPaneel)
+import ZelfVerhuizenPaneel (ExporterStand(..), LandingsPagina(..), doeHetZelfKaart, exporterAanmeldUrl, exporterStand, teDuurKnop, welkomstPunten, zelfVerhuizenPaneel)
 import PageChrome
   ( PageMeta(..)
+  , vinkjeSvg
   , defaultPageMeta
   , toValue
   , toHtml
@@ -300,12 +301,6 @@ menuKnopSvg =
     <> "<line x1=\"3.5\" y1=\"7\" x2=\"20.5\" y2=\"7\"/>"
     <> "<line x1=\"3.5\" y1=\"17\" x2=\"20.5\" y2=\"17\"/></svg>"
 
--- | Vinkje-icoon, gebruikt in de hero-chip, hero-noot, inpaklijst en
--- prijs-kaart-garantie. Kleur volgt @currentColor@ van de omliggende regel.
-vinkjeSvg :: Text
-vinkjeSvg =
-  "<svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12.5 9.5 18 20 6.5\"/></svg>"
-
 -- | Pijl-icoon tussen de haltes van de van-naar-route in de recent-werk-sectie.
 routePijlSvg :: Text
 routePijlSvg =
@@ -447,25 +442,35 @@ shopifyPrijspeil = "augustus 2026"
 shopifyPrijzenUrl :: H.AttributeValue
 shopifyPrijzenUrl = "https://www.shopify.com/nl/prijzen"
 
--- | De gedeelde prijzen-sectie: de prijs-kaart uit het joepa-ontwerp, met de
--- rekenhulp-knop als vervolgstap en de betaal-na-succes-garantie eronder.
--- | De prijskaart van elke landingspagina, met de "Te duur?"-knop naast
--- de rekenhulp.
+-- | De prijzen van elke landingspagina: de begeleide migratie, en zelf
+-- verhuizen.
 --
--- Decision: de DIY-exporter wordt aangekondigd in een paneel achter
--- "Te duur?" (Jappie, 6 nov 2026), niet als vaste sectie: wie bij de
--- prijs afhaakt, is precies de lezer voor wie zelf doen de uitkomst is
--- (jappiesoft strategy/diy-exporter-en-shopify-app.org), en de pagina
--- blijft eerst de volledige migratie verkopen. Overwogen en afgewezen:
--- een sectie onder de prijs en een kaart naast de FAQ (zag er slecht
--- uit). De pagina gaat mee als herkomst, zodat we zien voor welk
--- platform de exporter eerst moet groeien. Waar de exporter live staat
--- (MijnWebwinkel, 10 nov 2026) wijst hetzelfde paneel naar de exporter
--- in plaats van naar de nieuwsbrief; zie 'exporterStand'.
+-- Decision: waar de exporter het platform kan uitlezen (MijnWebwinkel),
+-- staan twee kaarten naast elkaar: de doe-het-zelf migratie vanaf 0 en
+-- de begeleide migratie vanaf 999 (Jappie, 11 nov 2026: de klant kiest).
+-- Elders kondigt een paneel achter "Te duur?" de exporter aan (Jappie, 6
+-- nov 2026): wie bij de prijs afhaakt, is precies de lezer voor wie zelf
+-- doen de uitkomst is (jappiesoft strategy/diy-exporter-en-shopify-app.org).
+-- De pagina gaat daar mee als herkomst, zodat we zien voor welk platform
+-- de exporter eerst moet groeien.
 prijzen :: LandingsPagina -> Html
-prijzen pagina = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $ do
+prijzen pagina = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $
+  case exporterStand pagina of
+    ExporterBeschikbaar ->
+      H.div ! A.class_ "prijs-kaarten" $ do
+        doeHetZelfKaart pagina
+        begeleideMigratieKaart Nothing
+    ExporterBinnenkort -> do
+      begeleideMigratieKaart (Just teDuurKnop)
+      zelfVerhuizenPaneel pagina
+
+-- | Onze migratie vanaf de basisprijs, met de rekenhulp als vervolgstap;
+-- de "Te duur?"-knop staat ernaast waar zelf verhuizen nog een
+-- aankondiging is.
+begeleideMigratieKaart :: Maybe Html -> Html
+begeleideMigratieKaart teDuur =
   H.div ! A.class_ "prijs-kaart" $ do
-    H.p ! A.class_ "wat" $ "Volledige migratie"
+    H.p ! A.class_ "wat" $ "Begeleide migratie"
     H.p ! A.class_ "prijs" $ do
       H.preEscapedToHtml ("vanaf &euro;" <> migratieBasisprijsEuro <> " ")
       H.small "eenmalig"
@@ -473,11 +478,10 @@ prijzen pagina = H.section ! A.class_ "prijs-sectie" ! A.id "prijzen" $ do
     H.p ! A.class_ "meerprijs" $ H.preEscapedToHtml ("Klantaccounts (met hun spaarpunten), bestelgeschiedenis en nieuwsbrief-adressen neem je mee voor &euro;100 per onderdeel tot 1.000 stuks, daarboven per stuk. Extra talen en losse diensten (e-mail-setup, een cursus Shopify, en domeinverhuizing als je domein nog bij je huidige platform staat) hebben een vaste meerprijs." :: Text)
     H.div ! A.class_ "prijs-knoppen" $ do
       H.a ! A.href "/prijzen.html#rekenhulp" ! A.class_ "cta-button" $ "Bereken direct je prijs"
-      teDuurKnop
+      sequence_ teDuur
     H.p ! A.class_ "garantie" $ do
       H.preEscapedToHtml vinkjeSvg
       " Je betaalt pas na een succesvolle migratie"
-  zelfVerhuizenPaneel pagina
 
 
 
@@ -1511,7 +1515,7 @@ mijnwebwinkelFaq =
     , faqAnswerHtml $ do
         "Ja, naar Shopify. Met "
         H.a ! A.href exporterAanmeldUrl $ "onze exporter"
-        toHtml (" haal je je producten uit MijnWebwinkel als bestand dat je zo in Shopify importeert, en je orders als bestand voor Excel. Je begint met " <> welkomstCredits <> " gratis credits en betaalt daarna alleen voor wat je ophaalt. Het importeren, je thema en de doorverwijzingen voor Google regel je dan zelf.") )
+        toHtml (" haal je je producten uit MijnWebwinkel als bestand dat je zo in Shopify importeert, en je orders als bestand voor Excel. Je begint met " <> welkomstPunten <> " gratis punten en betaalt daarna alleen voor wat je ophaalt. Het importeren, je thema en de doorverwijzingen voor Google regel je dan zelf.") )
   , ( "Kunnen jullie een website importeren naar Shopify?"
     , faqAnswerText "Ja. Producten, teksten, afbeeldingen, klanten en de categoriestructuur van je bestaande website worden automatisch naar Shopify overgezet, inclusief automatische doorverwijzingen (301-redirects) van al je oude links, zodat je Google-posities meeverhuizen." )
   , ( "Worden spaarpunten ook overgezet?"

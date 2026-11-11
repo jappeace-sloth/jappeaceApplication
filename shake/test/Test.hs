@@ -237,8 +237,8 @@ main = defaultMain $
         , vierNulVierNoindexEnBuitenSitemap
         , nieuwsbriefBedankpaginaNoindexEnBuitenSitemap
         ]
-    , testGroup "elke landingspagina heeft een werkend Te duur?-paneel"
-        (map teDuurPaneelWerkt landingsPaginas)
+    , testGroup "elke landingspagina biedt zelf verhuizen aan: als kaart of achter Te duur?"
+        (map zelfVerhuizenWerkt landingsPaginas)
     , testGroup "artikelslug volgt de slug-header"
         [ slugHeaderWintVanTitel
         , zonderSlugHeaderVolgtTitel
@@ -337,8 +337,8 @@ nieuwsbriefBedankpaginaNoindexEnBuitenSitemap = testCase "nieuwsbrief-bedankpagi
   assertBool "bedankpagina belandde in de sitemap"
     (not ("nieuwsbrief-aangemeld" `T.isInfixOf` sitemapUnderTest))
 
--- | Elke pagina met een prijskaart, met het paneel dat ze hoort te tonen:
--- de exporter alleen waar hij het platform al kan uitlezen.
+-- | Elke pagina met een prijskaart, met hoe ze zelf verhuizen hoort aan te
+-- bieden: de exporter alleen waar hij het platform al kan uitlezen.
 landingsPaginas :: [(LandingsPagina, ExporterStand, Html)]
 landingsPaginas =
   [ (Homepagina, ExporterBinnenkort, webwinkelIndexPage)
@@ -349,27 +349,32 @@ landingsPaginas =
   , (ZilverCmsPagina, ExporterBinnenkort, zilvercmsMigrationPage)
   ]
 
--- | Waar de exporter live staat, moet het paneel de bezoeker naar zijn
--- aanmelding sturen (de route van megavid's klantenportaal) en niet
--- meer om een nieuwsbrief vragen. Elders is
--- het formulier een contract met megavid's POST /api/offerte: een
--- onbekende soort geeft daar een 400, dus elke aanmelding zou verloren
--- gaan als dit veld afdrijft. De herkomst moet de eigen pagina noemen,
--- anders wijst de telling per platform naar de verkeerde winkeliers.
-teDuurPaneelWerkt :: (LandingsPagina, ExporterStand, Html) -> TestTree
-teDuurPaneelWerkt (landingsPagina, verwachtPaneel, pagina) = testCase (show landingsPagina) $ do
+-- | Waar de exporter live staat, kiest de bezoeker tussen twee kaarten: de
+-- doe-het-zelf migratie naar de aanmelding van de exporter (de route van
+-- megavid's klantenportaal) en de begeleide migratie, zonder "Te duur?"
+-- en zonder nieuwsbrief. Elders is het formulier in het paneel een
+-- contract met megavid's POST /api/offerte: een onbekende soort geeft
+-- daar een 400, dus elke aanmelding zou verloren gaan als dit veld
+-- afdrijft. De herkomst moet de eigen pagina noemen, anders wijst de
+-- telling per platform naar de verkeerde winkeliers.
+zelfVerhuizenWerkt :: (LandingsPagina, ExporterStand, Html) -> TestTree
+zelfVerhuizenWerkt (landingsPagina, verwachtPaneel, pagina) = testCase (show landingsPagina) $ do
   let gerenderd = TL.toStrict (renderHtml pagina)
       paneel = fst (T.breakOn "</dialog>" (snd (T.breakOn "id=\"zelf-verhuizen\"" gerenderd)))
       formulier = fst (T.breakOn "</form>" (snd (T.breakOn "class=\"nieuwsbrief-formulier\"" paneel)))
-  assertBool "geen Te duur?-knop naar het paneel"
-    ("href=\"#zelf-verhuizen\" class=\"te-duur-knop\"" `T.isInfixOf` gerenderd)
-  assertBool "de knop wijst naar een paneel dat er niet is" (not (T.null paneel))
+      kaarten = fst (T.breakOn "</section>" (snd (T.breakOn "class=\"prijs-kaarten\"" gerenderd)))
+      teDuurKnop = "href=\"#zelf-verhuizen\" class=\"te-duur-knop\"" `T.isInfixOf` gerenderd
   case verwachtPaneel of
     ExporterBeschikbaar -> do
-      assertBool "paneel linkt niet naar de aanmelding van de exporter"
-        ("href=\"https://klanten.webwinkelverhuis.nl/exporter/registreren\"" `T.isInfixOf` paneel)
-      assertBool "paneel vraagt nog om een nieuwsbrief terwijl de exporter er is" (T.null formulier)
+      assertBool "de kaarten linken niet naar de aanmelding van de exporter"
+        ("href=\"https://klanten.webwinkelverhuis.nl/exporter/registreren\"" `T.isInfixOf` kaarten)
+      assertBool "de kaarten linken niet naar de rekenhulp van de begeleide migratie"
+        ("href=\"/prijzen.html#rekenhulp\"" `T.isInfixOf` kaarten)
+      assertBool "nog een Te duur?-knop naast de doe-het-zelf kaart" (not teDuurKnop)
+      assertBool "nog een paneel naast de doe-het-zelf kaart" (T.null paneel)
     ExporterBinnenkort -> do
+      assertBool "geen Te duur?-knop naar het paneel" teDuurKnop
+      assertBool "de knop wijst naar een paneel dat er niet is" (not (T.null paneel))
       assertBool "geen nieuwsbrief-formulier in het paneel" (not (T.null formulier))
       assertBool "formulier post niet naar /api/offerte" ("action=\"/api/offerte\" method=\"post\"" `T.isInfixOf` formulier)
       assertBool "formulier stuurt geen soort=nieuwsbrief mee"
