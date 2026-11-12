@@ -35,6 +35,9 @@ ongewijzigde [[https://webwinkelverhuis.nl/blog/waarom-de-meeste-mijnwebwinkel-m
    het linkbestand bij Content → Menu's → URL-omleidingen. De doorverwijzingen
    werken zodra je domein naar Shopify wijst.
 
+Shopify accepteert productbestanden tot 15 MB. Is je bestand groter, exporteer
+dan minder producten per keer.
+
 Laden en kiezen is gratis. Je ziet de exportkosten voordat je akkoord geeft:
 4 punten per product en 1 punt voor de bijbehorende links. De 100 gratis
 welkomstpunten zijn dus genoeg voor 20 producten mét links. Meer punten koop
