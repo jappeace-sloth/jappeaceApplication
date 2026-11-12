@@ -45,12 +45,16 @@ je vanaf €5 (excl. btw) per 100; grotere pakketten zijn voordeliger per punt.
 
 * Zelf doen of laten verhuizen?
 
-De productexport bevat geen voorraad, klanten of orders. Ook links van
-categorie- en informatiepagina's vallen erbuiten. Voor een apart orderarchief
-kun je [[https://webwinkelverhuis.nl/blog/orderregels-uit-mijnwebwinkel-exporteren-voor-gerichte-marketing.html][orderregels naar Excel exporteren]], bijvoorbeeld voor gerichte marketing.
+Naast producten kun je met de exporter ook
+[[https://webwinkelverhuis.nl/blog/orderregels-uit-mijnwebwinkel-exporteren-voor-gerichte-marketing.html][orders met hun orderregels exporteren]], bijvoorbeeld voor gerichte marketing.
+Shopify heeft daarvoor geen ingebouwde CSV-import; orders overzetten kan wel,
+maar vraagt een andere aanpak. Voorraad en klantgegevens zitten niet in het
+Shopify-productbestand, en categorie- en informatiepaginalinks niet in het
+linkbestand.
 
-Wil je ook je klanten, orderhistorie en de links van categorie- en
-informatiepagina's meenemen? Kies dan onze
-[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]].
+Liever minder risico bij je overstap? Bij onze
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]] profiteer je van onze ervaring met webshopmigraties.
+Je hoeft niet zelf alle valkuilen te ontdekken. We kunnen bovendien je klanten,
+orderhistorie en de links van categorie- en informatiepagina's meenemen.
 
 Liever zelf aan de slag? [[https://klanten.webwinkelverhuis.nl/exporter/registreren][Exporteer je eerste 20 producten met links gratis.]]

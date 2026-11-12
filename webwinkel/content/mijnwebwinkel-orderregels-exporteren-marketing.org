@@ -46,7 +46,9 @@ orderregels. Daarna betaal je 2 punten per order. Punten koop je vanaf €5
 * Ook je winkel verhuizen?
 
 Je orderhistorie meenemen naar een ander webshopplatform? Met onze
-[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]] helpen we je overstappen.
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]] helpen we je overstappen. Onze ervaring met
+webshopmigraties helpt je fouten te voorkomen: je hoeft niet zelf alle
+valkuilen te ontdekken.
 
 Ga je naar Shopify en zet je liever zelf je producten over? Gebruik dan de
 [[https://webwinkelverhuis.nl/blog/producten-uit-mijnwebwinkel-exporteren-naar-shopify-zonder-je-links-te-verliezen.html][productexport met bijpassende doorverwijzingen]].
