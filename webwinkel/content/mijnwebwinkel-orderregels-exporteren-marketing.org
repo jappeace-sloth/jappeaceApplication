@@ -45,9 +45,10 @@ orderregels. Daarna betaal je 2 punten per order. Punten koop je vanaf €5
 
 * Ook je winkel verhuizen?
 
-Dit bestand is ook een archief van wie wat kocht. Shopify kan het niet zelf als
-orders importeren. Wil je je orderhistorie in Shopify meenemen, kies dan onze
-[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]]. Zelf je producten overzetten kan met de
+Je orderhistorie meenemen naar een ander webshopplatform? Met onze
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]] helpen we je overstappen.
+
+Ga je naar Shopify en zet je liever zelf je producten over? Gebruik dan de
 [[https://webwinkelverhuis.nl/blog/producten-uit-mijnwebwinkel-exporteren-naar-shopify-zonder-je-links-te-verliezen.html][productexport met bijpassende doorverwijzingen]].
 
 [[https://klanten.webwinkelverhuis.nl/exporter/registreren][Maak een account aan en exporteer je eerste 50 orders gratis naar Excel.]]
