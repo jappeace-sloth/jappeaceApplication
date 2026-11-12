@@ -2,97 +2,52 @@
 #+DATE: 2026-11-12
 #+CATEGORY: migratie
 #+TAGS: mijnwebwinkel, orders, export, e-mailmarketing
-#+SUMMARY: Hoe je uit MijnWebwinkel per order exporteert wie wat kocht, zodat je klanten gericht kunt mailen: met de orderexporter van webwinkelverhuis.nl, in één bestand voor Excel.
+#+SUMMARY: Bekijk wie welk product kocht en maak doelgroepen voor je volgende mailing. Exporteer je eerste 50 MijnWebwinkel-orders gratis naar Excel.
 
-In je orderhistorie staat iets wat geen advertentieplatform je kan vertellen:
-welke klant welk product kocht, hoe vaak, en wanneer voor het laatst. Met die
-kennis mail je de klant die vorig voorjaar tuinzaad kocht zodra het zaaiseizoen
-begint, stuur je de vaste klant van één merk het nieuws over de nieuwe
-collectie, en vraag je wie al een jaar niets bestelde of alles naar wens was.
+Wie kocht vorig voorjaar tuinzaad? Met die klanten wil je contact opnemen als
+het zaaiseizoen begint. Maar de standaard orderexport van MijnWebwinkel bevatte
+bij onze meting in juni 2026 alleen ordertotalen, geen gekochte producten.
+Die moest je per order opzoeken.
 
-Die kennis zit in je MijnWebwinkel-beheer. Alleen krijg je hem er niet zomaar
-uit.
+Onze [[https://klanten.webwinkelverhuis.nl/exporter/registreren][orderexporter]] zet de gekochte producten mét klant en datum in één
+bestand voor Excel. Je eerste 50 orders exporteer je gratis.
 
-* Wat MijnWebwinkel je zelf meegeeft
+* Van aankoop naar mailing
 
-MijnWebwinkel heeft een orderexport in het beheer, maar die geeft per order
-alleen de totalen: wie bestelde, wanneer, en voor hoeveel. Welke producten er
-in een order zaten, staat er niet in; zo zagen we het bij een meting in juni
-2026. Die producten zie je alleen per order, op de pagina van die order in je
-beheer. Voor een handvol orders kun je ze overtikken. Voor een paar jaar aan
-orders niet.
+Elke orderregel krijgt een rij met onder meer productnaam, artikelnummer,
+aantal, prijs en het e-mailadres van de klant. Filter bijvoorbeeld op tuinzaad
+en je hebt de kopers voor je volgende seizoensmailing. Ook order- en
+betaalstatus, kortingen, verzendkosten en adressen gaan mee.
 
-* Elke orderregel in één bestand
+Verwijder dubbele e-mailadressen voordat je een selectie in je mailprogramma
+importeert. Houd rekening met geannuleerde, onbetaalde en terugbetaalde orders.
+Wil je uitgaven per klant optellen? Gebruik de regeltotalen, niet het
+ordertotaal: dat wordt op elke regel van dezelfde order herhaald.
 
-Daarvoor maakten we de [[https://klanten.webwinkelverhuis.nl/exporter/registreren][orderexporter]]. Die logt met jouw inlog in op je
-MijnWebwinkel-beheer, haalt elke order van de periode op die je kiest, en zet
-alles in één bestand dat je in Excel opent. Elke orderregel is een rij: een
-order met drie producten geeft drie rijen, elk met de klant erbij.
+Een aankoop is niet automatisch toestemming voor marketing. Zonder toestemming
+mag je bestaande klanten alleen over je eigen vergelijkbare producten mailen
+als ze zich bij hun bestelling konden afmelden en dat in elke mail opnieuw
+kunnen. Sluit afgemelde klanten uit. Zie ook [[https://wetten.overheid.nl/BWBR0009950][artikel 11.7 van de Telecommunicatiewet]].
+Bewaar het exportbestand veilig en niet langer dan nodig.
 
-Per rij staan erin:
-- het ordernummer, de orderdatum, de status en de betaalstatus;
-- het e-mailadres en de naam van de klant;
-- het artikelnummer, de sku, de productnaam, het aantal, de stukprijs en het
-  regeltotaal;
-- de verzendmethode en verzendkosten, de kortingscode en de korting;
-- de btw en het ordertotaal;
-- het factuuradres en het afleveradres.
+* Zo begin je
 
-* Zo werkt het
+1. [[https://klanten.webwinkelverhuis.nl/exporter/registreren][Maak een account aan]] en koppel je MijnWebwinkel-beheer. Je wachtwoord
+   wordt versleuteld bewaard tot je ontkoppelt.
+2. Kies een periode of alle orders. Tellen is gratis; je ziet de kosten voordat
+   je akkoord geeft.
+3. Download de export en open hem in Excel. Grote exports kunnen uren duren,
+   maar lopen door als je de pagina sluit. Het bestand blijft 30 dagen beschikbaar.
 
-1. Maak een account aan op de [[https://klanten.webwinkelverhuis.nl/exporter/registreren][exporter]]. Je begint met 100 gratis
-   welkomstpunten.
-2. Koppel je winkel met de inlog van je MijnWebwinkel-beheer. We loggen eerst
-   een keer in om te controleren dat die inlog werkt. Het wachtwoord bewaren we
-   versleuteld tot je ontkoppelt.
-3. Kies alle orders of een periode. We tellen ze eerst, en dat tellen is
-   gratis. Daarna zie je wat de export kost: 2 punten per order. Met het
-   welkomstsaldo exporteer je dus 50 orders.
-4. Ga je akkoord, dan haalt de exporter elke order op. Bij een grote winkel
-   kan dat uren duren. Je kunt de pagina gerust sluiten: de export hoort bij je
-   account en loopt door, ook als je uitlogt.
-5. Download het bestand. Het staat 30 dagen voor je klaar.
+Je krijgt 100 welkomstpunten: genoeg voor 50 orders, ongeacht het aantal
+orderregels. Daarna betaal je 2 punten per order. Punten koop je vanaf €5
+(excl. btw) voor 100 punten; grotere pakketten zijn voordeliger per punt.
 
-Heb je meer punten nodig, dan koop je een pakket, vanaf €5 (excl. btw) voor
-100 punten. Hoe groter het pakket, hoe goedkoper elke punt.
+* Ook je winkel verhuizen?
 
-* Van bestand naar doelgroep
+Dit bestand is ook een archief van wie wat kocht. Shopify kan het niet zelf als
+orders importeren. Wil je je orderhistorie in Shopify meenemen, kies dan onze
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]]. Zelf je producten overzetten kan met de
+[[https://webwinkelverhuis.nl/blog/producten-uit-mijnwebwinkel-exporteren-naar-shopify-zonder-je-links-te-verliezen.html][productexport met bijpassende doorverwijzingen]].
 
-In Excel filter je op productnaam of sku, en je hebt meteen de e-mailadressen
-van iedereen die dat product kocht. Een draaitabel op het e-mailadres geeft per
-klant wat hij aan producten uitgaf (de som van de regeltotalen, zonder
-verzendkosten) en zijn laatste orderdatum (het maximum van de orderdatum). Tel
-daar niet het ordertotaal op: dat staat bij elke regel van een order opnieuw.
-Een paar lijsten die je zo maakt:
-- iedereen die een bepaald product of merk kocht, voor een aanvulling of de
-  nieuwe versie;
-- je beste klanten, met de hoogste uitgaven, voor een bedankje of vroege
-  toegang tot een actie;
-- klanten die al lang niets bestelden, om ze terug te halen;
-- wie een bepaalde kortingscode gebruikte, om te zien wat een actie opleverde.
-
-Zo'n lijst lees je in je mailprogramma in als lijst of tag. De gangbare
-programma's kunnen contacten uit een CSV-bestand importeren.
-
-* Mag je al die klanten mailen?
-
-Niet zomaar. Voor marketing per e-mail gelden de regels van [[https://wetten.overheid.nl/BWBR0009950][artikel 11.7 van de
-Telecommunicatiewet]], en de ACM ziet erop toe. In de kern: zonder toestemming
-mail je alleen bestaande klanten, over je eigen vergelijkbare producten, en
-alleen als ze zich bij hun bestelling konden afmelden en dat in elke mail
-opnieuw kunnen. Wie zich afmeldde, haal je uit de lijst. Twijfel je over jouw
-situatie, lees het dan na bij de ACM voordat je verstuurt.
-
-Het bestand bevat ook persoonsgegevens van je klanten. Bewaar het niet langer
-dan je het nodig hebt, en zet het niet op een plek waar anderen erbij kunnen.
-
-* Ook handig als je overstapt
-
-Ga je naar Shopify, neem dit bestand dan mee als archief van wie wat kocht.
-Shopify kan zelf geen orders uit een CSV-bestand importeren, dus in Shopify
-lezen gaat het niet. Wil je je orderhistorie wel in Shopify hebben, dan doen we
-dat bij een [[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]]. Je producten exporteer je zelf, met de
-[[https://webwinkelverhuis.nl/blog/producten-uit-mijnwebwinkel-exporteren-naar-shopify-zonder-je-links-te-verliezen.html][productexport en de links]] uit dezelfde exporter.
-
-Wil je weten wat er in jouw orderhistorie zit? [[https://klanten.webwinkelverhuis.nl/exporter/registreren][Maak een account aan]] en
-exporteer je eerste 50 orders gratis naar Excel.
+[[https://klanten.webwinkelverhuis.nl/exporter/registreren][Maak een account aan en exporteer je eerste 50 orders gratis naar Excel.]]
