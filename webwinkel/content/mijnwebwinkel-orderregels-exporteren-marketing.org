@@ -17,9 +17,10 @@ uit.
 
 MijnWebwinkel heeft een orderexport in het beheer, maar die geeft per order
 alleen de totalen: wie bestelde, wanneer, en voor hoeveel. Welke producten er
-in een order zaten, staat er niet in. Zo zagen we het bij een meting in juni
-2026: de orderregels staan alleen op de factuur van elke order, als pdf. Voor
-een handvol orders kun je die overtikken. Voor een paar jaar aan orders niet.
+in een order zaten, staat er niet in; zo zagen we het bij een meting in juni
+2026. Die producten zie je alleen per order, op de pagina van die order in je
+beheer. Voor een handvol orders kun je ze overtikken. Voor een paar jaar aan
+orders niet.
 
 * Elke orderregel in één bestand
 
@@ -59,10 +60,10 @@ Heb je meer punten nodig, dan koop je een pakket, vanaf €5 (excl. btw) voor
 
 In Excel filter je op productnaam of sku, en je hebt meteen de e-mailadressen
 van iedereen die dat product kocht. Een draaitabel op het e-mailadres geeft per
-klant wat hij aan producten uitgaf (de som van de regeltotalen) en zijn laatste
-orderdatum (het maximum van de orderdatum). Tel daar niet het ordertotaal op:
-dat staat bij elke regel van een order opnieuw. Een paar lijsten die je zo
-maakt:
+klant wat hij aan producten uitgaf (de som van de regeltotalen, zonder
+verzendkosten) en zijn laatste orderdatum (het maximum van de orderdatum). Tel
+daar niet het ordertotaal op: dat staat bij elke regel van een order opnieuw.
+Een paar lijsten die je zo maakt:
 - iedereen die een bepaald product of merk kocht, voor een aanvulling of de
   nieuwe versie;
 - je beste klanten, met de hoogste uitgaven, voor een bedankje of vroege

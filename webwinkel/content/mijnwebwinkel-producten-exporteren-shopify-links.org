@@ -57,12 +57,12 @@ Een product kost hier 1 punt.
 Lees eerst de producten in, en daarna pas de links, want de links wijzen naar
 die producten.
 
-1. Ga in je Shopify-beheer naar Producten en klik op Importeren. Kies het
-   bestand, klik op Uploaden en doorgaan, kijk het overzicht na en klik op
-   Producten importeren. Lees je een bestand later opnieuw in, vink dan
-   Overwrite products with matching handles aan, anders slaat Shopify de
-   producten over die er al zijn. Een bestand mag hoogstens 15 MB zijn; is het
-   groter, exporteer dan minder producten per keer.
+1. Ga in je Shopify-beheer naar Producten en klik op Importeren, en kies het
+   bestand. Lees je een bestand opnieuw in, vink dan eerst Overwrite products
+   with matching handles aan, anders slaat Shopify de producten over die er al
+   zijn. Klik op Uploaden en doorgaan, kijk het overzicht na en klik op
+   Producten importeren. Een bestand mag hoogstens 15 MB zijn; is het groter,
+   exporteer dan minder producten per keer.
 2. Ga naar Content, dan Menu's, en klik op URL-omleidingen. Klik op
    Importeren, voeg het linkbestand toe en klik op Omleidingen importeren.
 
