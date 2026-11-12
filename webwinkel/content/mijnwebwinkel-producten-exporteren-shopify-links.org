@@ -1,0 +1,93 @@
+#+TITLE: Producten uit MijnWebwinkel exporteren naar Shopify, zonder je links te verliezen
+#+DATE: 2026-11-12
+#+CATEGORY: migratie
+#+TAGS: mijnwebwinkel, shopify, producten, redirects, seo
+#+SUMMARY: Hoe je je producten uit MijnWebwinkel exporteert als importbestand voor Shopify, en elke oude productlink laat doorverwijzen naar de nieuwe pagina: met de exporter van webwinkelverhuis.nl.
+
+Wie van MijnWebwinkel naar Shopify gaat, moet twee dingen verhuizen: de
+producten zelf, en de adressen waaronder Google en je klanten die producten
+kennen. Het eerste is veel werk. Het tweede wordt vaak vergeten, en dat kost
+je je plek in Google. Waarom dat zo is, lees je in
+[[https://webwinkelverhuis.nl/blog/waarom-de-meeste-mijnwebwinkel-migraties-hun-google-posities-verliezen.html][waarom de meeste MijnWebwinkel-migraties hun Google-posities verliezen]].
+
+Met de [[https://klanten.webwinkelverhuis.nl/exporter/registreren][exporter van webwinkelverhuis.nl]] doe je allebei zelf, in één keer.
+
+* Je winkel laden
+
+Je vult het adres van je winkel in, bijvoorbeeld www.mijnwinkel.nl. De
+exporter leest je winkel zoals een bezoeker hem ziet: elke categorie met al
+haar producten. Een inlog is daarvoor niet nodig. Een kleine winkel is snel
+klaar, een grote kan een paar uur duren. Je kunt de pagina sluiten, want het
+laden hoort bij je account en loopt door.
+
+Daarna zie je je eigen indeling terug: elke categorie met haar producten, met
+een vinkje per product. Je kiest alles, een paar categorieën of losse
+producten. Staat een product in meer categorieën, dan vink je het overal
+tegelijk aan, en je betaalt het één keer.
+
+* Het productbestand
+
+Het eerste bestand is voor de productimport van Shopify. Titel, beschrijving,
+prijzen, varianten en foto's gaan mee, en de eerste categorie van een product
+wordt een collectie. Voorraad gaat niet mee: die staat niet op de pagina's die
+bezoekers zien.
+
+Een product dat niet te lezen is, gaat niet mee en kost je niets. De exporter
+laat zien welke pagina's dat waren, zodat je ze met de hand kunt nakijken.
+
+Een product kost 4 punten.
+
+* Het linkbestand
+
+Het tweede bestand komt uit dezelfde lading en is voor de redirect-import van
+Shopify. Daarin staat voor elk gekozen product elk oud adres, in elke categorie
+en per variant, met de nieuwe productpagina waar het naartoe moet. Die nieuwe
+pagina heeft dezelfde handle als in het productbestand, dus de twee bestanden
+passen op elkaar.
+
+Dat het per categorie en per variant gaat, is waar het om draait. In
+MijnWebwinkel heeft een product onder elke categorie een eigen adres, en een
+variant ook. Google kent al die adressen. Vergeet je er een paar, dan komen die
+bezoekers op een foutpagina terecht.
+
+Een product kost hier 1 punt.
+
+* Inlezen in Shopify
+
+Lees eerst de producten in, en daarna pas de links, want de links wijzen naar
+die producten.
+
+1. Ga in je Shopify-beheer naar Producten en klik op Importeren. Kies het
+   bestand, klik op Uploaden en doorgaan, kijk het overzicht na en klik op
+   Producten importeren. Lees je een bestand later opnieuw in, vink dan
+   Overwrite products with matching handles aan, anders slaat Shopify de
+   producten over die er al zijn. Een bestand mag hoogstens 15 MB zijn; is het
+   groter, exporteer dan minder producten per keer.
+2. Ga naar Content, dan Menu's, en klik op URL-omleidingen. Klik op
+   Importeren, voeg het linkbestand toe en klik op Omleidingen importeren.
+
+De omleidingen werken zodra je domein naar Shopify wijst. Wie dan een oud adres
+opent, komt op de nieuwe productpagina. Een winkel kan hoogstens 100.000
+omleidingen hebben, behalve op Shopify Plus.
+
+* Wat er niet in zit
+
+De exporter neemt je producten en hun links mee. De links van je categorie- en
+informatiepagina's zitten niet in het linkbestand, en klanten, orders en
+voorraad zitten niet in het productbestand.
+
+Voor je orders is er een aparte export: daarmee
+[[https://webwinkelverhuis.nl/blog/orderregels-uit-mijnwebwinkel-exporteren-voor-gerichte-marketing.html][exporteer je elke orderregel naar Excel]], bijvoorbeeld voor gerichte
+marketing. Wil je dat alles overgaat, ook je klanten, je orderhistorie en de
+links van elke pagina, dan doen we dat bij een
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide verhuizing]].
+
+* Wat het kost
+
+Je begint met 100 gratis welkomstpunten: genoeg voor de productbestanden van 25
+producten. Per product betaal je 4 punten voor het productbestand en 1 punt
+voor de links. Meer punten koop je per pakket, vanaf €5 (excl. btw) voor 100
+punten, en hoe groter het pakket, hoe goedkoper elke punt. Wat een export kost,
+zie je altijd voordat je akkoord geeft.
+
+[[https://klanten.webwinkelverhuis.nl/exporter/registreren][Maak een account aan]] en laad je winkel. Het laden en kiezen kost niets.
