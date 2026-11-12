@@ -95,4 +95,4 @@ dat bij een [[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][begeleide 
 [[https://webwinkelverhuis.nl/blog/producten-uit-mijnwebwinkel-exporteren-naar-shopify-zonder-je-links-te-verliezen.html][productexport en de links]] uit dezelfde exporter.
 
 Wil je weten wat er in jouw orderhistorie zit? [[https://klanten.webwinkelverhuis.nl/exporter/registreren][Maak een account aan]] en
-laat je orders gratis tellen.
+exporteer je eerste 50 orders gratis naar Excel.
