@@ -1,0 +1,165 @@
+#+TITLE: Oude productfoto's te klein voor Google? Gooi ze niet weg, wij maken ze haarscherp
+#+DATE: 2026-11-17
+#+CATEGORY: shopify
+#+TAGS: shopify, productfoto's, google shopping, ai, alt-teksten
+#+SUMMARY: Vanaf 31 januari 2027 eist Google Shopping productfoto's van minstens 500 bij 500 pixels. Wij vergroten je bestaande foto's met AI tot 2048 pixels, haarscherp, tegen een vaste prijs vooraf.
+
+Een webshop die al jaren draait, heeft vaak productfoto's van 300 bij
+300 pixels. Op een telefoon valt dat nauwelijks op, maar zoomt een
+bezoeker in, dan wordt het een wazige vlek. En vanaf 31 januari 2027
+kan Google Shopping zulke foto's weigeren. Duizenden artikelen
+opnieuw fotograferen is geen optie. Gooi je oude foto's niet weg: wij
+maken ze opnieuw scherp.
+
+* Google wil vanaf 31 januari 2027 grotere foto's
+
+Google heeft aangekondigd dat elke productfoto in Merchant Center
+vanaf 31 januari 2027 minstens 500 bij 500 pixels moet zijn, de
+hoofdfoto en de extra foto's. Is de foto kleiner, dan kan Google het
+artikel afkeuren, en dan verschijnt het niet meer in Google Shopping.
+Voor de beste weergave raadt Google zelf 1500 bij 1500 pixels of meer
+aan. Sinds april 2026 zie je in Merchant Center al waarschuwingen met
+de melding "Image too small for upcoming enforcement", met een lijst
+van de artikelen die het betreft.
+
+Google belooft ook een deel van de kleinere foto's zelf te
+optimaliseren, zodat die artikelen niet worden afgekeurd. Welke foto's
+dat zijn, zegt Google niet. En het helpt alleen in Google Shopping: in
+je eigen winkel blijft de foto even klein en wazig.
+
+Dat raakt meer winkels dan je zou denken. Bij een outdoorwinkel die we
+dit najaar van MijnWebwinkel naar Shopify verhuisden, telden we 2.220
+te kleine foto's op 6.272 foto's van actieve artikelen. Bij 868
+artikelen was de hoofdfoto te klein.
+
+Alt-teksten en bestandsnamen tellen voor die eis niet mee, het gaat
+alleen om de maat. Apps die een foto groot genoeg maken door er witte
+randen omheen te zetten, lossen het ook niet op: Google wil geen
+randen om een productfoto, en het ziet er in je winkel niet mooi uit.
+Gewoon uitrekken helpt evenmin, want dan wordt de foto alleen groter
+en niet scherper.
+
+* Wat wij doen: de foto opnieuw laten opbouwen tot 2048 pixels
+
+Wij geven elke te kleine foto aan een AI-model dat beelden maakt, met
+een vaste opdracht: maak hier een scherpe studiofoto van en verander
+niets aan het product. Kleur, vorm, patroon en gaatjes moeten blijven
+zoals op het origineel. Het resultaat is 2048 bij 2048 pixels, de maat die
+Shopify zelf aanraadt voor vierkante productfoto's, en ruim boven wat
+Google vraagt.
+
+Het verschil zie je meteen. Hieronder twee vlindertussenstukken van
+hars uit een kralenwebshop: een foto van 300 bij 300 pixels, links
+zoals een browser hem uitrekt, rechts na het vergroten.
+
+#+BEGIN_EXPORT html
+<figure>
+<img src="/productfoto-vergroten-voor-na.jpg" alt="Twee groene vlindertussenstukken met goudkleurige rand: links de oude foto van 300 pixels, wazig uitgerekt, rechts dezelfde foto na het vergroten, met scherpe randen" />
+<figcaption>Boven de hele foto, onder een uitsnede. Links het origineel van 300 x 300 pixels, rechts dezelfde foto na het vergroten tot 2048 x 2048 pixels: de randen en het goud zijn haarscherp.</figcaption>
+</figure>
+#+END_EXPORT
+
+De oorspronkelijke foto bewaren we bij het artikel. Wil je een foto
+toch terug, dan zetten we het origineel terug.
+
+Je kiest zelf welk model het werk doet. Wij werken met Gemini van
+Google, met OpenAI (het bedrijf achter ChatGPT) en met Claude van
+Anthropic, en met elk ander model dat jij wilt gebruiken. Bij een
+grote catalogus leggen we in een proef de modellen naast elkaar, zodat
+jij kiest wat je het mooiste vindt.
+
+* Het hele verhaal: een kralenwebshop met 20.000 artikelen
+
+Bij een kralenwebshop die we van MijnWebwinkel naar Shopify verhuizen,
+doen we drie dingen met AI, elk met eerst een proef en elk tegen een
+vaste prijs.
+
+** Foto's vergroten
+
+Zo'n 12.500 hoofdfoto's en bijna 3.900 extra foto's waren kleiner dan
+800 pixels, veel zelfs 300 pixels of minder. Eerst maakten we 25
+proeffoto's uit alle afdelingen van de winkel, met Gemini en met OpenAI
+naast het origineel. Zij koos Gemini, en daarmee gaan nu alle foto's in één
+keer door het model.
+
+** Alt-teksten bij elke foto
+
+Een alt-tekst is de korte omschrijving van een foto die een
+schermlezer voorleest en die zoekmachines meelezen. Elke productfoto,
+ruim 35.000, krijgt een eigen korte Nederlandse alt-tekst. Een model
+dat beelden kan lezen, bekijkt de foto met de artikelnaam en de
+omschrijving ernaast. Kleur, materiaal en maat komen alleen uit de
+eigen artikelnaam en omschrijving van de winkelier, nooit uit een gok
+op de foto. We lieten drie modellen van Claude dezelfde foto's
+beschrijven en kozen het model dat de foto's het best las. De
+winkelier keurde eerst 125 proefteksten.
+
+** Productomschrijvingen
+
+Zo'n 10.600 artikelen hadden geen omschrijving, een heel korte, of
+alleen een algemene categorietekst. Die krijgen een nieuwe
+omschrijving, geschreven met de eigen AI-opdracht van de winkelier:
+haar toon, haar indeling met kopjes en haar lijst met woorden die ze
+niet wil zien. Een script controleert die woorden, een tweede model
+leest elke tekst tegen, en wat niet klopt wordt hoogstens twee keer
+herschreven. Goede bestaande teksten blijven staan. Ook hier keurde
+de winkelier eerst een reeks proefteksten.
+
+* Zoals altijd: een vaste prijs vooraf
+
+Ook dit is eenmalig werk zonder abonnement. We tellen vooraf hoeveel
+foto's te klein zijn, en je kent het bedrag voordat je ergens ja op
+zegt. Ter indicatie: 2.200 foto's vergroten kost €299 excl. btw.
+Alt-teksten en omschrijvingen prijzen we op dezelfde manier, per
+winkel en vooraf.
+
+Heb je een Shopify-winkel met oude, kleine foto's, of wil je verhuizen
+en ze meteen laten opknappen?
+[[https://meet.webwinkelverhuis.nl][Plan een vrijblijvend gesprek]]
+of mail naar [[mailto:jappie@webwinkelverhuis.nl][jappie@webwinkelverhuis.nl]].
+We tellen dan voor je uit hoeveel foto's het betreft.
+
+* Veelgestelde vragen
+
+** Wat kost het vergroten van mijn foto's?
+
+Het is eenmalig werk tegen een vaste prijs die je vooraf kent. Ter
+indicatie: 2.200 foto's vergroten kost €299 excl. btw. We tellen
+eerst hoeveel foto's in jouw winkel te klein zijn.
+
+** Verandert de AI mijn product?
+
+De opdracht aan het model is om niets aan het product te veranderen:
+kleur, vorm, patroon en gaatjes moeten blijven zoals op het origineel. De
+oorspronkelijke foto bewaren we bij het artikel, zodat we hem kunnen
+terugzetten.
+
+** Welk AI-model gebruiken jullie?
+
+Het model dat jij kiest. We werken met Gemini van Google, OpenAI en
+Claude van Anthropic, en met andere modellen als je daar de voorkeur
+voor hebt. Bij een grote catalogus leggen we ze in een proef naast
+elkaar.
+
+** Moet ik daarvoor een app of abonnement nemen?
+
+Nee. Wij doen het werk één keer en zetten de nieuwe foto's in je
+winkel. Je betaalt geen maandbedrag.
+
+** Hoe weet ik welke foto's te klein zijn voor Google?
+
+Wij tellen het voor je uit in je winkel. Google laat het ook zelf
+zien: in Merchant Center staat bij "Needs attention" de melding "Image
+too small for upcoming enforcement", met een lijst van de artikelen
+die het betreft.
+
+** Kan dit ook als ik niet bij jullie verhuis?
+
+Ja. Heb je al een Shopify-winkel, dan vergroten we je foto's daar.
+Verhuis je naar Shopify, dan kan het meteen mee in de verhuizing.
+
+#+BEGIN_EXPORT html
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat kost het vergroten van mijn foto's?","acceptedAnswer":{"@type":"Answer","text":"Het is eenmalig werk tegen een vaste prijs die je vooraf kent. Ter indicatie: 2.200 foto's vergroten kost €299 excl. btw. We tellen eerst hoeveel foto's in jouw winkel te klein zijn."}},{"@type":"Question","name":"Verandert de AI mijn product?","acceptedAnswer":{"@type":"Answer","text":"De opdracht aan het model is om niets aan het product te veranderen: kleur, vorm, patroon en gaatjes moeten blijven zoals op het origineel. De oorspronkelijke foto bewaren we bij het artikel, zodat we hem kunnen terugzetten."}},{"@type":"Question","name":"Welk AI-model gebruiken jullie?","acceptedAnswer":{"@type":"Answer","text":"Het model dat jij kiest. We werken met Gemini van Google, OpenAI en Claude van Anthropic, en met andere modellen als je daar de voorkeur voor hebt. Bij een grote catalogus leggen we ze in een proef naast elkaar."}},{"@type":"Question","name":"Moet ik daarvoor een app of abonnement nemen?","acceptedAnswer":{"@type":"Answer","text":"Nee. Wij doen het werk één keer en zetten de nieuwe foto's in je winkel. Je betaalt geen maandbedrag."}},{"@type":"Question","name":"Hoe weet ik welke foto's te klein zijn voor Google?","acceptedAnswer":{"@type":"Answer","text":"Wij tellen het voor je uit in je winkel. Google laat het ook zelf zien: in Merchant Center staat bij \"Needs attention\" de melding \"Image too small for upcoming enforcement\", met een lijst van de artikelen die het betreft."}},{"@type":"Question","name":"Kan dit ook als ik niet bij jullie verhuis?","acceptedAnswer":{"@type":"Answer","text":"Ja. Heb je al een Shopify-winkel, dan vergroten we je foto's daar. Verhuis je naar Shopify, dan kan het meteen mee in de verhuizing."}}]}
+</script>
+#+END_EXPORT
