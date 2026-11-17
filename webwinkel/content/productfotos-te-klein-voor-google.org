@@ -18,9 +18,9 @@ vanaf 31 januari 2027 minstens 500 bij 500 pixels moet zijn, de
 hoofdfoto en de extra foto's. Is de foto kleiner, dan kan Google het
 artikel afkeuren, en dan verschijnt het niet meer in Google Shopping.
 Voor de beste weergave raadt Google zelf 1500 bij 1500 pixels of meer
-aan. Sinds april 2026 zie je in Merchant Center al waarschuwingen met
-de melding "Image too small for upcoming enforcement", met een lijst
-van de artikelen die het betreft.
+aan. Merchant Center waarschuwt nu al met de melding "Image too small
+for upcoming enforcement", met een lijst van de artikelen die het
+betreft.
 
 Google belooft ook een deel van de kleinere foto's zelf te
 optimaliseren, zodat die artikelen niet worden afgekeurd. Die foto's
