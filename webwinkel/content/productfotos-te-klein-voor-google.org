@@ -50,14 +50,14 @@ productfoto's. Andere
 modellen leveren soms een kleinere maat, rond de 1000 pixels, maar ook
 dat is boven wat Google vraagt.
 
-Het verschil zie je meteen. Hieronder twee vlindertussenstukken van
-hars uit een kralenwebshop: een foto van 300 bij 300 pixels, links
-zoals een browser hem uitrekt, rechts na het vergroten met Gemini.
+Het verschil zie je meteen. Hieronder een schoen op een foto van 300
+bij 300 pixels, zoals je die in veel oude webwinkels ziet: links zoals
+een browser hem uitrekt, rechts na het vergroten met Gemini.
 
 #+BEGIN_EXPORT html
 <figure>
-<img src="/productfoto-vergroten-voor-na.jpg" alt="Twee groene vlindertussenstukken met goudkleurige rand: links de oude foto van 300 pixels, wazig uitgerekt, rechts dezelfde foto na het vergroten, met scherpe randen" />
-<figcaption>Boven de hele foto, onder een uitsnede. Links het origineel van 300 x 300 pixels, rechts dezelfde foto na het vergroten met Gemini tot 2048 x 2048 pixels: de randen en het goud zijn haarscherp.</figcaption>
+<img src="/productfoto-vergroten-voor-na.jpg" alt="Een zwarte herenschoen met profielzool: links de oude foto van 300 pixels, wazig uitgerekt, rechts dezelfde foto na het vergroten, met scherpe stiksels, veters en zool" />
+<figcaption>Links de oude foto van 300 x 300 pixels, uitgerekt zoals een browser dat doet. Rechts dezelfde foto na het vergroten met Gemini tot 2048 x 2048 pixels: de stiksels, de veters en het profiel van de zool zijn weer scherp. Foto: Wikipedia-ce op Wikimedia Commons (CC0), door ons verkleind tot 300 x 300 pixels.</figcaption>
 </figure>
 #+END_EXPORT
 
