@@ -2,11 +2,11 @@
 #+DATE: 2026-11-17
 #+CATEGORY: shopify
 #+TAGS: shopify, productfoto's, google shopping, ai
-#+SUMMARY: Laat je producten beter uitkomen met scherpe foto's. Wij knappen je bestaande productfoto's op met AI, zonder nieuwe fotoshoot of abonnement. Eerst een proef, dan een vaste prijs.
+#+SUMMARY: Een mooiere webshop begint bij scherpe productfoto's. Wij knappen je bestaande foto's op, zonder nieuwe fotoshoot of abonnement. Eerst een proef, dan een vaste prijs.
 
 Welke schoen zou jij eerder kopen? Links zie je een foto van 200 bij
 200 pixels, uitgerekt zoals dat in een webshop gebeurt. Rechts dezelfde
-foto nadat we hem met AI hebben vergroot.
+foto nadat we hem hebben opgeknapt.
 
 #+BEGIN_EXPORT html
 <figure>
