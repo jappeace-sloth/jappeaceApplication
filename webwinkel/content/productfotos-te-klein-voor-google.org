@@ -1,0 +1,59 @@
+#+TITLE: Scherpere productfoto's, een mooiere webshop, meer kans op verkoop
+#+DATE: 2026-11-17
+#+CATEGORY: shopify
+#+TAGS: shopify, productfoto's, google shopping, ai
+#+SUMMARY: Laat je producten beter uitkomen met scherpe foto's. Wij knappen je bestaande productfoto's op met AI, zonder nieuwe fotoshoot of abonnement. Eerst een proef, dan een vaste prijs.
+
+Welke schoen zou jij eerder kopen? Links zie je een foto van 200 bij
+200 pixels, uitgerekt zoals dat in een webshop gebeurt. Rechts dezelfde
+foto nadat we hem met AI hebben vergroot.
+
+#+BEGIN_EXPORT html
+<figure>
+<img src="/productfoto-vergroten-voor-na.jpg" alt="Een zwarte herenschoen met profielzool: links de oude foto van 200 pixels, wazig uitgerekt, rechts dezelfde foto na het vergroten, met scherpe stiksels, veters en zool" />
+<figcaption>Van 200 x 200 naar 2048 x 2048 pixels met Gemini. Voor deze demonstratie hebben we de bronfoto eerst verkleind. Foto: Wikipedia-ce op Wikimedia Commons (CC0).</figcaption>
+</figure>
+#+END_EXPORT
+
+Een klant kan je product niet vasthouden. De foto's moeten het werk
+doen. Met scherpe stiksels, duidelijke veters en een zichtbare zool
+ziet die schoen er meteen beter uit. Dat geldt voor je hele winkel:
+goede foto's maken je producten aantrekkelijker en helpen bezoekers
+met vertrouwen te bestellen.
+
+* Je bestaande foto's, maar dan scherp
+
+Je hoeft niet je hele voorraad opnieuw te fotograferen. Wij knappen
+je bestaande foto's op met AI en zetten ze in je Shopify-winkel.
+Dat kan tijdens een verhuizing, maar ook als je al op Shopify zit.
+Met Gemini maken we vierkante foto's van 2048 bij 2048 pixels, zodat
+je klant ook kan inzoomen.
+
+We beginnen met een proef. Jij vergelijkt de resultaten en kiest welk
+model je het mooiste vindt, bijvoorbeeld Gemini of OpenAI. De opdracht
+is om het product niet te veranderen. AI kan toch details verzinnen,
+daarom controleren we de resultaten steekproefsgewijs. De originele
+foto's blijven bewaard.
+
+Zo kozen we bij een kralenwebshop met 20.000 artikelen eerst samen met
+de winkelier de beste resultaten uit 25 proeffoto's. Daarna konden we
+duizenden kleine foto's in één keer aanpakken.
+
+* Een vaste prijs, zonder abonnement
+
+Ter indicatie: 2.200 foto's vergroten kost €299 excl. btw. We tellen
+vooraf hoeveel foto's in jouw winkel een opknapbeurt kunnen gebruiken
+en spreken een vaste prijs af.
+
+Wil je zien wat het voor jouw producten doet?
+[[https://meet.webwinkelverhuis.nl][Plan een vrijblijvend gesprek]]
+of mail naar [[mailto:jappie@webwinkelverhuis.nl][jappie@webwinkelverhuis.nl]].
+
+* Ook klaar voor de nieuwe Google-eis
+
+Vanaf 31 januari 2027 vereist Google Merchant Center productfoto's van
+minstens 500 bij 500 pixels, zowel hoofdfoto's als extra foto's.
+Kleinere foto's kunnen leiden tot afkeuring in Google Shopping.
+Google vergroot een deel zelf, maar alleen binnen Shopping. Door je
+eigen foto's aan te pakken, voldoe je aan die maateis én ziet je
+webshop er beter uit.
