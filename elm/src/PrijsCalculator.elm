@@ -293,8 +293,8 @@ b2bKanaalCenten =
 -- Decision: kassa €500 (Jappie, 12 okt 2026), was €750 met installatie en
 -- reis op aanvraag. Het bedrag dekt onze garantie dat de kassa werkt op de
 -- apparatuur die we vooraf naliepen; zelf inrichten kost niets. Sinds 19 nov
--- 2026 zonder reiskosten: verder dan 30 minuten van Kampen installeert een
--- lokale computerhulp voor ongeveer €250, dus €500 dekt elke locatie.
+-- 2026 zonder reiskosten: verder dan 30 minuten van Kampen rekenen we op een
+-- lokale computerhulp voor ongeveer €250 (een schatting, nog niemand gevonden).
 pointOfSaleCenten : Int
 pointOfSaleCenten =
     50000
