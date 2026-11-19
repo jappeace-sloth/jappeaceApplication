@@ -292,9 +292,9 @@ b2bKanaalCenten =
 
 -- Decision: kassa €500 (Jappie, 12 okt 2026), was €750 met installatie en
 -- reis op aanvraag. Het bedrag dekt onze garantie dat de kassa werkt op de
--- apparatuur die we vooraf naliepen; zelf inrichten kost niets. Reiskosten
--- hangen af van de afstand en gelden pas boven 30 minuten rijden van Kampen,
--- dus geen vast bedrag in de rekenhulp maar een voorbehoud.
+-- apparatuur die we vooraf naliepen; zelf inrichten kost niets. Sinds 19 nov
+-- 2026 zonder reiskosten: verder dan 30 minuten van Kampen rekenen we op een
+-- lokale computerhulp voor ongeveer €250 (een schatting, nog niemand gevonden).
 pointOfSaleCenten : Int
 pointOfSaleCenten =
     50000
@@ -1833,7 +1833,7 @@ pointOfSaleNoot : Bool -> List (Html Msg)
 pointOfSaleNoot pointOfSale =
     if pointOfSale then
         [ p [ Attr.class "calc-note" ]
-            [ text "Kassa/point-of-sale zetten we bij je op locatie op. Ligt je winkel meer dan 30 minuten rijden van Kampen, dan kunnen we reiskosten rekenen. We lopen vooraf je kassa-apparatuur na, zodat je weet wat mee kan en wat vervangen moet. Daarna garanderen we dat de kassa op al die apparaten werkt. Liever zelf inrichten? Dan vink je dit onderdeel uit en betaal je ons er niets voor." ]
+            [ text "Kassa/point-of-sale zetten we bij je op locatie op. We lopen vooraf je kassa-apparatuur na, zodat je weet wat mee kan en wat vervangen moet. Daarna garanderen we dat de kassa op al die apparaten werkt. Liever zelf inrichten? Dan vink je dit onderdeel uit en betaal je ons er niets voor." ]
         ]
 
     else
@@ -2306,9 +2306,8 @@ offerteBody model =
          , "Prijsindicatie (excl. BTW):"
          ]
             ++ List.map prijsRegelTekst (prijsRegels model)
-            ++ [ "Totaal: " ++ formatteerEuro (totaalCenten model) ]
-            ++ pointOfSaleReiskostenRegel model
-            ++ [ ""
+            ++ [ "Totaal: " ++ formatteerEuro (totaalCenten model)
+               , ""
                , "Kun je mij hiervoor een offerte sturen?"
                ]
         )
@@ -2332,16 +2331,6 @@ prijsRegelTekst prijsregel =
         Subregel ->
             "    \u{00B7} " ++ prijsregel.omschrijving ++ ": " ++ formatteerEuro prijsregel.centen
 
-
-{-| Reiskosten-voorbehoud voor point-of-sale, alleen als die gekozen is; het
-staat los van het getoonde totaal. -}
-pointOfSaleReiskostenRegel : Model -> List String
-pointOfSaleReiskostenRegel model =
-    if model.pointOfSale then
-        [ "(Kassa/point-of-sale: ligt de winkel meer dan 30 minuten rijden van Kampen, dan kunnen er reiskosten bijkomen.)" ]
-
-    else
-        []
 
 
 -- MAIN
