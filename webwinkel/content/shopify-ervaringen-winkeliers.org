@@ -15,9 +15,10 @@ beginnen: een bestaande winkel verhuizen. Dan heb je al klanten, oude
 links in Google en een manier van werken die je wilt houden.
 
 Hieronder vier winkels die wij naar Shopify verhuisden, drie vanaf
-MijnWebwinkel en één vanaf CCV Shop en Lightspeed. Wat ze na de
-overstap merkten staat in hun eigen klantverhalen; hier zetten we het
-naast elkaar, met wat beter werd en waar ze tegenaan liepen.
+MijnWebwinkel en één vanaf CCV Shop en Lightspeed. Hun klantverhalen
+gaan vooral over de verhuizing. Hier staat hoe de winkels sindsdien
+draaien, uit wat de winkeliers ons na de livegang schreven: wat beter
+werd en waar ze tegenaan liepen.
 
 Het zijn vroege ervaringen. De oudste verhuizing is van juni 2026, de
 groothandel ging eind oktober live. Hoe het er over een paar jaar bij
@@ -55,10 +56,11 @@ de ondersteuning is beter dan hij op MijnWebwinkel gewend was, en hij
 heeft toegang tot duizenden apps die er eerst niet waren.
 
 Bij Kruidje Roer Me Niet draait de webshop naast de winkel aan de
-toonbank. Ruim een week na de livegang liet Elizabeth weten dat ze er verder
-helemaal uitkwam. Haar vragen daarna gingen over de puntjes op de i,
-zoals de nieuwe Google-recensies die ze actief verzamelt en die op de
-homepage horen te verschijnen. Zoeken werkt nu zoals klanten typen:
+toonbank. Ruim een week na de livegang liet Elizabeth weten dat ze er
+verder helemaal uitkwam; haar laatste vraag toen ging over de nieuwe
+Google-recensies die ze actief verzamelt en die op de homepage horen
+te verschijnen. In november liep ze tegen het pakketpunt aan, zie
+hieronder. Zoeken werkt nu zoals klanten typen:
 de zoekopdracht met twee woorden die op de oude shop niets gaf, vindt
 alle vier de potten streekhoning. Het spaarprogramma telt online mee,
 op hetzelfde saldo als aan de toonbank. Na de eerste echte
@@ -81,7 +83,8 @@ Dat komt niet kant-en-klaar met het abonnement. Shopify zelf maakt
 het sinds
 [[https://changelog.shopify.com/posts/key-b2b-features-now-available-on-non-plus-plans][april 2026]]
 ook op Basic mogelijk om zakelijke klanten als bedrijf aan te maken,
-met een eigen prijslijst en staffels. Voor deze winkel kwam daar bij: ruim
+met zakelijke prijzen en staffels in maximaal drie prijslijsten die
+aan een markt hangen. Een eigen prijslijst per bedrijf blijft Plus. Voor deze winkel kwam daar bij: ruim
 450 zakelijke klanten overgezet als bedrijf, de groothandelsprijzen
 uit Lightspeed in één zakelijke prijslijst, een aanmeldformulier
 waarmee een aanvrager meteen als consument kan bestellen, en een eigen
@@ -90,11 +93,18 @@ bedrijf. Flow is ook op Basic gratis. Voor aparte verzendtarieven per
 klantsoort draait een verzendapp van $7,99 per maand.
 
 Bijna drie weken na de livegang schreef de winkelier dat alles voor nu prima
-loopt en dat hij tevreden is met hoe de webshop draait. Een nieuwe
-zakelijke klant goedkeuren is in zijn dagelijkse werk één label. In de
-eerste dagen bleken nog niet alle zakelijke klanten een bedrijf te
-hebben; die zetten we alsnog over, en een paar gaf hij zelf een bedrijf.
-Oude adressen zonder duidelijke bestemming wijst hij zelf toe.
+loopt en dat hij tevreden is met hoe de webshop draait. De eerste
+dagen gingen minder soepel. Veel bestaande zakelijke klanten konden
+niet inloggen of stonden niet als bedrijf in Shopify: wij hadden alleen
+de klantgroep "B2B klanten" als bedrijf overgezet, en 292 klanten die
+eerder zakelijk bestelden, stonden er als gewone klant. Die zetten we
+binnen een paar dagen alsnog over; zes had hij intussen zelf een
+bedrijf gegeven. Ook het goedkeuringslabel werkte bij hem eerst niet:
+de workflow maakt alleen een bedrijf aan voor wie het aanmeldformulier
+invulde, en bij klanten die hij zelf een label gaf, ontbraken die
+gegevens. Voor nieuwe aanmeldingen via het formulier is goedkeuren nu
+één label. Oude adressen zonder duidelijke bestemming wijst hij zelf
+toe.
 
 * Waar ze tegenaan liepen
 
@@ -114,13 +124,16 @@ lijst vervoerders, zoals DHL Duitsland en Colissimo; DHL in Nederland
 en PostNL staan daar niet bij, en een eigen koppeling in het
 afrekenscherm noemt
 [[https://help.shopify.com/en/manual/fulfillment/setup/delivery-methods/pickup-points][Shopify's uitleg over pakketpunten]]
-alleen voor Plus. We bouwden de keuze daarom op de winkelwagenpagina,
-zodat het Basic-abonnement genoeg bleef. In het dagelijks werk is het
-label nog handwerk: kiest een klant een pakketpunt, dan kijkt Elizabeth
-eerst bij de bestelling en kiest ze het punt daarna zelf in de
-DHL-app. In de eerste drie maanden koos nog geen enkele klant een
-pakketpunt. Of een verzendkoppeling dat werk kan overnemen, bekijkt ze
-zelf.
+alleen voor Plus. We bouwden daarom een keuze op de winkelwagenpagina,
+zodat het Basic-abonnement genoeg bleef. Dat werkte niet helemaal. In
+de eerste drie maanden koos geen enkele klant een pakketpunt, en toen
+Elizabeth in november een testbestelling deed, bleek het gekozen punt
+wel bij de bestelling te staan, maar nam de DHL-app het niet over: die
+koos zelf een ander punt. Nu kiest de klant in de winkelwagen alleen
+óf het pakket naar een DHL-pakketpunt gaat. Elizabeth kiest dan bij
+het label "DHL Servicepoint" en de DHL-app zoekt zelf een punt in de
+buurt. Een punt dat de klant zelf kiest en dat op het label komt, kan
+met een verzendkoppeling als Sendcloud; daar kijkt ze zelf naar.
 
 Inloggen gaat anders. Wachtwoorden verhuizen niet mee: volgens
 [[https://help.shopify.com/en/manual/customers/import-export-customers][Shopify's uitleg over klanten importeren]]
