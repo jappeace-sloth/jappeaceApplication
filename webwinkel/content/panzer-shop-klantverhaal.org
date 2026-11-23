@@ -159,7 +159,10 @@ En het programma dat dit deed is sindsdien alleen maar vaker
 gebruikt: elke nieuwe migratie voegt randgevallen toe die we daarna
 automatisch goed doen.
 
-Staat je winkel ook al jaren "bijna" op het punt te verhuizen?
+Staat je winkel ook al jaren "bijna" op het punt te verhuizen? Zo
+verloopt
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][een verhuizing van MijnWebwinkel naar Shopify]]
+bij ons.
 [[https://meet.webwinkelverhuis.nl][Plan een vrijblijvend gesprek]],
 of bekijk eerst
 [[https://webwinkelverhuis.nl/prijzen.html][wat een migratie kost]].
