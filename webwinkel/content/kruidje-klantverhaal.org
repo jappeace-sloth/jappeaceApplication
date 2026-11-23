@@ -66,9 +66,11 @@ punten tellen voortaan overal.
 * Een pakketpunt kiezen op een Basic-abonnement
 
 Elizabeth verstuurt via DHL en wilde dat klanten een pakketpunt
-kunnen kiezen. Shopify houdt die keuze in het afrekenscherm
-gereserveerd voor de duurdere abonnementen, en een omweg via een
-duurder plan stond niet in verhouding tot de winkel.
+kunnen kiezen. Shopify biedt die keuze in het afrekenscherm zelf alleen
+voor een rijtje vervoerders, zoals DHL Duitsland; DHL in Nederland
+staat daar niet bij. Een eigen koppeling in het afrekenscherm kan
+volgens Shopify alleen op Plus, en dat abonnement stond niet in
+verhouding tot de winkel.
 
 Daarom bouwden we de keuze zelf, op de winkelwagen-pagina: de klant
 zoekt op postcode, kiest uit de dichtstbijzijnde DHL-punten, en de
