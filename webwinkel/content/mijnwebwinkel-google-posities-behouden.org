@@ -1,7 +1,7 @@
 #+TITLE: SEO behouden bij een webshopmigratie: zo houd je je Google-posities
 # Decision: titel van een stelling ("Waarom de meeste MijnWebwinkel-migraties
-# hun Google-posities verliezen") naar de zoekvraag; die titel had van mei tot
-# eind november 2026 geen enkele vertoning (GSC-meting 23 nov). De slug blijft
+# hun Google-posities verliezen") naar de zoekvraag; die titel had van 1 mei
+# t/m 22 nov 2026 geen enkele vertoning (GSC-meting 23 nov). De slug blijft
 # de oude, want andere posts en backlinks wijzen erheen.
 #+SLUG: waarom-de-meeste-mijnwebwinkel-migraties-hun-google-posities-verliezen
 #+DATE: 2026-06-14
