@@ -133,8 +133,8 @@ apps die je nodig hebt. Twijfel je tussen platforms, lees dan ook
 *Wat zijn de nadelen van Shopify?*
 
 De winkels uit dit stuk liepen tegen vier dingen aan: iDEAL pas na
-een beoordelingsperiode, een DHL-pakketpunt in het afrekenscherm alleen
-op Plus, wachtwoorden die niet meeverhuizen en apps die per maand
+een beoordelingsperiode, een pakketpunt van DHL in Nederland in het
+afrekenscherm alleen op Plus, wachtwoorden die niet meeverhuizen en apps die per maand
 kosten.
 
 *Hoe lang duurt een overstap naar Shopify?*
@@ -146,7 +146,7 @@ eerder afliep, en dat lukte.
 
 #+BEGIN_EXPORT html
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Shopify een goede keuze voor een bestaande Nederlandse webshop?","acceptedAnswer":{"@type":"Answer","text":"Deze vier winkels verkopen er nu op, met hun eigen webadres en werkende oude links. Wat het je kost hangt af van de apps die je nodig hebt."}},{"@type":"Question","name":"Wat zijn de nadelen van Shopify?","acceptedAnswer":{"@type":"Answer","text":"De winkels uit dit stuk liepen tegen vier dingen aan: iDEAL pas na een beoordelingsperiode, een DHL-pakketpunt in het afrekenscherm alleen op Plus, wachtwoorden die niet meeverhuizen en apps die per maand kosten."}},{"@type":"Question","name":"Hoe lang duurt een overstap naar Shopify?","acceptedAnswer":{"@type":"Answer","text":"Het technische overzetten duurt uren, maar reken van start tot livegang op ongeveer een maand. Bij Minigigant moest de overstap drie weken eerder dan gepland, omdat het abonnement bij MijnWebwinkel eerder afliep, en dat lukte."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Shopify een goede keuze voor een bestaande Nederlandse webshop?","acceptedAnswer":{"@type":"Answer","text":"Deze vier winkels verkopen er nu op, met hun eigen webadres en werkende oude links. Wat het je kost hangt af van de apps die je nodig hebt."}},{"@type":"Question","name":"Wat zijn de nadelen van Shopify?","acceptedAnswer":{"@type":"Answer","text":"De winkels uit dit stuk liepen tegen vier dingen aan: iDEAL pas na een beoordelingsperiode, een pakketpunt van DHL in Nederland in het afrekenscherm alleen op Plus, wachtwoorden die niet meeverhuizen en apps die per maand kosten."}},{"@type":"Question","name":"Hoe lang duurt een overstap naar Shopify?","acceptedAnswer":{"@type":"Answer","text":"Het technische overzetten duurt uren, maar reken van start tot livegang op ongeveer een maand. Bij Minigigant moest de overstap drie weken eerder dan gepland, omdat het abonnement bij MijnWebwinkel eerder afliep, en dat lukte."}}]}
 </script>
 #+END_EXPORT
 
