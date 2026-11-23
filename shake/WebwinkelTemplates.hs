@@ -1635,8 +1635,8 @@ ccvshopMigrationPage = webwinkelBaseTemplate ccvMeta $
           H.h3 "Productopties en pagina's"
           H.p "Keuzes met meerprijs, zoals een grotere harde schijf erbij, komen in de export als losse producten of helemaal niet; wij zetten ze terug als varianten. Je informatiepagina's en nieuwsberichten nemen we ook mee."
       H.p $ do
-        "Wat er bij een groothandel na zijn eigen import ontbrak, met de cijfers: "
-        H.a ! A.href "/blog/ccv-shop-exporteren-naar-shopify-wat-de-export-niet-meeneemt.html" $ "CCV Shop exporteren naar Shopify: wat de export niet meeneemt"
+        "Zelf producten overgezet? Lees "
+        H.a ! A.href "/blog/ccv-shop-exporteren-naar-shopify-vijf-checks-na-je-import.html" $ "CCV Shop exporteren naar Shopify: vijf checks na je import"
         "."
       H.p $ H.a ! A.href "/prijzen.html?bron=ccv&zelf=ja#rekenhulp" ! A.class_ "cta-button-secondary" $ H.preEscapedToHtml ("Bereken de afronding &rarr;" :: Text)
 
