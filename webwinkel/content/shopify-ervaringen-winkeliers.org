@@ -2,12 +2,13 @@
 #+DATE: 2026-11-24
 #+CATEGORY: migratie
 #+TAGS: shopify, ervaringen, klantverhaal, mijnwebwinkel, ccv shop, lightspeed
-# Decision: alleen ervaringen en citaten die al in de goedgekeurde
-# klantverhalen staan, geen nieuwe uitspraken namens klanten (contentplan
-# idee 32, 23 nov 2026). Feiten over Shopify zelf zijn nagelopen op
-# Shopify's eigen uitleg. De elektronicagroothandel blijft anoniem, zoals in
+# Decision: ervaringen uit de goedgekeurde klantverhalen, aangevuld met
+# wat de winkeliers na de livegang zelf schreven (jappiesoft emails.md per
+# dossier) en, voor Panzer-ShopNL, wat Jappie op 23 nov 2026 van Kevin
+# wist. Letterlijke citaten alleen uit de goedgekeurde verhalen. Feiten over
+# Shopify zelf zijn nagelopen op Shopify's eigen uitleg. De elektronicagroothandel blijft anoniem, zoals in
 # zijn eigen klantverhaal.
-#+SUMMARY: Vier winkels die wij naar Shopify verhuisden, over wat beter werd en waar ze tegenaan liepen: van spaarpunten en zoeken tot iDEAL, wachtwoorden en app-kosten.
+#+SUMMARY: Vier winkels die wij naar Shopify verhuisden, over wat beter werd en waar ze tegenaan liepen: van spaarpunten en zoeken tot iDEAL, pakketpunten en app-kosten.
 
 Dit stuk gaat over een andere Shopify-ervaring dan een nieuwe winkel
 beginnen: een bestaande winkel verhuizen. Dan heb je al klanten, oude
@@ -17,6 +18,10 @@ Hieronder vier winkels die wij naar Shopify verhuisden, drie vanaf
 MijnWebwinkel en één vanaf CCV Shop en Lightspeed. Wat ze na de
 overstap merkten staat in hun eigen klantverhalen; hier zetten we het
 naast elkaar, met wat beter werd en waar ze tegenaan liepen.
+
+Het zijn vroege ervaringen. De oudste verhuizing is van juni 2026, de
+groothandel ging eind oktober live. Hoe het er over een paar jaar bij
+staat, kunnen we nog niet zeggen.
 
 * De vier winkels
 
@@ -37,40 +42,63 @@ is een speelgoedwinkel in Marum met ruim 500 producten, online sinds
 had een consumentenshop op CCV Shop en een groothandel op Lightspeed.
 Sinds eind oktober 2026 is dat één Shopify-shop.
 
-* Wat beter werd
+* Hoe het nu draait
 
-Bij Panzer-ShopNL valt vooral op wie de winkel nu aanpast. Het
-Shopify-thema had een bureau jaren eerder gebouwd, en dat bureau is
-niet meer nodig: de meeste aanpassingen doet de eigenaar nu zelf,
-zonder op iemand te wachten. De winkel is sneller, de ondersteuning
-is beter dan Kevin op MijnWebwinkel gewend was, en hij heeft toegang
-tot duizenden apps die er eerst niet waren.
+Bij Panzer-ShopNL is de overstap terug te zien in de verkoop. Sinds de
+winkel op Shopify draait, komen er veel meer bestellingen binnen, en
+naar onze inschatting had Kevin de kosten van de migratie in de eerste
+maand al terugverdiend. Hij breidt zijn hele bedrijf nu uit, en voegt
+veel functies toe die op MijnWebwinkel niet mogelijk waren. De meeste
+aanpassingen doet hij zelf: het bureau dat jaren eerder zijn
+Shopify-thema bouwde, heeft hij niet meer nodig. De winkel is sneller,
+de ondersteuning is beter dan hij op MijnWebwinkel gewend was, en hij
+heeft toegang tot duizenden apps die er eerst niet waren.
 
-Bij Kruidje Roer Me Niet ging het om zoeken en sparen. Op de oude
-shop gaf een zoekopdracht met twee woorden, bijna letterlijk de naam
-van een product, geen resultaat; op de nieuwe shop vindt dezelfde
-zoekopdracht alle vier de potten streekhoning. Het spaarprogramma van de winkel
-telt nu ook online mee, op hetzelfde saldo als aan de toonbank. En de
-bestellingen lopen vanzelf: bevestigingsmail, pakbon en DHL-label met
-het gekozen pakketpunt. Elizabeth, de eigenaar, na de eerste echte
-klantbestelling: "De afhandeling ging heel makkelijk."
+Bij Kruidje Roer Me Niet draait de webshop naast de winkel aan de
+toonbank. Ruim een week na de livegang liet Elizabeth weten dat ze er verder
+helemaal uitkwam. Haar vragen daarna gingen over de puntjes op de i,
+zoals de nieuwe Google-recensies die ze actief verzamelt en die op de
+homepage horen te verschijnen. Zoeken werkt nu zoals klanten typen:
+de zoekopdracht met twee woorden die op de oude shop niets gaf, vindt
+alle vier de potten streekhoning. Het spaarprogramma telt online mee,
+op hetzelfde saldo als aan de toonbank. Na de eerste echte
+klantbestelling schreef ze: "De afhandeling ging heel makkelijk."
+
+Bij Minigigant richtte Sako de winkel na de overstap zelf verder in.
+Eerst zijn mail, de voorraad bewust later: die wilde hij doen in een
+week dat hij thuis was om de winkel af te maken. In november zette hij zijn eigen
+categorieën op de homepage, in plaats van de voorbeeldtegels van het
+thema. Toen hij akkoord gaf op zijn klantverhaal, schreef hij dat de
+webshop inmiddels redelijk staat zoals hij hem in gedachten had.
 
 Bij de elektronicagroothandel zit de winst in de maandlasten. Hij
 betaalde voor twee platforms; nu is er één Shopify-shop op het
-Basic-abonnement van 28 euro per maand, plus een verzendapp van $7,99
-per maand. Een
-consument en een zakelijke klant bestellen er naast elkaar, elk tegen
-hun eigen prijs, en het goedkeuren van nieuwe zakelijke klanten draait
-in Shopify Flow, dat ook op Basic gratis is.
+Basic-abonnement, dat bij maandelijkse betaling 28 euro per maand
+kost. Een consument en een zakelijke klant bestellen er naast elkaar,
+elk tegen hun eigen prijs.
 
-Bij Minigigant was Shopify vooral de plek waar de winkel op tijd kon
-landen. Sako, de eigenaar, kon na de verhuizing verder met zijn winkel en
-de inrichting, in aanloop naar Sinterklaas en kerst.
+Dat komt niet kant-en-klaar met het abonnement. Shopify zelf maakt
+het sinds
+[[https://changelog.shopify.com/posts/key-b2b-features-now-available-on-non-plus-plans][april 2026]]
+ook op Basic mogelijk om zakelijke klanten als bedrijf aan te maken,
+met een eigen prijslijst en staffels. Voor deze winkel kwam daar bij: ruim
+450 zakelijke klanten overgezet als bedrijf, de groothandelsprijzen
+uit Lightspeed in één zakelijke prijslijst, een aanmeldformulier
+waarmee een aanvrager meteen als consument kan bestellen, en een eigen
+workflow in Shopify Flow die een goedgekeurde aanvraag omzet in een
+bedrijf. Flow is ook op Basic gratis. Voor aparte verzendtarieven per
+klantsoort draait een verzendapp van $7,99 per maand.
+
+Bijna drie weken na de livegang schreef de winkelier dat alles voor nu prima
+loopt en dat hij tevreden is met hoe de webshop draait. Een nieuwe
+zakelijke klant goedkeuren is in zijn dagelijkse werk één label. In de
+eerste dagen bleken nog niet alle zakelijke klanten een bedrijf te
+hebben; die zetten we alsnog over, en een paar gaf hij zelf een bedrijf.
+Oude adressen zonder duidelijke bestemming wijst hij zelf toe.
 
 * Waar ze tegenaan liepen
 
-Shopify is geen alles-in-één-pakket zoals de oude platforms, en dat
-merkten de winkels op een paar punten.
+Op een paar punten werkte Shopify anders dan de winkels gewend waren.
 
 iDEAL via Shopify's eigen betaalsysteem gaat bij een nieuwe winkel pas
 open na een beoordelingsperiode. Een winkel die tot de livegang achter een
@@ -87,14 +115,20 @@ en PostNL staan daar niet bij, en een eigen koppeling in het
 afrekenscherm noemt
 [[https://help.shopify.com/en/manual/fulfillment/setup/delivery-methods/pickup-points][Shopify's uitleg over pakketpunten]]
 alleen voor Plus. We bouwden de keuze daarom op de winkelwagenpagina,
-zodat het Basic-abonnement genoeg bleef.
+zodat het Basic-abonnement genoeg bleef. In het dagelijks werk is het
+label nog handwerk: kiest een klant een pakketpunt, dan kijkt Elizabeth
+eerst bij de bestelling en kiest ze het punt daarna zelf in de
+DHL-app. In de eerste drie maanden koos nog geen enkele klant een
+pakketpunt. Of een verzendkoppeling dat werk kan overnemen, bekijkt ze
+zelf.
 
-Wachtwoorden verhuizen niet mee. Volgens
+Inloggen gaat anders. Wachtwoorden verhuizen niet mee: volgens
 [[https://help.shopify.com/en/manual/customers/import-export-customers][Shopify's uitleg over klanten importeren]]
-kun je ze niet met een importbestand uit een andere webshop meenemen. De klantaccounts
-gaan wel mee; klanten kiezen bij hun eerste bezoek een nieuw
-wachtwoord, en zakelijke klanten loggen bij Shopify in met een code
-per mail.
+kun je ze niet met een importbestand uit een andere webshop meenemen.
+De klantaccounts gaan wel mee. Alle vier de winkels gebruiken de
+klantaccounts van Shopify waarbij je inlogt met een eenmalige code
+per mail, dus een klant hoeft geen nieuw wachtwoord te kiezen; hij
+vraagt bij het inloggen een code aan.
 
 Wat in het oude pakket zat, komt op Shopify vaak uit een app, en een
 app kost meestal per maand. Daar schreven we een apart stuk over:
@@ -123,19 +157,25 @@ planning drie weken naar voren, en Sako schreef ons daarna:
 
 * Veelgestelde vragen
 
-*Is Shopify een goede keuze voor een bestaande Nederlandse webshop?*
+*Wanneer past Shopify bij een bestaande Nederlandse webshop?*
 
-Deze vier winkels verkopen er nu op, met hun eigen webadres en
-werkende oude links. Wat het je kost hangt af van de
-apps die je nodig hebt. Twijfel je tussen platforms, lees dan ook
+Kijk naar wat het bij deze winkels opleverde: de winkel zelf
+aanpassen zonder bureau, functies die het oude platform niet had (een
+spaarprogramma dat online meetelt, consumenten en zakelijke klanten in
+één shop) en minder vaste lasten dan twee platforms. Heb je zulke
+wensen, dan is Shopify het bekijken waard. Reken
+ook de keerzijde door: wat in je oude pakket zat, komt op Shopify vaak
+uit een app die per maand kost, en een pakketpunt van DHL in
+Nederland zit niet in Shopify's eigen pakketpuntkeuze. Twijfel je
+tussen platforms, lees dan ook
 [[https://webwinkelverhuis.nl/blog/mijnwebwinkel-vs-shopify-een-eerlijke-vergelijking-voor-nederlandse-webshops.html][onze vergelijking van MijnWebwinkel en Shopify]].
 
 *Wat zijn de nadelen van Shopify?*
 
 De winkels uit dit stuk liepen tegen vier dingen aan: iDEAL pas na
-een beoordelingsperiode, een pakketpunt van DHL in Nederland in het
-afrekenscherm alleen op Plus, wachtwoorden die niet meeverhuizen en apps die per maand
-kosten.
+een beoordelingsperiode, geen pakketpunt van DHL in Nederland in
+Shopify's eigen pakketpuntkeuze, wachtwoorden die niet meeverhuizen
+en apps die per maand kosten.
 
 *Hoe lang duurt een overstap naar Shopify?*
 
@@ -146,7 +186,7 @@ eerder afliep, en dat lukte.
 
 #+BEGIN_EXPORT html
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Shopify een goede keuze voor een bestaande Nederlandse webshop?","acceptedAnswer":{"@type":"Answer","text":"Deze vier winkels verkopen er nu op, met hun eigen webadres en werkende oude links. Wat het je kost hangt af van de apps die je nodig hebt."}},{"@type":"Question","name":"Wat zijn de nadelen van Shopify?","acceptedAnswer":{"@type":"Answer","text":"De winkels uit dit stuk liepen tegen vier dingen aan: iDEAL pas na een beoordelingsperiode, een pakketpunt van DHL in Nederland in het afrekenscherm alleen op Plus, wachtwoorden die niet meeverhuizen en apps die per maand kosten."}},{"@type":"Question","name":"Hoe lang duurt een overstap naar Shopify?","acceptedAnswer":{"@type":"Answer","text":"Het technische overzetten duurt uren, maar reken van start tot livegang op ongeveer een maand. Bij Minigigant moest de overstap drie weken eerder dan gepland, omdat het abonnement bij MijnWebwinkel eerder afliep, en dat lukte."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wanneer past Shopify bij een bestaande Nederlandse webshop?","acceptedAnswer":{"@type":"Answer","text":"Kijk naar wat het bij deze winkels opleverde: de winkel zelf aanpassen zonder bureau, functies die het oude platform niet had (een spaarprogramma dat online meetelt, consumenten en zakelijke klanten in één shop) en minder vaste lasten dan twee platforms. Heb je zulke wensen, dan is Shopify het bekijken waard. Reken ook de keerzijde door: wat in je oude pakket zat, komt op Shopify vaak uit een app die per maand kost, en een pakketpunt van DHL in Nederland zit niet in Shopify's eigen pakketpuntkeuze."}},{"@type":"Question","name":"Wat zijn de nadelen van Shopify?","acceptedAnswer":{"@type":"Answer","text":"De winkels uit dit stuk liepen tegen vier dingen aan: iDEAL pas na een beoordelingsperiode, geen pakketpunt van DHL in Nederland in Shopify's eigen pakketpuntkeuze, wachtwoorden die niet meeverhuizen en apps die per maand kosten."}},{"@type":"Question","name":"Hoe lang duurt een overstap naar Shopify?","acceptedAnswer":{"@type":"Answer","text":"Het technische overzetten duurt uren, maar reken van start tot livegang op ongeveer een maand. Bij Minigigant moest de overstap drie weken eerder dan gepland, omdat het abonnement bij MijnWebwinkel eerder afliep, en dat lukte."}}]}
 </script>
 #+END_EXPORT
 
