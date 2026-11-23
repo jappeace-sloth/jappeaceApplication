@@ -33,9 +33,9 @@ de basisuitvoering bestellen.
 De CCV-shop had 181 categorieën. In Shopify stonden 86 collecties, en
 van de 3.297 producten in de nieuwe winkel, waar ook de
 groothandelsartikelen al in stonden, zaten er 1.878 in geen enkele
-collectie. Bij 1.406 producten stond de CCV-categorie als label op het
-product. Een label is nog geen collectie: die maak je in Shopify zelf
-aan en vul je zelf.
+collectie. Waar de CCV-categorie wel meekwam, stond hij als label op
+het product. Een label is nog geen collectie: die maak je in Shopify
+zelf aan en vul je zelf.
 
 Een product zonder collectie staat wel in je winkel, maar binnen de
 winkel vindt een klant het alleen via de zoekbalk. Bladeren door de
@@ -45,8 +45,9 @@ categorieën, zoals in de CCV-shop, werkt voor dat product niet meer.
 
 De producten waren twee keer geïmporteerd. De eerste keer kreeg een
 product het artikelnummer als webadres, de tweede keer de
-productnaam, met meer foto's en de categorielabels. Zo stonden er 946
-paren dubbel in de winkel, met hetzelfde artikelnummer.
+productnaam, met meer foto's en de categorielabels. Zo stonden er 928
+producten uit de CCV-shop twee keer in de winkel, met hetzelfde
+artikelnummer.
 
 Dat lijkt onschuldig, maar de oude kopie was niet altijd alleen
 armer. Een netwerkkabel van 30 meter stond er voor 24,95 euro en
@@ -109,8 +110,9 @@ de productnaam met de winkelnaam erachter, en zo zet Shopify het
 standaard ook.
 Bij 7 van de 39 producten en 18 van de 40 categorieën was de
 beschrijving voor Google de slogan van de winkel, geen eigen tekst.
-Er was dus weinig eigen SEO-tekst om te verliezen. Bij onze controle
-in oktober had geen enkel product een leeg SEO-veld.
+Er was dus weinig eigen SEO-tekst om te verliezen. Bij de producten
+die we in oktober aan een oud adres koppelden, waren de SEO-titel en
+-beschrijving al ingevuld.
 
 Kijk dit bij je eigen shop wel na voordat je ervan uitgaat. Heb je
 in CCV per product een eigen titel en beschrijving voor Google
