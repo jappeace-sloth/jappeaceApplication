@@ -1,10 +1,10 @@
-#+TITLE: Klantverhaal: Mini Gigant drie weken eerder over naar Shopify
-#+DATE: 2026-09-01
+#+TITLE: Klantverhaal: Minigigant drie weken eerder over naar Shopify
+#+DATE: 2026-11-23
 #+CATEGORY: migratie
 #+TAGS: mijnwebwinkel, shopify, klantverhaal
-#+SUMMARY: Drie weken eerder over dan gepland: toen Mini Gigant onverwacht haast kreeg, brachten we de verhuizing naar Shopify naar voren. Webshop, webadres en e-mail waren voor de deadline verhuisd.
+#+SUMMARY: Drie weken eerder over dan gepland: toen Minigigant onverwacht haast kreeg, brachten we de verhuizing naar Shopify naar voren. Webshop, webadres en e-mail waren voor de deadline verhuisd.
 
-De verhuizing van [[https://minigigant.nl/][Mini Gigant]] naar Shopify moest plotseling drie weken
+De verhuizing van [[https://minigigant.nl/][Minigigant]] naar Shopify moest plotseling drie weken
 eerder klaar zijn. We pasten de planning aan en op 31 augustus stond
 de nieuwe webshop online, drie dagen voordat het abonnement bij
 MijnWebwinkel afliep. Ook het webadres en de e-mail waren op tijd
@@ -24,7 +24,7 @@ daarna de nieuwe winkel openen.
 
 * Snel over, met de winkelgegevens mee
 
-Mini Gigant verkoopt al sinds 2009 online. Bij de verhuizing ging
+Minigigant verkoopt al sinds 2009 online. Bij de verhuizing ging
 het dus om meer dan een nieuwe winkel neerzetten. We namen mee:
 
 - ruim 500 producten met hun teksten, prijzen en foto's;

@@ -761,7 +761,7 @@ waaromPuntRij punt = H.div $ do
   H.dd (toHtml (waaromPuntTekst punt))
 
 -- | The shared "Recent werk" proof section: the Panzer-ShopNL, Kruidje
--- Roer Me Niet and Mini Gigant migrations, each linking to the
+-- Roer Me Niet and Minigigant migrations, each linking to the
 -- case-study blog post and the live shop. Shown on the index page and
 -- the MijnWebwinkel migration page.
 recentWerkSection :: Html
@@ -818,10 +818,10 @@ recentWerkSection =
         H.div ! A.class_ "label" $ "voor de deadline live"
     H.div ! A.class_ "case-tekst" $
       H.p $ do
-        H.strong "Mini Gigant"
+        H.strong "Minigigant"
         H.preEscapedToHtml (": toen de verhuizing plotseling drie weken eerder klaar moest zijn, pasten we de planning aan. Deze speelgoedwinkel uit Marum ging op tijd over naar Shopify, met de producten, beoordelingen, het vertrouwde webadres en de e-mail." :: Text)
     H.div ! A.class_ "case-links" $ do
-      H.a ! A.href "/blog/klantverhaal-mini-gigant-drie-weken-eerder-over-naar-shopify.html" $ H.preEscapedToHtml ("Lees het klantverhaal &rarr;" :: Text)
+      H.a ! A.href "/blog/klantverhaal-minigigant-drie-weken-eerder-over-naar-shopify.html" $ H.preEscapedToHtml ("Lees het klantverhaal &rarr;" :: Text)
       H.a ! A.href "https://minigigant.nl/" $ H.preEscapedToHtml ("minigigant.nl &rarr;" :: Text)
 
 appPage :: Html
