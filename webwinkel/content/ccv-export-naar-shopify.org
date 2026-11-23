@@ -1,0 +1,175 @@
+#+TITLE: CCV Shop exporteren naar Shopify: wat de export niet meeneemt
+#+DATE: 2026-11-23
+#+CATEGORY: migratie
+#+TAGS: ccv shop, shopify, export, redirects, migratie
+#+SUMMARY: Je CCV-producten zelf naar Shopify halen kan. Bij een groothandel die het deed, misten daarna productopties, categorieën, pagina's en de oude webadressen. Zo controleer je dat.
+
+CCV Shop heeft een productexport, en Shopify importeert die. Veel
+winkeliers zetten zo hun producten zelf over. Dat deed ook de
+elektronicagroothandel uit
+[[https://webwinkelverhuis.nl/blog/klantverhaal-van-ccv-en-lightspeed-naar-een-shopify-shop-met-b2b.html][ons klantverhaal over CCV, Lightspeed en B2B]]:
+toen hij bij ons aanklopte, stonden zijn producten al in Shopify.
+
+Wij hebben toen gemeten wat er in de nieuwe winkel stond en wat er op
+de oude CCV-shop nog online stond. De producten zelf waren er. Wat
+ontbrak, zie je niet meteen als je door je nieuwe winkel klikt, maar
+je klanten en Google merken het wel. Dit zijn de vijf dingen die
+misten, met de cijfers van deze winkel.
+
+* Productopties met een meerprijs
+
+In CCV kun je een product een keuzemenu geven, elk met een eigen
+meerprijs. Deze winkel verkocht bijvoorbeeld een ontvanger met de
+keuze uit drie harde schijven: 500, 1000 of 2000 GB, voor 50, 70 of
+100 euro extra. In een steekproef van 40 productpagina's hadden er 6
+zo'n keuzemenu, dus ongeveer één op de zeven producten.
+
+In Shopify had elk product precies één variant. De keuze was weg, en
+daarmee ook de meerprijs. Een klant kon die ontvanger alleen nog in
+de basisuitvoering bestellen.
+
+* Categorieën
+
+De CCV-shop had 181 categorieën. In Shopify stonden 86 collecties, en
+van de 3.297 producten in de nieuwe winkel, waar ook de
+groothandelsartikelen al in stonden, zaten er 1.878 in geen enkele
+collectie. Bij 1.406 producten stond de CCV-categorie als label op het
+product. Een label is nog geen collectie: die maak je in Shopify zelf
+aan en vul je zelf.
+
+Een product zonder collectie staat wel in je winkel, maar binnen de
+winkel vindt een klant het alleen via de zoekbalk. Bladeren door de
+categorieën, zoals in de CCV-shop, werkt voor dat product niet meer.
+
+* Dubbele producten na een tweede import
+
+De producten waren twee keer geïmporteerd. De eerste keer kreeg een
+product het artikelnummer als webadres, de tweede keer de
+productnaam, met meer foto's en de categorielabels. Zo stonden er 946
+paren dubbel in de winkel, met hetzelfde artikelnummer.
+
+Dat lijkt onschuldig, maar de oude kopie was niet altijd alleen
+armer. Een netwerkkabel van 30 meter stond er voor 24,95 euro en
+nogmaals voor 4,00 euro. Een klant die via Google op de verkeerde
+kopie uitkomt, kan een kabel van 25 euro voor 4 euro bestellen.
+
+Wil je een export opnieuw draaien, verwijder dan eerst de vorige
+import, of importeer bewust over de bestaande producten heen met
+hetzelfde webadres.
+
+* Informatiepagina's en nieuwsberichten
+
+De productexport is precies dat: producten. De CCV-shop had daarnaast
+48 informatiepagina's en 86 nieuwsberichten. In Shopify stond één
+pagina: contact.
+
+Daar zit vaak de tekst die je zelf ooit hebt geschreven, en die
+Google al jaren kent. Die moet je los overzetten, met de hand of door
+ze uit je oude shop te laten uitlezen.
+
+* De oude webadressen
+
+Dit is het deel met de meeste gevolgen. Elke pagina van je CCV-shop
+staat in Google onder een eigen adres. Wijst je domein naar Shopify
+en heeft zo'n adres geen doorverwijzing, dan krijgt de bezoeker een
+foutpagina en zakt die pagina uit Google. Hoe dat werkt lees je in
+[[https://webwinkelverhuis.nl/blog/waarom-de-meeste-mijnwebwinkel-migraties-hun-google-posities-verliezen.html][ons stuk over SEO behouden bij een webshopmigratie]].
+
+Een productexport bevat geen lijst van je oude adressen met hun
+nieuwe bestemming; die koppeling moet je zelf maken. Bij deze winkel
+ging het om 1.664 adressen naast de homepage. We koppelden ze op
+artikelnummer, EAN of SKU en anders op de productnaam. Een klein deel
+bleef over voor de winkelier.
+
+| Oude adressen        | Totaal | Komt uit op een pagina | Doel niet meer online | Zonder bestemming |
+|----------------------+--------+------------------------+-----------------------+-------------------|
+| Producten            |  1.349 |                  1.282 |                    45 |                22 |
+| Categorieën          |    181 |                    174 |                     0 |                 7 |
+| Pagina's en nieuws   |    134 |                      2 |                     0 |               132 |
+
+De laatste rij laat zien wat er gebeurt als de pagina's niet
+meeverhuizen: er is niets om naar door te verwijzen. Die 132 adressen
+legden we de winkelier per adres voor, zodat hij zelf koos wat ermee
+gebeurde. Bij de 45 producten had hij het product inmiddels zelf
+verwijderd, gearchiveerd of op concept gezet.
+
+Twee weken na de livegang keken we na op welke adressen bezoekers een
+foutpagina kregen. Daar zat geen enkel oud adres met een afgesproken
+bestemming bij.
+
+#+BEGIN_EXPORT html
+<details><summary>Voor de techneuten: hoe we een oud adres koppelen</summary><p>We namen alle adressen uit de sitemap van de CCV-shop. Een product koppelden we eerst op artikelnummer, EAN of SKU, dan op de productnaam en dan op het webadres. Een categorie ging naar de collectie met dezelfde naam, of anders naar de collectie van de bovenliggende categorie. We koppelden alleen als er precies één passende pagina was: hebben twee producten dezelfde naam, dan kiezen we niet zelf. In een eerste steekproef kwamen 36 van 50 productadressen op de naam alleen overeen; voor de rest zijn de codes nodig.</p></details>
+#+END_EXPORT
+
+* En de SEO-teksten?
+
+Daar was de winkelier het meest bezorgd over, en daar viel het mee.
+In CCV was de paginatitel van elk product in onze steekproef gewoon
+de productnaam met de winkelnaam erachter, en zo zet Shopify het
+standaard ook.
+Bij 7 van de 39 producten en 18 van de 40 categorieën was de
+beschrijving voor Google de slogan van de winkel, geen eigen tekst.
+Er was dus weinig eigen SEO-tekst om te verliezen. Bij onze controle
+in oktober had geen enkel product een leeg SEO-veld.
+
+Kijk dit bij je eigen shop wel na voordat je ervan uitgaat. Heb je
+in CCV per product een eigen titel en beschrijving voor Google
+geschreven, controleer dan of die in Shopify bij elk product staan.
+
+* Zelf nakijken na je import
+
+Heb je je CCV-producten zelf geïmporteerd, loop dan deze vijf punten
+na voordat je je domein omzet:
+
+1. Open een paar producten die in CCV een keuzemenu hadden. Heeft het
+   product in Shopify dezelfde keuzes en meerprijzen?
+2. Neem drie categorieën uit je CCV-shop en tel de producten. Staat
+   hetzelfde aantal in de collectie in Shopify?
+3. Zoek in Shopify op een paar artikelnummers. Staat een product
+   twee keer in je winkel, met een ander webadres of een andere
+   prijs?
+4. Tel je informatiepagina's en nieuwsberichten in CCV en in Shopify.
+5. Maak een lijst van alle oude adressen en controleer of elk adres
+   een doorverwijzing heeft naar een pagina die online staat.
+
+Zijn er hier punten bij die je liever niet zelf doet? Zo verloopt
+[[https://webwinkelverhuis.nl/migrate-ccvshop.html][een verhuizing van CCV Shop naar Shopify]]
+bij ons. Staan je producten al in Shopify, dan maken we alleen af wat
+er mist, met een vaste prijs per onderdeel.
+[[https://meet.webwinkelverhuis.nl][Plan een vrijblijvend gesprek]],
+of bekijk eerst [[https://webwinkelverhuis.nl/prijzen.html][wat een verhuizing kost]].
+
+* Veelgestelde vragen
+
+*Kan ik mijn CCV-shop zelf naar Shopify overzetten?*
+
+Je producten wel: CCV Shop heeft een productexport en Shopify
+importeert die. Controleer daarna de productopties, de categorieën,
+dubbele producten, je informatiepagina's en de doorverwijzingen van
+je oude adressen. Die kwamen bij de winkel uit dit stuk niet of maar
+deels mee.
+
+*Komen productopties met een meerprijs mee uit CCV?*
+
+Bij de winkel uit dit stuk niet: elk product kwam als één variant in
+Shopify, zonder de keuzes en meerprijzen. Je kunt de opties in
+Shopify als varianten met een eigen prijs opnieuw aanmaken.
+
+*Verlies ik mijn Google-posities als ik van CCV Shop naar Shopify ga?*
+
+Niet als elk oud adres een doorverwijzing (301) krijgt naar de juiste
+nieuwe pagina. Een adres zonder doorverwijzing geeft een foutpagina
+en zakt uit Google. Bij deze winkel ging het om 1.664 adressen,
+inclusief categorieën, pagina's en nieuws.
+
+*Kunnen jullie ook alleen de doorverwijzingen doen als mijn producten al in Shopify staan?*
+
+Ja. Dat deden we bij de winkel uit dit stuk: zijn producten stonden
+er al, wij koppelden alle oude adressen aan de nieuwe winkel en
+controleerden ze na de livegang.
+
+#+BEGIN_EXPORT html
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kan ik mijn CCV-shop zelf naar Shopify overzetten?","acceptedAnswer":{"@type":"Answer","text":"Je producten wel: CCV Shop heeft een productexport en Shopify importeert die. Controleer daarna de productopties, de categorieën, dubbele producten, je informatiepagina's en de doorverwijzingen van je oude adressen. Die kwamen bij de winkel uit dit stuk niet of maar deels mee."}},{"@type":"Question","name":"Komen productopties met een meerprijs mee uit CCV?","acceptedAnswer":{"@type":"Answer","text":"Bij de winkel uit dit stuk niet: elk product kwam als één variant in Shopify, zonder de keuzes en meerprijzen. Je kunt de opties in Shopify als varianten met een eigen prijs opnieuw aanmaken."}},{"@type":"Question","name":"Verlies ik mijn Google-posities als ik van CCV Shop naar Shopify ga?","acceptedAnswer":{"@type":"Answer","text":"Niet als elk oud adres een doorverwijzing (301) krijgt naar de juiste nieuwe pagina. Een adres zonder doorverwijzing geeft een foutpagina en zakt uit Google. Bij deze winkel ging het om 1.664 adressen, inclusief categorieën, pagina's en nieuws."}},{"@type":"Question","name":"Kunnen jullie ook alleen de doorverwijzingen doen als mijn producten al in Shopify staan?","acceptedAnswer":{"@type":"Answer","text":"Ja. Dat deden we bij de winkel uit dit stuk: zijn producten stonden er al, wij koppelden alle oude adressen aan de nieuwe winkel en controleerden ze na de livegang."}}]}
+</script>
+#+END_EXPORT
