@@ -59,8 +59,7 @@ Bij Kruidje Roer Me Niet draait de webshop naast de winkel aan de
 toonbank. Ruim een week na de livegang liet Elizabeth weten dat ze er
 verder helemaal uitkwam; haar laatste vraag toen ging over de nieuwe
 Google-recensies die ze actief verzamelt en die op de homepage horen
-te verschijnen. In november liep ze tegen het pakketpunt aan, zie
-hieronder. Zoeken werkt nu zoals klanten typen:
+te verschijnen. Het pakketpunt liep minder goed, zie hieronder. Zoeken werkt nu zoals klanten typen:
 de zoekopdracht met twee woorden die op de oude shop niets gaf, vindt
 alle vier de potten streekhoning. Het spaarprogramma telt online mee,
 op hetzelfde saldo als aan de toonbank. Na de eerste echte
@@ -125,11 +124,14 @@ en PostNL staan daar niet bij, en een eigen koppeling in het
 afrekenscherm noemt
 [[https://help.shopify.com/en/manual/fulfillment/setup/delivery-methods/pickup-points][Shopify's uitleg over pakketpunten]]
 alleen voor Plus. We bouwden daarom een keuze op de winkelwagenpagina,
-zodat het Basic-abonnement genoeg bleef. Dat werkte niet helemaal. In
-de eerste drie maanden koos geen enkele klant een pakketpunt, en toen
-Elizabeth in november een testbestelling deed, bleek het gekozen punt
-wel bij de bestelling te staan, maar nam de DHL-app het niet over: die
-koos zelf een ander punt. Nu kiest de klant in de winkelwagen alleen
+zodat het Basic-abonnement genoeg bleef. Dat werkte niet helemaal. Al
+op de dag van de livegang in augustus merkte Elizabeth op dat het
+gekozen punt alleen als notitie bij de bestelling binnenkwam, en ze
+vroeg zich af of DHL het zo zou oppikken. Het punt doorzetten naar het
+label stond bij ons nog open, en dat is blijven liggen. In de eerste
+drie maanden koos geen enkele klant een pakketpunt. Bij een
+testbestelling in november bleek dat de DHL-app het punt inderdaad
+niet overnam: die koos zelf een ander punt. Nu kiest de klant in de winkelwagen alleen
 óf het pakket naar een DHL-pakketpunt gaat. Elizabeth kiest dan bij
 het label "DHL Servicepoint" en de DHL-app zoekt zelf een punt in de
 buurt. Een punt dat de klant zelf kiest en dat op het label komt, kan
