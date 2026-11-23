@@ -89,7 +89,9 @@ vandaag goedkoper uit.
 
 * Wat de overstap in de praktijk betekent
 
-De overstap zelf is ons vak, dus daar kunnen we concreet over zijn.
+De overstap
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][van MijnWebwinkel naar Shopify]]
+is ons vak, dus daar kunnen we concreet over zijn.
 Bij onze migratie worden producten, teksten, afbeeldingen,
 vertalingen, klanten en de categoriestructuur automatisch overgezet,
 en krijgt elke oude URL een 301-redirect zodat

@@ -1490,6 +1490,11 @@ mijnwebwinkelMigrationPage = webwinkelBaseTemplate migrationMeta $
       -- Shopify", niet ons merkwoord "verhuizen"): de Search-Console-dump
       -- van 2 sep 2026 laat zien dat alle zoekverkeer "migreren",
       -- "migratie" of "overstappen" gebruikt, "verhuizen" komt niet voor.
+      -- Decision: dit is de antwoordpagina voor "mijnwebwinkel naar
+      -- shopify". De GSC-meting van 23 nov 2026 toonde die query met negen
+      -- eigen pagina's en geen enkele op pagina 1, dus de klantverhalen en
+      -- vergelijkingsposts linken met die woorden hierheen in plaats van
+      -- zelf op de query te mikken.
       { pageMetaTitle       = "Migreren van MijnWebwinkel naar Shopify \8212 Webwinkelverhuis"
       , pageMetaDescription = "Geautomatiseerde migratie van MijnWebwinkel naar Shopify, WooCommerce of een ander platform. Producten, vertalingen, afbeeldingen en SEO-redirects. Vanaf \8364" <> migratieBasisprijsEuro <> "."
       , pageMetaLang        = "nl"
@@ -1908,6 +1913,13 @@ lightspeedMigrationPage = webwinkelBaseTemplate lightspeedMeta $
           H.p $ H.preEscapedToHtml ("Je bent niet de enige: het aantal Lightspeed-shops in Nederland daalde van 6.904 eind 2023 naar 4.842 in augustus 2026, en 59% van de vertrekkers kiest Shopify. Maar zonder begeleiding gaan bij de overstap vaak oude URLs kapot, met flinke verkeersdalingen tot gevolg; vakblad Search Engine Journal noemt dat de <a href=\"https://www.searchenginejournal.com/what-is-a-migration-hangover-traffic-drop-how-do-you-avoid-it/575102/\">migration hangover</a>. Wij zorgen dat elke oude URL blijft doorverwijzen (ons programma legt ze allemaal vast, niet een steekproef) en je opgebouwde SEO meeverhuist." :: Text)
           H.p $ do
             H.a ! A.href "/waarom-lightspeed.html" $ "Waarom verlaten steeds meer webshops Lightspeed?"
+            H.preEscapedToHtml (" &rarr;" :: Text)
+          -- Decision: de vergelijkingsquery's ("lightspeed of shopify",
+          -- "shopify vs lightspeed") landden in de GSC-meting van 23 nov
+          -- 2026 op deze pagina in plaats van op de vergelijkingspost; deze
+          -- link met de query als linktekst wijst Google naar de post.
+          H.p $ do
+            H.a ! A.href "/blog/lightspeed-of-shopify-wij-verhuizen-naar-allebei-dit-kwam-uit-de-vergelijking.html" $ "Lightspeed of Shopify? Dit kwam uit onze vergelijking"
             H.preEscapedToHtml (" &rarr;" :: Text))
       [ WaaromPunt "Geen risico" "Je betaalt pas na een succesvolle migratie."
       , WaaromPunt "Platformonafhankelijk" "Je kiest de bestemming, wij migreren naar elk platform."

@@ -150,4 +150,6 @@ doorontwikkeld wordt.
 
 Twijfel je voor jouw shop? [[https://webwinkelverhuis.nl][Wij
 verhuizen naar allebei]], voor dezelfde prijs, en denken vrijblijvend
-met je mee over welke kant past.
+met je mee over welke kant past. Kies je Shopify, dan lees je hier hoe
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][een verhuizing van MijnWebwinkel naar Shopify]]
+bij ons verloopt.

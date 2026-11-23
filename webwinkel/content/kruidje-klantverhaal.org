@@ -158,7 +158,9 @@ storingen maar over de puntjes op de i, en dat is precies hoe een
 overstap hoort te voelen.
 
 Heeft jouw winkel ook een spaarsysteem, een eigen werkwijze of een
-andere reden waarom een standaard-migratie niet past?
+andere reden waarom een standaard-migratie niet past? Zo verloopt
+[[https://webwinkelverhuis.nl/migrate-mijnwebwinkel.html][een verhuizing van MijnWebwinkel naar Shopify]]
+bij ons.
 [[https://meet.webwinkelverhuis.nl][Plan een vrijblijvend gesprek]],
 of bekijk eerst
 [[https://webwinkelverhuis.nl/prijzen.html][wat een migratie kost]].

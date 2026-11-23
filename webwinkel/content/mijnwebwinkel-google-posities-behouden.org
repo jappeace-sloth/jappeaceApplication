@@ -1,9 +1,14 @@
-#+TITLE: Waarom de meeste MijnWebwinkel-migraties hun Google-posities verliezen
+#+TITLE: SEO behouden bij een webshopmigratie: zo houd je je Google-posities
+# Decision: titel van een stelling ("Waarom de meeste MijnWebwinkel-migraties
+# hun Google-posities verliezen") naar de zoekvraag; die titel had van mei tot
+# eind november 2026 geen enkele vertoning (GSC-meting 23 nov). De slug blijft
+# de oude, want andere posts en backlinks wijzen erheen.
+#+SLUG: waarom-de-meeste-mijnwebwinkel-migraties-hun-google-posities-verliezen
 #+DATE: 2026-06-14
-#+MODIFIED: 2026-08-08
+#+MODIFIED: 2026-11-23
 #+CATEGORY: migratie
 #+TAGS: mijnwebwinkel, seo, migratie
-#+SUMMARY: Waarom webshops na een MijnWebwinkel-migratie Google-verkeer verliezen (de migration hangover) en hoe sluitende redirects van elke oude URL dat voorkomen.
+#+SUMMARY: Waarom webshops na een migratie Google-verkeer verliezen (de migration hangover), waarom het vanaf MijnWebwinkel extra lastig is, en hoe sluitende redirects van elke oude URL je posities behouden.
 
 Je hebt jaren in je vindbaarheid geïnvesteerd. Je productpagina's staan goed
 in Google, klanten vinden je zonder dat je voor elke klik betaalt. En dan stapt
