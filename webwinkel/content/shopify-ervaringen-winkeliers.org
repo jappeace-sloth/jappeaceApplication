@@ -5,9 +5,10 @@
 # Decision: ervaringen uit de klantverhalen, aangevuld met wat de
 # winkeliers na de livegang zelf schreven (jappiesoft emails.md per
 # dossier) en, voor Panzer-ShopNL, wat Jappie op 23 nov 2026 van Kevin
-# wist. Kevin is nog niet om akkoord gevraagd op zijn verhaal en zijn
-# passages hier, Elizabeth en Sako niet op wat hier buiten hun verhaal
-# staat (24 nov 2026); zie jappiesoft sales/klantverhaal-werkwijze.org.
+# wist. Winkeliers keuren hun eigen verhaal goed; wat deze post over hen
+# zegt, leggen we niet apart voor (Jappie, 24 nov 2026; jappiesoft
+# sales/klantverhaal-werkwijze.org, stap 2). Kevin is op 24 nov nog niet
+# om akkoord op zijn verhaal gevraagd.
 # Letterlijke citaten alleen uit de goedgekeurde verhalen. Feiten over
 # Shopify zelf zijn nagelopen op Shopify's eigen uitleg. De elektronicagroothandel blijft anoniem, zoals in
 # zijn eigen klantverhaal.
