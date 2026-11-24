@@ -77,8 +77,8 @@ Kruidje Roer Me Niet bleek een DHL-pakketpunt kiezen lastiger dan
 verwacht. DHL Nederland zit niet in
 [[https://help.shopify.com/en/manual/fulfillment/setup/delivery-methods/pickup-points][Shopify's eigen pakketpuntkeuze]].
 Onze keuze op de winkelwagenpagina gaf het gekozen punt niet goed
-door aan het verzendlabel. Elizabeth gaf dat rond de livegang al aan;
-de afhandeling bleef bij ons liggen. Een test in november bevestigde
+door aan het verzendlabel. Elizabeth vroeg bij de livegang al of het
+punt bij de DHL-app aankwam; de afhandeling bleef bij ons liggen. Een test in november bevestigde
 dat de DHL-app een ander punt koos.
 
 Nu kiest de klant alleen óf de bestelling naar een pakketpunt gaat.
