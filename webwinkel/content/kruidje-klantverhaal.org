@@ -1,8 +1,9 @@
 #+TITLE: Klantverhaal: Kruidje Roer Me Niet van MijnWebwinkel naar Shopify met spaarpunten en al
 #+DATE: 2026-08-11
+#+MODIFIED: 2026-11-24
 #+CATEGORY: migratie
 #+TAGS: mijnwebwinkel, shopify, klantverhaal
-#+SUMMARY: Reformwinkel Kruidje Roer Me Niet verhuisde van MijnWebwinkel naar Shopify: 1.200 producten, klantaccounts, spaarpunten en pakketpunten gingen mee.
+#+SUMMARY: Reformwinkel Kruidje Roer Me Niet verhuisde van MijnWebwinkel naar Shopify: 1.200 producten, klantaccounts en spaarpunten gingen mee.
 
 Kruidje Roer Me Niet is een reformwinkel in Amersfoort, sinds 1975.
 Kruidenthee, homeopathie, supplementen, natuurcosmetica en een eigen
@@ -63,7 +64,7 @@ de punten direct in haar eigen spaar-app verschijnen. Voor haar
 klanten verdween daarmee de reden om niet online te bestellen: de
 punten tellen voortaan overal.
 
-* Een pakketpunt kiezen op een Basic-abonnement
+* Een DHL-pakketpunt op een Basic-abonnement
 
 Elizabeth verstuurt via DHL en wilde dat klanten een pakketpunt
 kunnen kiezen. Shopify biedt die keuze in het afrekenscherm zelf alleen
@@ -73,9 +74,19 @@ volgens Shopify alleen op Plus, en dat abonnement stond niet in
 verhouding tot de winkel.
 
 Daarom bouwden we de keuze zelf, op de winkelwagen-pagina: de klant
-zoekt op postcode, kiest uit de dichtstbijzijnde DHL-punten, en de
-keuze reist als notitie met de bestelling mee zodat het label naar
-het juiste punt kan. Geen duurder abonnement nodig.
+zocht op postcode en koos uit de dichtstbijzijnde DHL-punten. Die
+keuze kwam als notitie bij de bestelling, maar de DHL-app waarmee
+Elizabeth haar labels maakt, neemt zo'n notitie niet over. Elizabeth
+meldde dat op de dag van de livegang. De afhandeling bleef daarna bij
+ons liggen, en een test in november bevestigde dat de app een ander
+punt koos.
+
+Nu kiest de klant in de winkelwagen alleen óf het pakket naar een
+DHL-pakketpunt gaat, en de bevestigingsmail zegt dat het naar een
+punt in de buurt gaat. Elizabeth kiest bij het label "DHL
+Servicepoint", waarna de app zelf een punt in de buurt zoekt. Daar is
+geen duurder abonnement voor nodig. Voor een punt dat de klant zelf
+kiest en dat ook op het label komt, kijkt ze naar Sendcloud.
 
 * De hobbels
 
@@ -151,13 +162,9 @@ producten er direct onder, in plaats van een kaal lijstje merknamen.
 
 En voor Elizabeth zelf verdween er vooral werk. Bestellingen komen
 binnen met bevestigingsmail, de pakbon en het DHL-label rollen uit
-de bestelling met het gekozen pakketpunt er al op, en de spaarpunten
-boeken zichzelf. Haar samenvatting na de eerste echte
-klantbestelling: "De afhandeling ging heel makkelijk."
-
-De vragen die zij ons na de livegang stelde gingen niet over
-storingen maar over de puntjes op de i, en dat is precies hoe een
-overstap hoort te voelen.
+de bestelling, en de spaarpunten boeken zichzelf. Haar samenvatting
+na de eerste echte klantbestelling: "De afhandeling ging heel
+makkelijk."
 
 Heeft jouw winkel ook een spaarsysteem, een eigen werkwijze of een
 andere reden waarom een standaard-migratie niet past? Zo verloopt
