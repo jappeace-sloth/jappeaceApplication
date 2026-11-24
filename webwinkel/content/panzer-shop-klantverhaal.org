@@ -23,7 +23,7 @@ Wat begon als een klusje onder sportmaatjes groeide uit tot een
 volledige migratie in fases, en uiteindelijk tot
 [[https://webwinkelverhuis.nl/][webwinkelverhuis.nl]] zelf. Het programma dat voor [[https://panzer-shop.nl/][Panzer-ShopNL]] is
 geschreven draait nu voor nieuwe klanten, en het wordt met elke
-migratie beter: Iedere winkel legt weer randgevallen bloot die we
+migratie beter: iedere winkel legt weer randgevallen bloot die we
 daarna voorgoed afvangen.
 
 * Drie jaar een lege Shopify-winkel
@@ -55,11 +55,11 @@ allemaal:
 - de nieuwsbrief-inschrijvingen
 - de orderhistorie, die er op Kevins verzoek later alsnog bij kwam
 
-Het process gebeurde in fasess. Eerst de producten, rustig
+Het proces gebeurde in fases. Eerst de producten, rustig
 testen in een afgeschermde testshop.
 Vlak voor de overgang de klantdata om het verschil klein te houden.
 Tot slot de echte overstap. 
-Terwijl de migratie bezig was bleef de oude winkel bleef intussen gewoon
+Terwijl de migratie bezig was bleef de oude winkel intussen gewoon
 verkopen.
 
 #+CAPTION: Zo werkt de migratie: het programma leest de oude winkel uit, bouwt een testshop op Shopify, en pas als alles klopt volgt de DNS-overzet.
@@ -74,7 +74,7 @@ omzet.
 
 Daarom genereerde het programma voor alle ~7.200 oude URLs een
 301-redirect naar de juiste nieuwe pagina.
-Deze zijn gevonden door zorvuldige inspectie van het mijn web winkel systeem.
+Deze zijn gevonden door zorgvuldige inspectie van het MijnWebwinkel-systeem.
 We hebben bijvoorbeeld het mysterie van de artikel codes opgelost
 in de URLs.
 De nieuwe URLs werden geen productnummers,
