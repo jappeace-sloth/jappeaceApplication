@@ -2,10 +2,14 @@
 #+DATE: 2026-11-24
 #+CATEGORY: migratie
 #+TAGS: shopify, ervaringen, klantverhaal, mijnwebwinkel, ccv shop, lightspeed
-# Decision: ervaringen uit de goedgekeurde klantverhalen, aangevuld met
-# wat de winkeliers na de livegang zelf schreven (jappiesoft emails.md per
+# Decision: ervaringen uit de klantverhalen, aangevuld met wat de
+# winkeliers na de livegang zelf schreven (jappiesoft emails.md per
 # dossier) en, voor Panzer-ShopNL, wat Jappie op 23 nov 2026 van Kevin
-# wist. Letterlijke citaten alleen uit de goedgekeurde verhalen. Feiten over
+# wist. Winkeliers keuren hun eigen verhaal goed; wat deze post over hen
+# zegt, leggen we niet apart voor (Jappie, 24 nov 2026; jappiesoft
+# sales/klantverhaal-werkwijze.org, stap 2). Kevin is op 24 nov nog niet
+# om akkoord op zijn verhaal gevraagd.
+# Letterlijke citaten alleen uit de goedgekeurde verhalen. Feiten over
 # Shopify zelf zijn nagelopen op Shopify's eigen uitleg. De elektronicagroothandel blijft anoniem, zoals in
 # zijn eigen klantverhaal.
 #+SUMMARY: Wat vier overgestapte winkeliers aan Shopify hebben: meer zelf aanpassen en winkels combineren, maar ook extra koppelingen en maandkosten. Wat blijft, en wat alleen bij de verhuizing speelde?
@@ -48,7 +52,7 @@ telt het spaarprogramma nu online mee op hetzelfde saldo als aan de
 toonbank. Ook zoeken werkt beter: twee woorden die op de oude shop
 niets opleverden, vinden nu alle vier de potten streekhoning.
 Na de eerste klantbestelling schreef Elizabeth: "De afhandeling ging
-heel makkelijk." Ruim een week later liet ze weten dat ze er verder
+heel makkelijk." Een week later liet ze weten dat ze er verder
 helemaal uitkwam. De pakketpuntkeuze bleef wel een probleem.
 
 Een
@@ -74,8 +78,8 @@ Kruidje Roer Me Niet bleek een DHL-pakketpunt kiezen lastiger dan
 verwacht. DHL Nederland zit niet in
 [[https://help.shopify.com/en/manual/fulfillment/setup/delivery-methods/pickup-points][Shopify's eigen pakketpuntkeuze]].
 Onze keuze op de winkelwagenpagina gaf het gekozen punt niet goed
-door aan het verzendlabel. Elizabeth meldde dit bij de livegang;
-de afhandeling bleef bij ons liggen. Een test in november bevestigde
+door aan het verzendlabel. Elizabeth vroeg bij de livegang al of het
+punt bij de DHL-app aankwam; de afhandeling bleef bij ons liggen. Een test in november bevestigde
 dat de DHL-app een ander punt koos.
 
 Nu kiest de klant alleen óf de bestelling naar een pakketpunt gaat.

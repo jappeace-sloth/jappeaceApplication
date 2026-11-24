@@ -840,7 +840,7 @@ recentWerkSection =
     H.div ! A.class_ "case-tekst" $
       H.p $ do
         H.strong "Kruidje Roer Me Niet"
-        H.preEscapedToHtml (": een reformwinkel uit Amersfoort (sinds 1975), verhuisd van MijnWebwinkel naar Shopify. Het spaarprogramma van de fysieke winkel telt nu ook online mee, en klanten kiezen een DHL-pakketpunt gewoon op het Basic-abonnement." :: Text)
+        H.preEscapedToHtml (": een reformwinkel uit Amersfoort (sinds 1975), verhuisd van MijnWebwinkel naar Shopify. Het spaarprogramma van de fysieke winkel telt nu ook online mee." :: Text)
     H.div ! A.class_ "case-links" $ do
       H.a ! A.href "/blog/klantverhaal-kruidje-roer-me-niet-van-mijnwebwinkel-naar-shopify-met-spaarpunten-en-al.html" $ H.preEscapedToHtml ("Lees het klantverhaal &rarr;" :: Text)
       H.a ! A.href "https://kruidje-roer-me-niet.nl/" $ H.preEscapedToHtml ("kruidje-roer-me-niet.nl &rarr;" :: Text)
