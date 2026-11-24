@@ -163,7 +163,7 @@ van verschil met MijnWebwinkel:
 Kevin schreef ons op 24 november 2026:
 
 #+begin_quote
-Een verdubbeling van omzet in november 2026 ten opzichte van 2025,
+Een verdubbeling van omzet in November 2026 ten opzichte van 2025,
 voor een aanzienlijk deel veroorzaakt door de betere website en de
 opties die in Shopify zitten.
 #+end_quote
