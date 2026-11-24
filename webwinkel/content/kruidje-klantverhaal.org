@@ -78,8 +78,8 @@ zocht op postcode en koos uit de dichtstbijzijnde DHL-punten. Die
 keuze kwam als notitie bij de bestelling, maar de DHL-app waarmee
 Elizabeth haar labels maakt, neemt zo'n notitie niet over. Elizabeth
 vroeg op de dag van de livegang al of de keuze bij de DHL-app
-aankwam. Die vraag bleef bij ons liggen, en pas een test in november
-liet zien dat de app een ander punt koos.
+aankwam. Dat zochten wij toen niet goed uit, en pas een test in
+november liet zien dat de app een ander punt koos.
 
 Nu kiest de klant in de winkelwagen alleen óf het pakket naar een
 DHL-pakketpunt gaat, en de bevestigingsmail zegt dat het naar een
