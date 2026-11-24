@@ -36,7 +36,7 @@ Kevin wilde al langer weg bij MijnWebwinkel. Sterker nog: er stond
 al zo'n drie jaar een Shopify-winkel klaar. Gemigreerd werd er
 nooit, en de reden is herkenbaar voor iedereen met een grotere
 shop: 2.400 producten keer drie talen met de hand overzetten is
-maanden werk als je dit met de hand doet.
+maanden werk.
 Daarnaast hoort de winkel gewoon door te draaien.
 
 Precies daar strandde het steeds. Niet op de wil, maar op de
@@ -114,23 +114,22 @@ als de overdracht echt loopt. En gaat het dan mis, dan is de winkel
 plat, voor iedereen. Precies daarom wil je dit laten doen door
 iemand die het vaker heeft gedaan.
 
-Ook hier ging niet alles in één keer vlekkeloos.
-Bij de verhuizing van het .nl-domein zette de
-oude registrar een paar uur een parkeerpagina neer, en op het
-.net-domein ontstond bij de cutover een redirect-loop die na
-zeventien minuten was opgelost.
-Dit zijn stressvolle tijden voor ons, maar we zitten er boven op!
+Ook hier was er downtime. Bij de verhuizing van het .nl-domein
+zette de oude registrar een paar uur een parkeerpagina neer,
+waardoor de winkel op dat domein niet bereikbaar was. Bij de
+daadwerkelijke DNS-omschakeling ontstond op het .net-domein een
+redirect-loop. Die onderbreking duurde zeventien minuten.
 
 Het punt is niet dat zulke momenten nooit voorkomen; elke migratie
 heeft er een paar. Het punt is wie er bovenop zit als het gebeurt.
-De spanning zat bij ons, de winkel bleef verkopen, en Kevin hoefde
-er niets voor te doen. Die zat er middenin het traject zelfs
+Kevin hoefde de technische problemen niet zelf op te lossen.
+Die zat er middenin het traject zelfs
 anderhalve week tussenuit, zonder laptop, terwijl de migratie
 gewoon doorliep.
 
 Op 20 juni gingen de domeinen om en op 22 juni was de winkel
 officieel live op Shopify. Van het Shopify-thema dat een ander
-bureau jaren eerder voor enkele duizenden euro's had gebouwd, is
+bureau jaren eerder had gebouwd, is
 inmiddels vrijwel niets meer over: bijna alles in de winkel heeft
 Kevin zelf gemaakt. Een bureau heeft hij daar niet voor nodig.
 Shopify is volgens hem niet moeilijker dan MijnWebwinkel, en wel veel
@@ -143,22 +142,19 @@ het wisselen tussen productvarianten, sprongen wij bij.
 * Waar Kevin nu staat
 
 Elke oude link van Panzer-ShopNL werkt nog en de spaarpunten van de
-klanten staan in de nieuwe winkel. Dit maakt voor Kevin een wereld
-van verschil met MijnWebwinkel:
+klanten staan in de nieuwe winkel. Het grootste verschil voor Kevin
+zit in wat hij nu zelf kan doen. Via de koppeling met Claude past
+hij zijn winkel aan, wat hem naar eigen zeggen 2 tot 10 uur per week
+bespaart. Ook producten in bulk aanpassen gaat nu eenvoudig.
+Met de AI-assistent in Shopify heeft hij support nog geen enkele
+keer nodig gehad.
 
-- hreflang-tags, zodat Google per land en taal de juiste versie van
-  de winkel toont
-- een veel flexibelere indeling, om het conversiepercentage te
-  verbeteren
-- veel betere opvolgmails met Shopify Messaging
-- een betrouwbaar platform dat echt wordt doorontwikkeld
-- de AI-assistent in Shopify zelf, waardoor hij support nog geen
-  enkele keer nodig had
-- de koppeling met Claude: hij past alles met Claude aan en bespaart
-  zich daarmee 2 tot 10 uur per week
-- veel snellere laadtijden, waardoor bezoekers niet weglopen
-- producten in bulk aanpassen
-- veel betere analytics: eindelijk data en inzicht in zijn bedrijf
+De betere analytics geven hem meer inzicht in zijn bedrijf.
+Met een flexibelere winkelindeling en betere opvolgmails via Shopify
+Messaging kan hij werken aan zijn conversiepercentage. De winkel
+laadt veel sneller en heeft hreflang-tags, die Google helpen de
+juiste taal- en landversie te herkennen. Voor Kevin hoort daar ook
+het vertrouwen bij in een platform dat wordt doorontwikkeld.
 
 Kevin schreef ons op 24 november 2026:
 
@@ -168,8 +164,8 @@ voor een aanzienlijk deel veroorzaakt door de betere website en de
 opties die in Shopify zitten.
 #+end_quote
 
-En het programma dat dit deed is sindsdien alleen maar vaker
-gebruikt: elke nieuwe migratie voegt randgevallen toe die we daarna
+De migratiesoftware gebruiken we inmiddels ook voor andere winkels.
+Elke nieuwe migratie voegt randgevallen toe die we daarna
 automatisch goed doen.
 
 Staat je winkel ook al jaren "bijna" op het punt te verhuizen? Zo
